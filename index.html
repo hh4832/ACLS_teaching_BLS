@@ -422,6 +422,75 @@ body.m ol.steps{columns:1!important}
   <div class="notes">脈搏很難摸，連醫護人員也常判斷錯，所以 10 秒內摸不到明確脈搏就開始壓。瀕死呼吸是最大陷阱，請學員記住：喘氣不等於呼吸。</div>
 </section>
 
+<!-- ============ CAROTID PULSE ============ -->
+<section class="slide">
+  <div class="kicker">叫 · Carotid pulse</div>
+  <h2>頸動脈脈搏的位置</h2><div class="rule" style="margin-bottom:18px"></div>
+  <div class="cols" style="grid-template-columns:1.1fr 1fr;gap:34px;align-items:start">
+    <svg class="flow" viewBox="0 0 700 620" font-size="20" style="height:640px;width:auto">
+      <defs>
+        <marker id="ca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14284b"/></marker>
+        <linearGradient id="skin" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6e6da"/><stop offset="1" stop-color="#efd9c8"/></linearGradient>
+      </defs>
+      <!-- neck & shoulders -->
+      <path d="M150 0 Q150 70 170 120 L180 400 Q170 450 90 480 Q20 505 0 540 V620 H560 V540 Q540 505 470 480 Q390 450 380 400 L390 120 Q410 70 410 0 Z" fill="url(#skin)" stroke="#c9a892" stroke-width="2"/>
+      <!-- jaw -->
+      <path d="M150 0 Q170 95 280 115 Q390 95 410 0" fill="#f2dfd1" stroke="#c9a892" stroke-width="2"/>
+      <!-- SCM muscles -->
+      <path d="M168 105 L196 112 L292 470 L262 476 Z" fill="#7fa6d6" fill-opacity=".45" stroke="#24406f" stroke-width="1.5"/>
+      <path d="M392 105 L364 112 L268 470 L298 476 Z" fill="#7fa6d6" fill-opacity=".22" stroke="#24406f" stroke-width="1" stroke-dasharray="5 4"/>
+      <!-- clavicles -->
+      <path d="M60 492 Q170 470 262 486" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+      <path d="M60 492 Q170 470 262 486" fill="none" stroke="#b9ad9c" stroke-width="2"/>
+      <path d="M500 492 Q390 470 298 486" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+      <path d="M500 492 Q390 470 298 486" fill="none" stroke="#b9ad9c" stroke-width="2"/>
+      <!-- hyoid -->
+      <path d="M248 172 Q280 160 312 172" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+      <!-- thyroid cartilage -->
+      <path d="M232 205 L262 198 L280 214 L298 198 L328 205 L322 262 Q300 292 280 300 Q260 292 238 262 Z" fill="#fff" fill-opacity=".9" stroke="#14284b" stroke-width="2.5"/>
+      <!-- cricoid & trachea -->
+      <rect x="252" y="314" width="56" height="18" rx="8" fill="#fff" stroke="#14284b" stroke-width="2"/>
+      <g fill="none" stroke="#9aa5b8" stroke-width="2"><path d="M256 346h48"/><path d="M256 362h48"/><path d="M256 378h48"/><path d="M256 394h48"/><path d="M256 410h48"/></g>
+      <!-- carotid arteries (patient's right = viewer's left) -->
+      <path d="M262 470 Q236 330 222 214" fill="none" stroke="#b3122e" stroke-width="13" stroke-linecap="round"/>
+      <path d="M222 214 Q200 150 192 60" fill="none" stroke="#b3122e" stroke-width="9" stroke-linecap="round"/>
+      <path d="M222 214 Q230 150 238 70" fill="none" stroke="#d24a62" stroke-width="8" stroke-linecap="round"/>
+      <path d="M298 470 Q324 330 338 214 Q360 150 368 60" fill="none" stroke="#b3122e" stroke-width="8" stroke-opacity=".25" stroke-linecap="round"/>
+      <!-- palpation point -->
+      <circle cx="226" cy="262" r="34" fill="none" stroke="#e0a800" stroke-width="3" stroke-dasharray="6 5"/>
+      <circle cx="226" cy="262" r="20" fill="none" stroke="#e0a800" stroke-width="3"/>
+      <circle cx="226" cy="262" r="9" fill="#e0a800" stroke="#fff" stroke-width="2.5"/>
+      <!-- slide arrow -->
+      <path d="M296 248 Q270 236 248 254" fill="none" stroke="#14284b" stroke-width="3" marker-end="url(#ca)"/>
+      <!-- number tags -->
+      <g font-family="JetBrains Mono,monospace" font-size="17" font-weight="700">
+        <circle cx="244" cy="400" r="14" fill="#fff" stroke="#b3122e" stroke-width="2"/><text x="244" y="406" text-anchor="middle" fill="#b3122e">1</text>
+        <circle cx="178" cy="98" r="14" fill="#fff" stroke="#b3122e" stroke-width="2"/><text x="178" y="104" text-anchor="middle" fill="#b3122e">2</text>
+        <circle cx="254" cy="98" r="14" fill="#fff" stroke="#b3122e" stroke-width="2"/><text x="254" y="104" text-anchor="middle" fill="#b3122e">3</text>
+      </g>
+      <!-- leader labels -->
+      <g font-size="19" fill="#1b2333">
+        <path d="M328 232H440" stroke="#14284b" stroke-width="1.5"/><text x="446" y="238" font-weight="700" fill="#14284b">甲狀軟骨（喉結）</text>
+        <path d="M312 323H440" stroke="#14284b" stroke-width="1.5"/><text x="446" y="329">環狀軟骨</text>
+        <path d="M190 175 Q150 178 120 178H40" stroke="#24406f" stroke-width="1.5" fill="none"/><text x="40" y="168" font-weight="700" fill="#24406f">胸鎖乳突肌</text>
+        <path d="M200 296 Q160 330 120 330H40" stroke="#a86a00" stroke-width="1.5" fill="none"/><text x="40" y="320" font-weight="700" fill="#a86a00">觸摸點</text>
+        <text x="40" y="354" font-size="16" fill="#5d6678">喉結旁、胸鎖乳突肌</text><text x="40" y="374" font-size="16" fill="#5d6678">前緣的凹溝</text>
+              </g>
+    </svg>
+    <div>
+      <div class="card navy" style="margin-bottom:16px"><h3>圖例</h3><p style="font-size:21px"><span class="num">1</span> 總頸動脈　<span class="num">2</span> 內頸動脈　<span class="num">3</span> 外頸動脈<br><span style="color:var(--c2a);font-weight:900">●</span> 觸摸點：<b>甲狀軟骨高度</b>，總頸動脈分叉之下</p></div>
+      <ol class="steps">
+        <li>食指、中指找到<b>喉結</b></li>
+        <li>往<b>施救者這側</b>滑 2–3 cm</li>
+        <li>落入氣管與<b>胸鎖乳突肌</b>之間的凹溝，輕壓</li>
+        <li>同時看呼吸，數「一千零一…一千零七」，<b>≤ 10 秒</b></li>
+      </ol>
+      <div class="callout red" style="margin-top:12px"><span class="h">不要</span>同時壓兩側・用拇指摸・壓太用力</div>
+    </div>
+  </div>
+  <div class="src">ACLS 精華第七版 第 3 章；示意圖依頸部體表解剖重繪</div>
+  <div class="notes">頸動脈在甲狀軟骨高度最容易摸到：先找到喉結，往施救者這一側滑進氣管和胸鎖乳突肌之間的凹溝。總頸動脈大約在甲狀軟骨上緣分成內、外頸動脈，所以觸摸點在分叉下方。不要同時按兩側，以免減少腦部血流；拇指本身有脈搏，容易誤判；壓太用力會把脈搏壓掉。10 秒內摸不到明確脈搏就開始 CPR。</div>
+</section>
 <!-- ============ 叫 2 ============ -->
 <section class="slide">
   <div class="kicker">叫 · 求救</div>
