@@ -1,695 +1,788 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>成人基本救命術 BLS｜2025 指引更新｜ACLS 教學</title>
+<title>成人基本救命術 BLS｜ACLS 講師教學投影片（2025 AHA 指引核對版）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0f2740; --navy2:#1c3b5c; --red:#c8102e; --red-soft:#fbe7ea;
-  --teal:#0e7c86; --teal-soft:#e2f3f4; --amber:#b86e00; --amber-soft:#fff3dc;
-  --ink:#1d2430; --muted:#5b6675; --line:#d9dee5; --paper:#fbfaf7; --card:#ffffff;
-  --W:1280px; --H:720px;
+  --bg:#f7f5f0; --paper:#ffffff; --ink:#1b2333; --muted:#5d6678; --line:#d9d4c7;
+  --navy:#14284b; --navy2:#24406f; --red:#b3122e; --red-soft:#fbe9ec;
+  --amber:#a86a00; --amber-soft:#fff4dc; --teal:#0f6e6e; --teal-soft:#e3f3f1;
+  --c1:#2e7d32; --c2a:#e0a800; --c2b:#e06c00; --c3:#c62828;
+  --font:"Noto Sans TC","Noto Sans CJK TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:#0b1b2c;overflow:hidden;
-  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;color:var(--ink)}
-#stage{position:absolute;left:50%;top:50%;width:var(--W);height:var(--H);transform-origin:center center}
-.slide{position:absolute;inset:0;background:var(--paper);padding:56px 72px 64px;display:none;flex-direction:column;overflow:hidden}
-.slide.active{display:flex}
-.slide>*{flex-shrink:0}
-.slide::after{content:attr(data-sec);position:absolute;left:72px;bottom:22px;font-size:13px;color:var(--muted);letter-spacing:.08em}
-.num{position:absolute;right:72px;bottom:20px;font:500 13px "Roboto Mono",monospace;color:var(--muted)}
-h1{font-size:54px;font-weight:900;line-height:1.15;color:var(--navy)}
-h2{font-size:36px;font-weight:900;color:var(--navy);margin-bottom:6px;line-height:1.2}
-h2 small{font-size:18px;font-weight:500;color:var(--muted);margin-left:14px}
-.kicker{font-size:15px;font-weight:700;letter-spacing:.14em;color:var(--red);margin-bottom:10px}
-.rule{width:64px;height:5px;background:var(--red);border-radius:3px;margin:10px 0 26px}
-p,li{font-size:21px;line-height:1.6}
-ul{padding-left:1.1em} li{margin:4px 0} li::marker{color:var(--red)}
-b,strong{color:var(--navy)}
-.hl{background:linear-gradient(transparent 58%,#ffd9de 58%);font-weight:700}
-.muted{color:var(--muted)} .small{font-size:16px} .xs{font-size:14px}
-.grid{display:grid;gap:20px}
-.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
-.card h3{font-size:21px;color:var(--navy);margin-bottom:8px;line-height:1.35}
-.card p,.card li{font-size:18px;line-height:1.55}
-.card.red{border-top:5px solid var(--red)} .card.teal{border-top:5px solid var(--teal)} .card.amber{border-top:5px solid var(--amber)} .card.navy{border-top:5px solid var(--navy)}
-.stat{font:700 46px "Roboto Mono",monospace;color:var(--red);line-height:1.1}
-.stat.teal{color:var(--teal)} .stat.navy{color:var(--navy)}
-.stat small{font-size:20px;margin-left:2px}
-.lbl{font-size:16px;color:var(--muted);margin-top:4px;line-height:1.45}
-.cor{display:inline-block;font:700 12.5px "Roboto Mono",monospace;padding:2px 7px;border-radius:5px;vertical-align:middle;margin-left:6px;white-space:nowrap;letter-spacing:.02em}
-.c1{background:#0b6b3a;color:#fff}.c2a{background:#2e8b57;color:#fff}.c2b{background:#e6a817;color:#2b1d00}
-.c3n{background:#8a8f98;color:#fff}.c3h{background:#b3122b;color:#fff}
-.note{background:var(--teal-soft);border-left:5px solid var(--teal);padding:12px 18px;border-radius:0 10px 10px 0;font-size:17.5px;line-height:1.55}
-.note b{color:var(--teal)}
-.warn{background:var(--red-soft);border-left:5px solid var(--red);padding:12px 18px;border-radius:0 10px 10px 0;font-size:17.5px;line-height:1.55}
-.tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--navy);color:#fff;margin-right:6px}
-.tag.new{background:var(--red)}
-.src{position:absolute;right:72px;bottom:42px;font-size:12.5px;color:var(--muted);max-width:760px;text-align:right}
-table{border-collapse:collapse;width:100%;font-size:17px}
-th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;line-height:1.45}
+html,body{height:100%;background:#0e1626;font-family:var(--font);color:var(--ink);overflow:hidden}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#deck{width:1600px;height:900px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--bg);padding:64px 84px 70px;display:none;overflow:hidden}
+.slide.active{display:block}
+.slide::after{content:attr(data-num);position:absolute;right:40px;bottom:26px;font:500 18px var(--mono);color:#a29c8e}
+.slide .src{position:absolute;left:84px;bottom:26px;font-size:16px;color:#9a9486}
+
+/* typography */
+h1{font-size:68px;font-weight:900;letter-spacing:.02em;line-height:1.15}
+h2{font-size:46px;font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:8px}
+h2 small{font-size:24px;font-weight:500;color:var(--muted);margin-left:16px;letter-spacing:.02em}
+.kicker{font:700 18px var(--mono);letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin-bottom:10px}
+.rule{height:4px;width:96px;background:var(--red);margin:14px 0 30px}
+p,li{font-size:27px;line-height:1.55}
+ul{list-style:none}
+ul.dots li{position:relative;padding-left:30px;margin:8px 0}
+ul.dots li::before{content:"";position:absolute;left:4px;top:.62em;width:11px;height:11px;border-radius:50%;background:var(--red)}
+ul.dots.sm li{font-size:23px;margin:5px 0}
+b,strong{font-weight:700;color:var(--navy)}
+.hl{background:linear-gradient(transparent 58%,#ffe08a 58%);padding:0 2px}
+.red{color:var(--red)} .card.red,.callout.red{color:var(--ink)} .muted{color:var(--muted)} .mono{font-family:var(--mono)}
+.num{font-family:var(--mono);font-weight:700;color:var(--red)}
+
+/* layout helpers */
+.cols{display:grid;gap:28px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.c64{grid-template-columns:1.5fr 1fr}.c46{grid-template-columns:1fr 1.5fr}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:0 2px 0 rgba(0,0,0,.03)}
+.card h3{font-size:28px;color:var(--navy);margin-bottom:8px}
+.card p,.card li{font-size:22px;line-height:1.5}
+.card.red{border-top:6px solid var(--red)}.card.navy{border-top:6px solid var(--navy)}.card.teal{border-top:6px solid var(--teal)}.card.amber{border-top:6px solid var(--amber)}
+
+/* badges */
+.cor{display:inline-block;font:700 17px var(--mono);padding:2px 10px;border-radius:999px;color:#fff;vertical-align:3px;margin-left:6px;white-space:nowrap}
+.cor.c1{background:var(--c1)}.cor.c2a{background:var(--c2a);color:#2b2100}.cor.c2b{background:var(--c2b)}.cor.c3{background:var(--c3)}
+.tag{display:inline-block;font:700 15px var(--mono);letter-spacing:.06em;padding:3px 10px;border-radius:6px;vertical-align:4px}
+.tag.ok{background:var(--teal-soft);color:var(--teal)}.tag.warn{background:var(--amber-soft);color:var(--amber)}.tag.new{background:var(--red-soft);color:var(--red)}
+
+/* callouts */
+.callout{border-left:8px solid var(--amber);background:var(--amber-soft);border-radius:0 12px 12px 0;padding:16px 22px;font-size:22px;line-height:1.5}
+.callout.ok{border-color:var(--teal);background:var(--teal-soft)}
+.callout.red{border-color:var(--red);background:var(--red-soft)}
+.callout b{color:inherit}
+.callout .h{font:700 16px var(--mono);letter-spacing:.12em;display:block;margin-bottom:4px}
+.callout.warn .h,.callout:not(.ok):not(.red) .h{color:var(--amber)} .callout.ok .h{color:var(--teal)} .callout.red .h{color:var(--red)}
+
+/* tables */
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{font-size:21px;line-height:1.4;padding:11px 16px;text-align:left;vertical-align:top;border-bottom:1px solid #ece8de}
 th{background:var(--navy);color:#fff;font-weight:700}
-tr:nth-child(even) td{background:#f3f5f8}
+tr:last-child td{border-bottom:none}
+.dose{font-family:var(--mono);font-weight:700;color:var(--red)}
+td.dose{white-space:nowrap}
+table.tight th,table.tight td{font-size:19px;padding:8px 13px}
+
 /* title slide */
-.title{background:radial-gradient(1200px 700px at 85% 110%,#1c3b5c 0%,#0f2740 55%,#0a1c2f 100%);color:#fff;justify-content:center}
-.title h1{color:#fff;font-size:68px}
-.title .kicker{color:#ff8a9a}
-.title p{color:#cdd8e4}
-.title::after{color:#8ea3b8}
-.ecg{position:absolute;left:0;right:0;bottom:120px;height:120px;opacity:.55}
-/* flow */
-.flow{display:flex;flex-direction:column;gap:10px}
-.fbox{border-radius:10px;padding:10px 16px;font-size:17px;line-height:1.45;border:2px solid var(--navy);background:#fff}
-.fbox.y{border-color:var(--amber);background:var(--amber-soft)}
-.fbox.r{border-color:var(--red);background:var(--red-soft)}
-.fbox.t{border-color:var(--teal);background:var(--teal-soft)}
-.arrow{text-align:center;color:var(--muted);font-size:18px;line-height:1}
-/* chain */
-.chain{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:8px}
-.link{position:relative;background:#fff;border:2px solid var(--navy);border-radius:60px;padding:22px 10px 18px;margin:0 6px;text-align:center}
-.link .n{font:700 30px "Roboto Mono",monospace;color:var(--red)}
-.link .t{font-size:18px;font-weight:700;color:var(--navy);margin-top:6px;line-height:1.35}
-.link .e{font-size:13.5px;color:var(--muted);margin-top:6px}
-.link:not(:last-child)::after{content:"";position:absolute;right:-16px;top:50%;width:20px;height:6px;background:var(--navy);border-radius:3px}
-/* steps */
-.steps{counter-reset:s;list-style:none;padding:0}
-.steps li{counter-increment:s;position:relative;padding-left:46px;margin:10px 0;font-size:19px}
-.steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;font:700 16px/32px "Roboto Mono",monospace;text-align:center}
-.bignum{display:flex;align-items:baseline;gap:8px}
-img.fig{max-width:100%;border-radius:12px;border:1px solid var(--line);background:#fff}
-.sumgrid .card{padding:14px 18px}
-.sumgrid .card h3{font-size:19px}
-.sumgrid .card li{font-size:16px;line-height:1.5;margin:2px 0}
-/* controls */
-#bar{position:fixed;left:0;top:0;height:4px;background:var(--red);transition:width .25s;z-index:10}
-#nav{position:fixed;right:16px;top:14px;display:flex;gap:8px;z-index:10;opacity:.35;transition:opacity .2s}
-#nav:hover{opacity:1}
-#nav button{background:#ffffffde;border:0;border-radius:8px;padding:8px 12px;font-size:15px;cursor:pointer;font-family:inherit}
-#help{position:fixed;left:16px;bottom:14px;color:#8ea3b8;font-size:12px;z-index:10;opacity:.6}
+.title{background:var(--navy);color:#fff;padding:0}
+.title .inner{position:absolute;inset:0;padding:110px 110px}
+.title .kicker{color:#ff8f9f}
+.title h1{color:#fff;font-size:84px}
+.title .sub{font-size:32px;color:#c8d3ea;margin-top:20px;line-height:1.5}
+.title .meta{position:absolute;left:110px;bottom:84px;font-size:22px;color:#9fb0d1;line-height:1.7}
+.title::after{color:#56698f}
+.ekg-band{position:absolute;left:0;right:0;top:575px;height:130px;opacity:.9}
+
+/* section divider */
+.divider{background:var(--paper)}
+.divider .big{position:absolute;left:84px;top:200px}
+.divider .big .no{font:700 160px var(--mono);color:var(--red);line-height:1}
+.divider .big h2{font-size:72px;margin-top:10px}
+.divider .big p{font-size:30px;color:var(--muted);margin-top:16px}
+
+/* stat */
+.stat{font:700 76px var(--mono);color:var(--red);line-height:1}
+.stat small{font-size:26px;color:var(--muted);font-family:var(--font);font-weight:500}
+
+/* flow svg */
+svg.flow{width:100%;height:auto;display:block}
+svg.flow text{font-family:var(--font)}
+
+/* timeline 9-9 */
+.tl{display:grid;grid-template-columns:230px repeat(12,1fr);row-gap:12px;column-gap:0;align-items:center;font-size:18px}
+.tl .lab{font-weight:700;color:var(--navy);font-size:20px;padding-right:12px}
+.tl .bar{height:46px;border-radius:8px;display:flex;align-items:center;padding:0 12px;color:#fff;font-weight:700;font-size:17px;white-space:nowrap;overflow:hidden;margin-right:3px}
+.b-dapt{background:var(--navy2)}.b-mono{background:var(--teal)}.b-deesc{background:#6b5ca5}.b-sapt{background:#7a8496}.b-tri{background:var(--red)}.b-oac{background:#8a4b08}
+.tl .axis{font:500 16px var(--mono);color:var(--muted);text-align:left;border-left:1px dashed #b9b2a2;padding-left:4px}
+
+/* reveal */
+.reveal{cursor:pointer}
+.reveal .ans{visibility:hidden}
+.reveal.shown .ans{visibility:visible}
+.reveal .hint{font:500 16px var(--mono);color:#a29c8e}
+.reveal.shown .hint{display:none}
+
+.ref{position:absolute;top:64px;right:84px;font-size:15px;color:#7a7466;text-align:right;line-height:1.6}
+.ref a,.refs a{color:var(--navy2);text-decoration:none;border-bottom:1px dotted var(--navy2)}
+.ref a:hover,.refs a:hover{color:var(--red);border-color:var(--red)}
+.refs li{font-size:17px;line-height:1.45;margin:4px 0}
+table.ac th,table.ac td{font-size:18px;padding:4px 12px;vertical-align:middle}
+table.ac td.drug{font-weight:900;color:var(--navy);font-size:20px;background:#f3f1ea;border-right:1px solid #ece8de}
+table.ac td.dz{font-family:var(--mono);font-weight:700;color:var(--red);font-size:17px;line-height:1.4}
+table.ac td.dz .sub,table.ac .sub{font-family:var(--font);font-weight:500;color:var(--muted);font-size:15px}
+table.ac td.dz b.red{font-family:var(--font)}
+table.ac td.cc{white-space:nowrap;font-size:16px}
+.rt{display:inline-block;color:#fff;font:700 13px var(--mono);padding:2px 7px;border-radius:5px;margin:1px 3px 1px 0;white-space:nowrap}
+table.ac td.scn{background:#f3f1ea;vertical-align:middle;border-right:1px solid #ece8de}
+table.ac td.scn .sn{font-weight:900;font-size:21px;line-height:1.3}
+table.ac td.drg{font-weight:700;color:var(--navy)}
+table.ac td.dz .sub{margin-top:1px}
+table.ac tr.gstart td{border-top:3px solid #d9d4c7}
+/* UI */
+#bar{position:fixed;left:0;bottom:0;height:5px;background:var(--red);transition:width .25s;z-index:10}
+#help{position:fixed;right:14px;top:12px;color:#8090ad;font:500 13px var(--mono);z-index:10;opacity:.75;user-select:none}
+#notes{position:fixed;left:0;right:0;bottom:5px;max-height:32vh;overflow:auto;background:rgba(14,22,38,.96);color:#e6ebf5;font-size:18px;line-height:1.6;padding:16px 26px;display:none;z-index:11;border-top:2px solid var(--red)}
+#notes.on{display:block}
+#notes::before{content:"講者備註 Speaker notes";display:block;font:700 13px var(--mono);letter-spacing:.14em;color:#ff8f9f;margin-bottom:6px}
+.notes{display:none}
+#mnav{display:none}
+
+/* ---------- mobile / narrow-screen reflow mode (body.m) ---------- */
+body.m{overflow:auto;overflow-x:hidden;height:auto;min-height:100%;background:var(--bg);padding-bottom:calc(52px + env(safe-area-inset-bottom))}
+html.m{overflow:auto;height:auto;background:var(--bg)}
+body.m #stage{position:static;display:block}
+body.m #deck{transform:none!important;height:auto;width:var(--mw)}
+body.m .slide{position:relative;inset:auto;padding:40px 30px 48px;min-height:var(--mh);overflow:visible}
+body.m .slide::after{display:none}
+body.m .slide .cols{grid-template-columns:1fr!important}
+body.m .slide .cols>*{min-width:0}
+body.m.wide .slide .cols.c3,body.m.wide .slide .cols.c4{grid-template-columns:1fr 1fr!important}
+body.m h1{font-size:54px}
+body.m h2{font-size:40px}
+body.m h2 small{display:block;margin-left:0;margin-top:4px}
+body.m .ref{position:static;text-align:left;margin:0 0 12px}
+body.m .slide .src{position:static;display:block;margin-top:22px}
+body.m [style*="calc(100% - 140px)"]{width:auto!important}
+body.m .title{padding:0}
+body.m .title .inner{position:relative;inset:auto;padding:70px 34px 20px}
+body.m .title h1{font-size:58px}
+body.m .title h1 span{font-size:38px!important}
+body.m .title .sub{font-size:26px}
+body.m .title .meta{position:static;padding:10px 34px 60px}
+body.m .ekg-band{position:relative;top:auto;display:block;width:100%;height:90px;margin-top:40px}
+body.m .divider .big{position:static;padding-top:140px}
+body.m .divider .big .no{font-size:120px}
+body.m .divider .big h2{font-size:56px}
+body.m .xs{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+body.m .xs.can::before{content:"↔ 左右滑動查看完整內容";display:block;position:sticky;left:0;font:500 17px var(--mono);color:#a29c8e;margin-bottom:6px}
+body.m .xs>table{min-width:100%;width:max-content;max-width:1100px}
+body.m .xs>svg.flow{min-width:1100px}
+body.m .xs>.tl{min-width:1300px}
+body.m #help{display:none}
+body.m #bar{bottom:auto;top:0;height:4px}
+body.m #notes{bottom:calc(52px + env(safe-area-inset-bottom));max-height:45vh;font-size:15px}
+body.m #mnav{display:flex;position:fixed;left:0;right:0;bottom:0;height:calc(52px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:rgba(14,22,38,.96);z-index:12;align-items:center;justify-content:space-between;font:500 15px var(--mono);color:#c8d3ea}
+#mnav button{background:none;border:0;color:#fff;font:700 22px var(--mono);height:52px;min-width:64px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#mnav button:disabled{opacity:.3}
+#mnav .mid{display:flex;align-items:center;gap:14px}
+#mnav .nb{font-size:14px;min-width:0;padding:0 10px;border:1px solid #56698f;border-radius:6px;height:30px}
+#mnav .nb.on{background:var(--red);border-color:var(--red)}
+
 @media print{
-  @page{size:1280px 720px;margin:0}
-  html,body{overflow:visible;background:#fff;height:auto}
-  #stage{position:static;transform:none!important;width:auto;height:auto}
-  .slide{display:flex!important;position:relative;width:1280px;height:720px;page-break-after:always;break-after:page}
-  #bar,#nav,#help{display:none}
+  @page{size:1600px 900px;margin:0}
+  html,body{background:#fff;overflow:visible;height:auto}
+  #stage{position:static;display:block}
+  #deck{transform:none!important;width:1600px;height:auto}
+  .slide{position:relative;display:block!important;width:1600px;height:900px;page-break-after:always;break-after:page}
+  #bar,#help,#notes{display:none!important}
+  .reveal .ans{visibility:visible!important}.reveal .hint{display:none}
 }
+
+/* ---------- BLS-specific components ---------- */
+.lbl{font-size:21px;color:var(--muted);margin-top:8px;line-height:1.45}
+.fl{display:flex;flex-direction:column;gap:12px}
+.fb{border:2.5px solid var(--navy);background:var(--paper);border-radius:12px;padding:13px 20px;font-size:21px;line-height:1.45}
+.fb.y{border-color:var(--amber);background:var(--amber-soft)}.fb.r{border-color:var(--red);background:var(--red-soft)}.fb.t{border-color:var(--teal);background:var(--teal-soft)}
+.fa{text-align:center;color:var(--muted);font-size:20px;line-height:1}
+.chain{display:grid;grid-template-columns:repeat(6,1fr);margin-top:6px}
+.chain .link{position:relative;background:var(--paper);border:3px solid var(--navy);border-radius:80px;padding:26px 10px 22px;margin:0 9px;text-align:center}
+.chain .n{font:700 38px var(--mono);color:var(--red)}
+.chain .t{font-size:22px;font-weight:700;color:var(--navy);margin-top:6px;line-height:1.35}
+.chain .e{font-size:17px;color:var(--muted);margin-top:8px;line-height:1.4}
+.chain .link:not(:last-child)::after{content:"";position:absolute;right:-22px;top:50%;width:26px;height:7px;background:var(--navy);border-radius:4px}
+ol.steps{counter-reset:s;list-style:none}
+ol.steps li{counter-increment:s;position:relative;padding-left:56px;margin:12px 0;font-size:24px;line-height:1.5;break-inside:avoid}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:3px;width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;font:700 20px/40px var(--mono);text-align:center}
+img.fig{width:100%;border-radius:12px;border:1px solid var(--line);background:#fff;display:block}
+.cap{font-size:16px!important;color:var(--muted);margin-top:6px;line-height:1.4!important}
+.th .card{padding:14px 20px}.th .card h3{font-size:23px;margin-bottom:4px}.th .card li{font-size:19px;line-height:1.42;margin:3px 0}
+body.m .chain{grid-template-columns:1fr 1fr;row-gap:16px}
+body.m .chain .link::after{display:none}
+body.m ol.steps{columns:1!important}
 </style>
 </head>
 <body>
-<div id="bar"></div>
-<div id="stage">
+<div id="stage"><div id="deck">
 
-<!-- 1 -->
-<section class="slide title" data-sec="ACLS 訓練課程｜BLS 教學站">
-  <div class="kicker">ACLS 精華第七版｜第 3 章</div>
-  <h1>成人基本救命術<br>Adult Basic Life Support</h1>
-  <div class="rule"></div>
-  <p style="font-size:24px">2025 AHA 指引更新重點 × 高品質 CPR × AED × 復甦姿勢 × 異物哽塞</p>
-  <p class="small" style="margin-top:28px">臺北市立聯合醫院 陽明院區 急診部</p>
-  <svg class="ecg" viewBox="0 0 1280 120" preserveAspectRatio="none"><polyline fill="none" stroke="#ff4d63" stroke-width="3" points="0,70 180,70 200,70 215,55 230,70 260,70 275,90 295,10 315,110 330,70 380,70 410,58 440,70 620,70 640,70 655,55 670,70 700,70 715,90 735,10 755,110 770,70 820,70 850,58 880,70 960,70 975,40 985,95 995,30 1005,100 1015,45 1025,90 1035,35 1045,95 1055,50 1065,85 1075,45 1085,90 1095,55 1105,80 1120,60 1140,75 1160,65 1180,72 1280,70"/></svg>
+<!-- ============ 1. TITLE ============ -->
+<section class="slide title">
+  <svg class="ekg-band" viewBox="0 0 1600 140" preserveAspectRatio="none"><path fill="none" stroke="#ff4d67" stroke-width="4" stroke-linejoin="round" d="M0 90 H240 l14 -8 14 8 H300 l8 14 14 -96 12 112 10 -30 H380 q8 -50 26 -50 h70 q22 0 34 30 H700 l14 -8 14 8 H760 l8 14 14 -96 12 112 10 -30 H840 q8 -50 26 -50 h70 q22 0 34 30 H1100 l10 -50 10 90 10 -80 10 70 10 -60 10 55 10 -45 10 40 10 -30 10 25 10 -15 10 5 V90 H1600"/></svg>
+  <div class="inner">
+    <div class="kicker">ACLS Instructor · Chapter 3</div>
+    <h1>成人基本救命術<br><span style="font-size:58px;font-weight:500;color:#c8d3ea">Adult Basic Life Support</span></h1>
+    <p class="sub">高品質 CPR、AED、復甦姿勢、異物哽塞<br>依 2025 AHA 成人 BLS 指引逐項核對</p>
+    <p class="sub" style="margin-top:28px;font-size:30px;color:#fff;font-weight:700">講師：台北市立聯合醫院陽明院區　急診主治醫師 懷顥</p>
+  </div>
+  <div class="meta">原著章節：胡勝川、吳孟諭、楊久滕、施美秀〈第 3 章 成人基本救命術〉｜教學投影片整理與指引核對<br>操作：← → 翻頁 · F 全螢幕 · N 講者備註 · P 列印</div>
+  <div class="notes">開場：BLS 是 ACLS 的地基，病人要先得到高品質 CPR，後面的 ACLS 才有機會。這份投影片以教科書第 3 章為骨架，建議等級與 2025 AHA Part 7 Adult BLS 對照過。BLS 站採 3D 教學：Describe 講解 → Demo 示範 → Do 大部分時間讓學員操作，講師從旁糾正。</div>
 </section>
 
-<!-- 2 -->
-<section class="slide" data-sec="為什麼要學 BLS">
-  <div class="kicker">WHY IT MATTERS</div>
+<!-- ============ 2. MAP ============ -->
+<section class="slide">
+  <div class="kicker">Roadmap</div>
+  <h2>本章地圖</h2><div class="rule"></div>
+  <div class="cols c3" style="gap:24px">
+    <div class="card navy"><h3>① 為什麼要學</h3><ul class="dots sm"><li>流行病學與存活率</li><li>2025 重點更新、生存之鏈</li><li>心理建設</li></ul></div>
+    <div class="card navy"><h3>② CPR 生理</h3><ul class="dots sm"><li>心臟幫浦 vs 胸腔幫浦</li><li>通氣：氧合與 CO₂</li><li>為什麼不能過度通氣</li></ul></div>
+    <div class="card red"><h3>③ 叫叫 CAB</h3><ul class="dots sm"><li>辨識心臟停止、啟動 EMS</li><li>高品質 CPR 六個數字</li><li>呼吸道與人工呼吸</li></ul></div>
+    <div class="card red"><h3>④ AED 與團隊</h3><ul class="dots sm"><li>AED 八步驟、貼片位置</li><li>多人急救分工與換手</li><li>常見錯誤與併發症</li></ul></div>
+    <div class="card teal"><h3>⑤ 復甦姿勢・異物</h3><ul class="dots sm"><li>復甦姿勢四步驟</li><li>清醒 FBAO：拍背 ⇄ 腹戳</li><li>失去意識 → CPR</li></ul></div>
+    <div class="card teal"><h3>⑥ 特殊情況</h3><ul class="dots sm"><li>鴉片、溺水、低體溫、孕婦、肥胖</li><li>心肌梗塞與中風的 BLS 角色</li><li>統整</li></ul></div>
+  </div>
+  <p style="margin-top:30px;font-size:22px" class="muted">圖例：<span class="cor c1">Class 1</span> 建議 <span class="cor c2a">2a</span> 合理 <span class="cor c2b">2b</span> 可考慮 <span class="cor c3">3</span> 無益 / 有害　<span class="tag ok">✓ 已核實</span> <span class="tag warn">⚠ 需補充</span> <span class="tag new">NEW 2025</span></p>
+</section>
+
+<!-- ============ 3. EPIDEMIOLOGY ============ -->
+<section class="slide">
+  <div class="kicker">Why it matters</div>
   <h2>心臟停止的現況</h2><div class="rule"></div>
-  <div class="grid g4">
-    <div class="card red"><div class="stat">10.5<small>%</small></div><div class="lbl">美國 OHCA 存活率<br>（發生率 378.7／10 萬人）</div></div>
-    <div class="card red"><div class="stat">41.7<small>%</small></div><div class="lbl">成人 OHCA 接受<br>旁救者 CPR 的比例</div></div>
-    <div class="card red"><div class="stat">12.6<small>%</small></div><div class="lbl">有旁救者<br>使用 AED 的比例</div></div>
-    <div class="card teal"><div class="stat teal">23.6<small>%</small></div><div class="lbl">成人 IHCA 存活率</div></div>
+  <div class="cols c4">
+    <div class="card red"><div class="stat">10.5<small>%</small></div><p class="lbl">美國 OHCA 存活率<br>發生率 378.7／10 萬人</p></div>
+    <div class="card red"><div class="stat">41.7<small>%</small></div><p class="lbl">成人 OHCA 接受<br>旁救者 CPR 的比例</p></div>
+    <div class="card red"><div class="stat">12.6<small>%</small></div><p class="lbl">旁救者有使用<br>AED 的比例</p></div>
+    <div class="card teal"><div class="stat" style="color:var(--teal)">23.6<small>%</small></div><p class="lbl">成人 IHCA 存活率</p></div>
   </div>
-  <div class="grid g2" style="margin-top:22px">
-    <div class="card navy"><h3>旁救者 CPR 的差距</h3>
-      <p>有目擊且有旁救者 CPR：<b class="hl">13.0%</b> vs 沒有：<b>7.6%</b></p>
-      <p>公共場所存活率高於住宅（8.9%）</p></div>
-    <div class="card navy"><h3>4–6 分鐘的黃金時段</h3>
-      <p>腦部無血流超過 4–6 分鐘 → 永久壞死（生物死亡）。119 到場常超過 4 分鐘，<b>只有目擊者立即 CPR 才來得及</b>。</p></div>
+  <div class="cols c2" style="margin-top:28px">
+    <div class="card navy"><h3>旁救者 CPR 的差距</h3><p>有目擊且有旁救者 CPR 存活率 <b class="hl">13.0%</b>，沒有則 <b>7.6%</b>；公共場所存活率高於住宅（8.9%）。</p></div>
+    <div class="card navy"><h3>4–6 分鐘的黃金時段</h3><p>腦部無血流超過 4–6 分鐘就會永久壞死。119 到場常超過 4 分鐘，<b>只有目擊者立即 CPR 才來得及</b>。</p></div>
   </div>
-  <div class="src">資料來源：ACLS 精華第七版 第 3 章；AHA 2025 Guidelines Part 1 Executive Summary</div>
-  <div class="num"></div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 1 Executive Summary</div>
+  <div class="notes">美國資料：OHCA 存活率約一成，旁救者 CPR 只有四成，AED 使用更低。有旁救者 CPR 的存活率幾乎是沒有的兩倍，這就是推動全民 CPR 的理由。院外救護車到場時間常超過 4 分鐘，所以第一個在場的人最關鍵。</div>
 </section>
 
-<!-- 3 -->
-<section class="slide" data-sec="2025 更新">
-  <div class="kicker">WHAT'S NEW · 2025</div>
+<!-- ============ 4. WHAT'S NEW ============ -->
+<section class="slide">
+  <div class="kicker">What's new · 2025</div>
   <h2>2025 年成人 BLS 重點更新</h2><div class="rule"></div>
-  <div class="grid g2">
-    <div>
-      <ul>
-        <li><span class="tag new">按壓</span>堅硬平面；病人軀幹約與施救者<b>膝部齊高</b></li>
-        <li><span class="tag new">呼吸道</span>頭頸創傷：推下顎＋輔助器失敗 → <b>改用壓額抬顎</b></li>
-        <li><span class="tag new">通氣</span>呼吸停止有脈搏：<b>每 6 秒 1 次</b>（10 次/分），需見胸部起伏</li>
-        <li><span class="tag new">肥胖</span>CPR 技巧<b>與一般病人相同</b></li>
-      </ul>
-    </div>
-    <div>
-      <ul>
-        <li><span class="tag new">設備</span><b>不建議常規使用</b>機械 CPR 裝置</li>
-        <li><span class="tag new">鴉片</span><b>Naloxone</b> 正式納入 BLS 流程</li>
-        <li><span class="tag new">異物</span>嚴重 FBAO：<b>5 次拍背 + 5 次腹戳</b> 循環</li>
-        <li><span class="tag new">生存之鏈</span>四條整合為<b>一條六環</b></li>
-      </ul>
-    </div>
+  <div class="cols c2">
+    <ul class="dots">
+      <li><span class="tag new">按壓</span> 堅硬平面；病人軀幹約與施救者<b>膝部齊高</b></li>
+      <li><span class="tag new">呼吸道</span> 頭頸創傷：推下顎＋輔助器失敗 → <b>改用壓額抬下巴</b></li>
+      <li><span class="tag new">通氣</span> 呼吸停止有脈搏：<b>每 6 秒 1 次</b>，需見胸部起伏</li>
+      <li><span class="tag new">肥胖</span> CPR 技巧<b>與一般病人相同</b></li>
+    </ul>
+    <ul class="dots">
+      <li><span class="tag new">設備</span> <b>不建議常規使用</b>機械 CPR 裝置</li>
+      <li><span class="tag new">鴉片</span> <b>Naloxone</b> 正式納入 BLS 流程</li>
+      <li><span class="tag new">異物</span> 嚴重 FBAO：<b>5 次拍背 ⇄ 5 次腹戳</b></li>
+      <li><span class="tag new">生存之鏈</span> 四條整合為<b>一條六環</b></li>
+    </ul>
   </div>
-  <div class="note" style="margin-top:22px"><b>教學提醒：</b>2025 指引未做完整證據回顧的題目，沿用 2020 年建議。舊版教材中「四條生存之鏈」的圖需要更新。</div>
-  <div class="src">Kleinman ME, et al. Part 7: Adult Basic Life Support. Circulation. 2025;152(suppl 2):S448–S478</div>
-  <div class="num"></div>
+  <div class="callout ok" style="margin-top:26px"><span class="h">✓ 2025 指引</span>2025 年未做完整證據回顧的題目沿用 2020 年建議。舊教材中「四條生存之鏈」的圖需要更新。</div>
+  <div class="src">Kleinman ME, et al. Part 7: Adult Basic Life Support. Circulation 2025;152(suppl 2):S448–S478</div>
+  <div class="notes">這八點是 2025 版和 2020 版最大的差異，後面各頁會逐一展開。特別提醒：頭頸部創傷病人，如果推下顎打不開呼吸道，要改用壓額抬下巴，因為氧合優先於頸椎風險。</div>
 </section>
 
-<!-- 4 -->
-<section class="slide" data-sec="生存之鏈">
-  <div class="kicker">CHAIN OF SURVIVAL</div>
-  <h2>2025 統一的六環生存之鏈<small>成人／兒童、院內／院外通用</small></h2><div class="rule"></div>
+<!-- ============ 5. CHAIN ============ -->
+<section class="slide">
+  <div class="kicker">Chain of survival</div>
+  <h2>統一的六環生存之鏈<small>成人／兒童、院內／院外通用</small></h2><div class="rule"></div>
   <div class="chain">
     <div class="link"><div class="n">1</div><div class="t">辨識心臟停止<br>啟動緊急應變</div><div class="e">叫叫 → 119</div></div>
-    <div class="link"><div class="n">2</div><div class="t">高品質<br>CPR</div><div class="e">壓胸＋通氣（肺部圖示）</div></div>
+    <div class="link"><div class="n">2</div><div class="t">高品質<br>CPR</div><div class="e">壓胸＋通氣<br>（加入肺部圖示）</div></div>
     <div class="link"><div class="n">3</div><div class="t">去顫<br>電擊</div><div class="e">AED ≤ 5 分鐘</div></div>
     <div class="link"><div class="n">4</div><div class="t">高級<br>復甦術</div><div class="e">ALS / ACLS</div></div>
     <div class="link"><div class="n">5</div><div class="t">心臟停止<br>後照護</div><div class="e">跨單位整合</div></div>
-    <div class="link"><div class="n">6</div><div class="t">復原</div><div class="e">身體、神經、認知評估</div></div>
+    <div class="link"><div class="n">6</div><div class="t">復原</div><div class="e">身體、神經<br>認知評估</div></div>
   </div>
-  <div class="grid g2" style="margin-top:28px">
-    <div class="card navy"><h3>演進</h3>
-      <p class="small">2010：4 環 → 加入第 5 環復甦後照護<br>2015：分 OHCA／IHCA 兩條<br>2020：新增第 6 環「復原」，共四條<br>2025：<b>整合成一條</b>；CPR 圖示加入肺部，強調通氣在兒科、溺水、鴉片中毒的角色</p></div>
-    <div class="card amber"><h3>還沒放進鏈裡的：預防與準備</h3>
-      <p class="small">預防心臟停止、建立快速反應系統同樣重要，但定義尚未明確，<b>暫緩納入</b>，未來以科學聲明另行說明。</p>
-      <p class="small" style="margin-top:6px">任一環節出問題，存活率可由近 50%（目擊 VF）掉到 5–50%。</p></div>
+  <div class="cols c2" style="margin-top:34px">
+    <div class="card navy"><h3>演進</h3><p>2010 四環 → 加入復甦後照護<br>2015 分 OHCA／IHCA 兩條<br>2020 新增「復原」，共四條<br>2025 <b>整合成一條</b></p></div>
+    <div class="card amber"><h3>還沒放進鏈裡：預防與準備</h3><p>預防心臟停止、建立快速反應系統同樣重要，但定義尚未明確，<b>暫緩納入</b>。任一環節失效，存活率可由近 50% 掉到 5–50%。</p></div>
   </div>
-  <div class="src">Dezfulian C, et al. Part 4: Systems of Care. Circulation. 2025;152(suppl 2):S353–S384</div>
-  <div class="num"></div>
+  <div class="src">Dezfulian C, et al. Part 4: Systems of Care. Circulation 2025;152(suppl 2):S353–S384</div>
+  <div class="notes">2025 年把原本成人、兒童、院內、院外四條鏈合成一條，簡化教學。高品質 CPR 的圖示加入肺部，強調通氣在兒科、溺水、鴉片中毒的重要性。預防與準備這一環被討論過，但因定義不清暫緩納入。</div>
 </section>
 
-<!-- 5 -->
-<section class="slide" data-sec="心理建設">
-  <div class="kicker">OVERCOMING BARRIERS</div>
+<!-- ============ 6. BARRIERS ============ -->
+<section class="slide">
+  <div class="kicker">Overcoming barriers</div>
   <h2>學了 CPR 卻不敢救？</h2><div class="rule"></div>
-  <div class="grid g3">
-    <div class="card red"><h3>⚖️ 怕法律糾紛</h3>
-      <p>醫師法第 28 條：非醫師不得執行醫療業務，<b>但臨時施行急救除外</b>。</p>
-      <p style="margin-top:8px">尚無因做 CPR 被告成功的案例。<br><b class="hl">一個人不會死兩次。</b></p></div>
-    <div class="card teal"><h3>🦠 怕傳染病</h3>
-      <p>理論上可能，但機率極低；全球無因 CPR 感染 HIV 的病例。</p>
-      <p style="margin-top:8px">可取得時，民眾 CPR 使用 PPE<span class="cor c2a">IIa</span></p>
-      <p class="small muted" style="margin-top:6px">但不可因穿戴 PPE 延誤壓胸</p></div>
-    <div class="card navy"><h3>💪 自信心不足</h3>
-      <p>最大的障礙：先壓還是先吹？先救還是先叫？</p>
-      <p style="margin-top:8px">你手上只有一雙手、一支手機和一句口訣：</p>
-      <p style="font-size:30px;font-weight:900;color:var(--red);margin-top:6px">叫叫 CAB</p></div>
+  <div class="cols c3">
+    <div class="card red"><h3>⚖️ 怕法律糾紛</h3><p>醫師法第 28 條：非醫師不得執行醫療業務，<b>但臨時施行急救除外</b>。</p><p style="margin-top:10px">尚無因 CPR 被告成功的案例。<b class="hl">一個人不會死兩次。</b></p></div>
+    <div class="card teal"><h3>🦠 怕傳染病</h3><p>理論上可能但機率極低；全球無因 CPR 感染 HIV 的病例。</p><p style="margin-top:10px">可取得時，民眾 CPR 使用 PPE<span class="cor c2a">2a</span></p><p class="muted">但不可因此延誤壓胸</p></div>
+    <div class="card navy"><h3>💪 自信心不足</h3><p>最大的障礙：先壓還是先吹？先救還是先叫？</p><p style="margin-top:10px">你只有一雙手、一支手機和一句口訣：</p><p style="font-size:40px;font-weight:900;color:var(--red);margin-top:6px">叫叫 CAB</p></div>
   </div>
-  <div class="note" style="margin-top:22px"><b>給講師：</b>BLS 站若要求不嚴、考試「差不多就好」，學員離開教室後的知能存留很有限 → 空有證書仍不敢做。以「高品質教學」把關「高品質 CPR」。</div>
-  <div class="num"></div>
+  <div class="callout" style="margin-top:26px"><span class="h">給講師</span>BLS 站若要求不嚴、考試「差不多就好」，學員離開教室後知能存留有限，空有證書仍不敢做。以「高品質教學」把關「高品質 CPR」。</div>
+  <div class="notes">心理建設是小組教學一開始就要講的。三個常見障礙：法律、傳染、信心。最大的是信心，所以要把叫叫 CAB 練到反射動作。講師的嚴格程度直接決定學員遇到真病人時敢不敢做。</div>
 </section>
 
-<!-- 6 -->
-<section class="slide" data-sec="CPR 生理">
-  <div class="kicker">PHYSIOLOGY</div>
+<!-- ============ 7. CPR PHYSIOLOGY ============ -->
+<section class="slide">
+  <div class="kicker">Physiology</div>
   <h2>CPR 為什麼能產生血流？</h2><div class="rule"></div>
-  <div class="grid g2">
-    <div class="card navy"><h3>心臟幫浦 Cardiac pump</h3><p>按壓胸骨直接擠壓心臟，把血液擠出。<br><span class="muted small">可能較適用於體型瘦小者</span></p></div>
-    <div class="card navy"><h3>胸腔幫浦 Thoracic pump</h3><p>按壓使整個胸內壓上升，血液由高壓流向低壓。<br><span class="muted small">目前支持者較多</span></p></div>
+  <div class="cols c2">
+    <div class="card navy"><h3>心臟幫浦 Cardiac pump</h3><p>按壓胸骨直接擠壓心臟，把血液擠出。<br><span class="muted">可能較適用於體型瘦小者</span></p></div>
+    <div class="card navy"><h3>胸腔幫浦 Thoracic pump</h3><p>按壓使整個胸內壓上升，血液由高壓流向低壓。<br><span class="muted">目前支持者較多</span></p></div>
   </div>
-  <div class="grid g3" style="margin-top:22px">
-    <div class="card red"><div class="stat">25–33<small>%</small></div><div class="lbl">CPR 產生的心輸出量<br>（相對正常值）</div></div>
-    <div class="card red"><div class="stat">60–80</div><div class="lbl">可達收縮壓 mmHg<br>（但舒張壓仍低）</div></div>
-    <div class="card red"><div class="stat">&lt;40</div><div class="lbl">頸動脈平均動脈壓 mmHg</div></div>
+  <div class="cols c3" style="margin-top:28px">
+    <div class="card red"><div class="stat">25–33<small>%</small></div><p class="lbl">CPR 產生的心輸出量（相對正常）</p></div>
+    <div class="card red"><div class="stat">60–80</div><p class="lbl">可達收縮壓 mmHg（舒張壓仍低）</p></div>
+    <div class="card red"><div class="stat">&lt;40</div><p class="lbl">頸動脈平均動脈壓 mmHg</p></div>
   </div>
-  <div class="warn" style="margin-top:22px">停止按壓 → <b>冠狀動脈灌流壓立即歸零</b>，重新按壓需數下才能回升。這就是「儘量減少中斷」的生理基礎。</div>
-  <div class="num"></div>
+  <div class="callout red" style="margin-top:26px"><span class="h">為什麼要少中斷</span>停止按壓 → <b>冠狀動脈灌流壓立即歸零</b>，重新按壓需要好幾下才能回升。</div>
+  <div class="notes">兩種學說都有證據，可能跟體型有關。重點是 CPR 最多只能打出正常心輸出量的四分之一到三分之一，所以每一次中斷都很昂貴。</div>
 </section>
 
-<!-- 7 -->
-<section class="slide" data-sec="CPR 生理">
-  <div class="kicker">VENTILATION PHYSIOLOGY</div>
+<!-- ============ 8. VENTILATION ============ -->
+<section class="slide">
+  <div class="kicker">Ventilation physiology</div>
   <h2>通氣：為什麼不用給太多、太快？</h2><div class="rule"></div>
-  <div class="grid g2">
+  <div class="cols c2">
     <div>
-      <div class="card teal" style="margin-bottom:16px"><h3>① 為什麼要給氣 → 氧合</h3>
-        <p class="small">空氣含氧 21%，施救者呼出氣約 16–17%，<b>「給一點氧氣總比什麼都沒給好」</b>。持續只壓不吹，動脈血氧含量會逐漸下降，窒息性心臟停止尤其明顯。</p></div>
-      <div class="card navy"><h3>② 給多少 → 由 CO<sub>2</sub> 決定</h3>
-        <p class="small">CPR 時肺血流只剩 25–33% → <b>送回肺部的 CO<sub>2</sub> 大幅減少</b> → 較低的潮氣量與次數就能維持適當的 V/Q 比。<br>這也是 CPR 中 EtCO<sub>2</sub> 偏低、可反映按壓品質的原因。</p></div>
+      <div class="card teal" style="margin-bottom:20px"><h3>① 為什麼要給氣 → 氧合</h3><p>空氣含氧 21%，呼出氣約 16–17%。<b>「給一點氧氣總比什麼都沒給好」</b>。只壓不吹，動脈血氧含量會逐漸下降，窒息性心臟停止尤其明顯。</p></div>
+      <div class="card navy"><h3>② 給多少 → 由 CO₂ 決定</h3><p>CPR 時肺血流只剩 25–33% → <b>送回肺部的 CO₂ 大幅減少</b> → 較低的潮氣量與次數就能維持適當 V/Q 比。這也是 CPR 中 EtCO₂ 偏低、可反映按壓品質的原因。</p></div>
     </div>
     <div>
-      <div class="card red" style="margin-bottom:16px"><h3>目標</h3>
-        <p class="small">潮氣量約 <b>500–600 mL</b>（6–7 mL/kg）<span class="cor c2a">IIa</span><br>實務上：<b class="hl">看到胸部起伏即可</b><span class="cor c2a">IIa</span><br>每口氣約 <b>1 秒</b><span class="cor c2b">IIb</span>，施救者正常吸氣即可</p></div>
-      <div class="warn"><b>過度通氣是有害的</b><span class="cor c3h">III: Harm</span><br>
-        胸內壓 ↑ → 靜脈回流 ↓ → 心輸出量與冠狀動脈灌流 ↓<br>
-        胃脹氣 → 逆流、吸入<br>
-        通氣不足同樣有害；低／高碳酸血症及其波動都與較差的 1 個月神經預後相關</div>
+      <div class="card red" style="margin-bottom:20px"><h3>目標</h3><p>潮氣量約 <b>500–600 mL</b>（6–7 mL/kg）<span class="cor c2a">2a</span><br>實務上：<b class="hl">看到胸部起伏即可</b><span class="cor c2a">2a</span><br>每口約 <b>1 秒</b><span class="cor c2b">2b</span>，正常吸氣即可</p></div>
+      <div class="callout red"><span class="h">過度通氣有害 · Class 3</span>胸內壓 ↑ → 靜脈回流 ↓ → 心輸出量與冠狀動脈灌流 ↓；胃脹氣 → 逆流、吸入。通氣不足同樣有害，低／高碳酸血症及其波動都與較差的 1 個月神經預後相關。</div>
     </div>
   </div>
-  <div class="src">ACLS 精華第七版 第 3 章；AHA 2025 Part 7（Ventilation）</div>
-  <div class="num"></div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS（Ventilation）</div>
+  <div class="notes">教科書原文用「V/Q 比」解釋為什麼通氣量可以比平常低，但要分清楚：給氣是為了氧合，給多少則由 CO₂ 清除決定。CPR 時肺血流很低，送到肺的 CO₂ 很少，所以很少的通氣就夠。多給的氣只會增加胸內壓、減少靜脈回流。</div>
 </section>
 
-<!-- 8 -->
-<section class="slide" data-sec="流程">
-  <div class="kicker">ALGORITHM · HEALTHCARE PROVIDER</div>
-  <h2>2025 成人心臟停止急救流程（專業人員）</h2><div class="rule" style="margin-bottom:16px"></div>
-  <div class="grid" style="grid-template-columns:1.05fr 1fr 1fr;gap:16px;align-items:start">
-    <div class="flow">
-      <div class="fbox">評估現場環境安全</div><div class="arrow">▼</div>
-      <div class="fbox">確認意識・呼叫旁人<br>（手機）啟動 EMS・請人拿 AED</div><div class="arrow">▼</div>
-      <div class="fbox y"><b>10 秒內</b>同時檢查脈搏與呼吸<br>（有無正常呼吸或瀕死呼吸）</div>
+<!-- ============ 9. ALGORITHM ============ -->
+<section class="slide">
+  <div class="kicker">Algorithm · Healthcare provider · 圖 3-1</div>
+  <h2>2025 成人心臟停止急救流程（專業人員）</h2><div class="rule" style="margin-bottom:22px"></div>
+  <div class="cols" style="grid-template-columns:1.05fr 1fr 1fr;gap:22px;align-items:start">
+    <div class="fl">
+      <div class="fb">評估現場環境安全</div><div class="fa">▼</div>
+      <div class="fb">確認意識・呼叫旁人<br>（手機）啟動 EMS・請人拿 AED</div><div class="fa">▼</div>
+      <div class="fb y"><b>10 秒內</b>同時檢查脈搏與呼吸<br>（有無正常呼吸或瀕死呼吸）</div>
     </div>
-    <div class="flow">
-      <div class="fbox t"><b>有脈搏、呼吸正常</b><br>監測直到救護人員到達</div>
-      <div class="fbox t"><b>有脈搏、無正常呼吸</b><br>• 每 6 秒給 1 次通氣（10 次/分）<br>• 每 2 分鐘檢查脈搏，無脈搏開始 CPR<br>• 疑鴉片過量：給 <b>Naloxone</b></div>
+    <div class="fl">
+      <div class="fb t"><b>有脈搏、呼吸正常</b><br>監測直到救護人員到達</div>
+      <div class="fb t"><b>有脈搏、無正常呼吸</b><br>• 每 6 秒 1 次通氣（10 次/分）<br>• 每 2 分鐘檢查脈搏，無脈搏 → CPR<br>• 疑鴉片過量：給 <b>Naloxone</b></div>
     </div>
-    <div class="flow">
-      <div class="fbox r"><b>無脈搏、無呼吸或瀕死呼吸</b><br>開始 CPR：30:2<br>儘早使用 AED<br>疑鴉片過量：給 Naloxone</div><div class="arrow">▼ AED 分析</div>
-      <div class="fbox r"><b>可電擊</b>：電擊 1 次 → 立即 CPR 2 分鐘</div>
-      <div class="fbox"><b>不可電擊</b>：立即 CPR 2 分鐘</div>
-      <div class="fbox small">持續直到 ALS 到達或病人開始活動</div>
+    <div class="fl">
+      <div class="fb r"><b>無脈搏、無呼吸或瀕死呼吸</b><br>開始 CPR 30:2・儘早用 AED<br>疑鴉片過量：給 Naloxone</div><div class="fa">▼ AED 分析</div>
+      <div class="fb r"><b>可電擊</b>：電擊 1 次 → 立即 CPR 2 分鐘</div>
+      <div class="fb"><b>不可電擊</b>：立即 CPR 2 分鐘</div>
+      <div class="fb">持續直到 ALS 到達或病人開始活動</div>
     </div>
   </div>
-  <div class="src">ACLS 精華第七版 圖 3-1；AHA 2025 Adult BLS Algorithm for Healthcare Providers</div>
-  <div class="num"></div>
+  <div class="src">ACLS 精華第七版 圖 3-1；2025 AHA Adult BLS Algorithm for Healthcare Providers</div>
+  <div class="notes">流程圖的關鍵分岔是 10 秒內的脈搏與呼吸評估。有脈搏沒正常呼吸的，是呼吸停止，每 6 秒給一口氣，這是 2025 新強調的。疑似鴉片過量的兩條路都要給 naloxone。</div>
 </section>
 
-<!-- 9 -->
-<section class="slide" data-sec="單人 CPR">
-  <div class="kicker">STEP 1</div>
-  <h2>叫叫 CAB：確認反應、立即求救</h2><div class="rule"></div>
-  <div class="grid g2">
+<!-- ============ 10. STEP 1 ============ -->
+<section class="slide">
+  <div class="kicker">Step 1 · 叫叫</div>
+  <h2>確認反應、立即求救</h2><div class="rule"></div>
+  <div class="cols c2">
+    <ol class="steps">
+      <li>確認環境安全，原則上<b>原地 CPR</b></li>
+      <li>跪於病人一側，雙膝與肩同寬</li>
+      <li>輕拍<b>雙肩</b>，大聲問「你還好嗎？」</li>
+      <li>無反應 → 揮手、<b>指定一人</b>：「請你打 119，並取得 AED！」</li>
+      <li>沒人在場 → 自己打 119，開<b>擴音</b>邊打邊做</li>
+      <li>擺成仰臥，懷疑創傷注意頸椎</li>
+    </ol>
     <div>
-      <ol class="steps">
-        <li>確認環境安全，原則上<b>原地 CPR</b></li>
-        <li>跪於病人一側，雙膝與肩同寬</li>
-        <li>輕拍<b>雙肩</b>，大聲問「你還好嗎？」</li>
-        <li>無反應 → 揮手、<b>指定一人</b>：「這裡要急救，請你打 119，並取得 AED！」</li>
-        <li>沒人在場 → 自己用手機打 119，開<b>擴音</b>邊打邊做</li>
-        <li>擺成仰臥，懷疑創傷注意頸椎</li>
-      </ol>
-    </div>
-    <div>
-      <div class="card navy" style="margin-bottom:14px"><h3>先救還是先叫？</h3>
-        <p class="small"><b>成人：先求救再 CPR</b><span class="cor c1">I</span>（目的：早期電擊）<br>有手機：<b>同時</b>啟動 EMS 與 CPR<span class="cor c1">I</span></p></div>
-      <div class="card amber"><h3>例外：先急救 2 分鐘再求救</h3>
-        <p class="small">非心因性：溺水、創傷、藥物中毒、呼吸道異物<br>嬰兒與兒童（多為呼吸問題）</p></div>
-      <div class="note" style="margin-top:14px"><b>其他工具：</b>119 派遣員線上指導 CPR；「全民守護者 APP」通知附近志工帶 AED 支援。</div>
+      <div class="card navy" style="margin-bottom:18px"><h3>先救還是先叫？</h3><p><b>成人：先求救再 CPR</b><span class="cor c1">1</span>（目的：早期電擊）<br>有手機：<b>同時</b>啟動 EMS 與 CPR<span class="cor c1">1</span></p></div>
+      <div class="card amber" style="margin-bottom:18px"><h3>例外：先急救 2 分鐘再求救</h3><p>非心因性：溺水、創傷、藥物中毒、呼吸道異物；嬰兒與兒童（多為呼吸問題）</p></div>
+      <div class="callout ok"><span class="h">其他工具</span>119 派遣員線上指導 CPR；「全民守護者 APP」通知附近志工帶 AED 支援。</div>
     </div>
   </div>
-  <div class="num"></div>
+  <div class="notes">教學重點是「指定一人」，對著特定的人講，否則旁觀者效應會讓大家都以為別人會打。手機擴音可以讓單人施救者同時求救和壓胸。</div>
 </section>
 
-<!-- 10 -->
-<section class="slide" data-sec="辨識心臟停止">
-  <div class="kicker">STEP 2 · RECOGNITION</div>
+<!-- ============ 11. RECOGNITION ============ -->
+<section class="slide">
+  <div class="kicker">Step 2 · Recognition</div>
   <h2>儘速辨識心臟停止</h2><div class="rule"></div>
-  <div class="grid g2">
+  <div class="cols c2">
     <div>
-      <div class="card navy" style="margin-bottom:14px"><h3>一般民眾</h3>
-        <p class="small">無反應＋無呼吸或只有瀕死呼吸 → <b>當作心臟停止</b><span class="cor c1">I</span><br>不需檢查脈搏，直接純壓胸 CPR</p></div>
-      <div class="card red"><h3>醫療人員</h3>
-        <p class="small">脈搏與呼吸<b>同時檢查，≤ 10 秒</b><span class="cor c1">I</span><br>頸動脈：甲狀軟骨往自己這側滑入胸鎖乳突肌凹溝（1–1.5 cm）<br>數「一千零一…一千零七」<br><b class="hl">沒有明確摸到脈搏 → 立即 CPR</b></p></div>
+      <div class="card navy" style="margin-bottom:18px"><h3>一般民眾</h3><p>無反應＋無呼吸或只有瀕死呼吸 → <b>當作心臟停止</b><span class="cor c1">1</span>；不需檢查脈搏，直接純壓胸 CPR</p></div>
+      <div class="card red"><h3>醫療人員</h3><p>脈搏與呼吸<b>同時檢查，≤ 10 秒</b><span class="cor c1">1</span><br>頸動脈：甲狀軟骨往自己這側滑入胸鎖乳突肌凹溝；數「一千零一…一千零七」<br><b class="hl">沒有明確摸到脈搏 → 立即 CPR</b></p></div>
     </div>
     <div>
-      <div class="card amber" style="margin-bottom:14px"><h3>瀕死呼吸 Gasping</h3>
-        <p class="small">緩慢、不規則的喘氣，<b>屬無效呼吸</b>。<br>出現在 <b>40–60%</b> 的 OHCA，是誤判「還有呼吸」最常見的原因。<br>全身抽搐也可能是心臟停止的表現。</p></div>
-      <div class="card teal"><h3>壓錯人的風險很低</h3>
-        <p class="small">對未心臟停止者壓胸的不良事件：<br>胸痛 8.7%・骨折 1.7%・橫紋肌溶解 0.3%・<b>無內臟傷害</b><br>→ <b>寧可壓錯，不可不壓</b></p></div>
+      <div class="card amber" style="margin-bottom:18px"><h3>瀕死呼吸 Gasping</h3><p>緩慢、不規則的喘氣，<b>屬無效呼吸</b>。出現在 <b>40–60%</b> 的 OHCA，是誤判「還有呼吸」最常見的原因。全身抽搐也可能是心臟停止。</p></div>
+      <div class="card teal"><h3>壓錯人的風險很低</h3><p>對未心臟停止者壓胸：胸痛 8.7%・骨折 1.7%・橫紋肌溶解 0.3%・<b>無內臟傷害</b> → <b>寧可壓錯，不可不壓</b></p></div>
     </div>
   </div>
-  <div class="num"></div>
+  <div class="notes">脈搏很難摸，連醫護人員也常判斷錯，所以 10 秒內摸不到明確脈搏就開始壓。瀕死呼吸是最大陷阱，請學員記住：喘氣不等於呼吸。</div>
 </section>
 
-<!-- 11 -->
-<section class="slide" data-sec="高品質 CPR">
-  <div class="kicker">HIGH-QUALITY CPR</div>
+<!-- ============ 12. HQ CPR ============ -->
+<section class="slide">
+  <div class="kicker">High-quality CPR</div>
   <h2>高品質 CPR 的六個數字</h2><div class="rule"></div>
-  <div class="grid g3">
-    <div class="card red"><div class="bignum"><span class="stat">100–120</span><span class="lbl">次/分</span></div><div class="lbl">速率；30 下約 15–18 秒<span class="cor c2a">IIa</span></div></div>
-    <div class="card red"><div class="bignum"><span class="stat">5–6</span><span class="lbl">公分</span></div><div class="lbl">深度；&gt;6 cm 反而降低存活<span class="cor c1">I</span></div></div>
-    <div class="card red"><div class="bignum"><span class="stat">100</span><span class="lbl">% 回彈</span></div><div class="lbl">回彈時手不倚靠胸部<span class="cor c2a">IIa</span><br>壓：放 ≈ 50:50<span class="cor c2b">IIb</span></div></div>
-    <div class="card navy"><div class="bignum"><span class="stat navy">&lt;10</span><span class="lbl">秒</span></div><div class="lbl">每次中斷上限（檢查脈搏、電擊前後）<span class="cor c1">I</span></div></div>
-    <div class="card navy"><div class="bignum"><span class="stat navy">≥60</span><span class="lbl">% CCF</span></div><div class="lbl">壓胸分率最低目標<span class="cor c2b">IIb</span><br>高效團隊可達 &gt;80%</div></div>
-    <div class="card navy"><div class="bignum"><span class="stat navy">2</span><span class="lbl">分鐘</span></div><div class="lbl">換手一次（約 5 個 30:2 循環）<span class="cor c2a">IIa</span><br>90–120 秒後深度開始下降</div></div>
+  <div class="cols c3" style="gap:22px">
+    <div class="card red"><div class="stat">100–120<small> 次/分</small></div><p class="lbl">速率；30 下約 15–18 秒<span class="cor c2a">2a</span></p></div>
+    <div class="card red"><div class="stat">5–6<small> 公分</small></div><p class="lbl">深度；&gt; 6 cm 反而降低存活<span class="cor c1">1</span></p></div>
+    <div class="card red"><div class="stat">100<small> % 回彈</small></div><p class="lbl">回彈時手不倚靠胸部<span class="cor c2a">2a</span>；壓：放 ≈ 50:50<span class="cor c2b">2b</span></p></div>
+    <div class="card navy"><div class="stat" style="color:var(--navy)">&lt;10<small> 秒</small></div><p class="lbl">每次中斷上限（檢查脈搏、電擊前後）<span class="cor c1">1</span></p></div>
+    <div class="card navy"><div class="stat" style="color:var(--navy)">≥60<small> % CCF</small></div><p class="lbl">壓胸分率最低目標<span class="cor c2b">2b</span>；高效團隊可達 &gt; 80%</p></div>
+    <div class="card navy"><div class="stat" style="color:var(--navy)">2<small> 分鐘</small></div><p class="lbl">換手一次（約 5 個 30:2 循環）<span class="cor c2a">2a</span>；90–120 秒後深度開始下降</p></div>
   </div>
-  <div class="grid g2" style="margin-top:18px">
-    <div class="note"><b>回饋裝置：</b>建議使用影音回饋（audiovisual feedback）即時優化 CPR 品質<span class="cor c2a">IIa</span>，與 ROSC 及出院存活改善相關。</div>
-    <div class="warn"><b>第六項：勿過度通氣。</b>按壓深度、速率與通氣品質是「最關鍵的單一措施」。</div>
+  <div class="cols c2" style="margin-top:22px">
+    <div class="callout ok"><span class="h">回饋裝置</span>建議用影音回饋即時優化 CPR 品質<span class="cor c2a">2a</span>，與 ROSC 及出院存活改善相關。</div>
+    <div class="callout red"><span class="h">第六項</span>勿過度通氣。高品質 CPR 是心臟停止病人最關鍵的單一措施。</div>
   </div>
-  <div class="num"></div>
+  <div class="notes">這頁是整章最重要的一頁。速率、深度、回彈、中斷、壓胸分率、換手時間，六個數字要背起來。深度超過 6 公分反而降低存活。90 到 120 秒後深度就開始下降，即使施救者自己不覺得累，所以兩分鐘一定要換。</div>
 </section>
 
-<!-- 12 -->
-<section class="slide" data-sec="高品質 CPR">
-  <div class="kicker">C · CIRCULATION</div>
+<!-- ============ 13. POSITION ============ -->
+<section class="slide">
+  <div class="kicker">C · Circulation</div>
   <h2>按壓位置與姿勢</h2><div class="rule"></div>
-  <div class="grid g2">
+  <div class="cols c2">
+    <ul class="dots">
+      <li>胸部中央、<b>胸骨下半段</b>（目測，不需脫衣）<span class="cor c1">1</span></li>
+      <li>兩手掌根相疊、十指交扣，<b>下方手指翹起</b></li>
+      <li>手肘打直，肩膀在胸骨正上方，以<b>上半身重量垂直下壓</b></li>
+      <li>可考慮用<b>慣用手</b>貼在胸骨上<span class="cor c2b">2b</span></li>
+      <li>答數「一下、二下…十一、十二…」一字一動作</li>
+    </ul>
     <div>
-      <ul>
-        <li>位置：胸部中央、<b>胸骨下半段</b>（目測，不需脫衣）<span class="cor c1">I</span></li>
-        <li>兩手掌根相疊、十指交扣，<b>下方手指翹起</b>避免壓到肋骨</li>
-        <li>手肘打直，肩膀在胸骨正上方，以<b>上半身重量垂直下壓</b></li>
-        <li>可考慮用<b>慣用手</b>貼在胸骨上<span class="cor c2b">IIb</span></li>
-        <li>答數：「一下、二下…十一、十二…」一字一動作</li>
-      </ul>
-    </div>
-    <div>
-      <div class="card red" style="margin-bottom:14px"><h3><span class="tag new">2025</span>病人與施救者的位置</h3>
-        <p class="small">病人軀幹約在施救者<b>膝部附近</b><span class="cor c1">I</span><br>現場安全且能做高品質 CPR → <b>原地進行</b><span class="cor c1">I</span><br>不會延遲時，<b>堅硬平面＋仰臥</b><span class="cor c2a">IIa</span></p></div>
-      <div class="card navy"><h3>證據</h3>
-        <p class="small">跪姿比站姿深度好；胸骨下 1/3 比中段有更高的動脈壓與 EtCO<sub>2</sub>。<br><b>41%</b> 的 OHCA 因搬動病人而延遲 CPR，出院存活率顯著較低。</p></div>
-      <div class="note" style="margin-top:14px"><b>俯臥：</b>可安全翻身就翻成仰臥；不能翻身時可考慮俯臥 CPR<span class="cor c2b">IIb</span></div>
+      <div class="card red" style="margin-bottom:18px"><h3><span class="tag new">NEW 2025</span> 病人與施救者的位置</h3><p>病人軀幹約在施救者<b>膝部附近</b><span class="cor c1">1</span><br>現場安全且能做高品質 CPR → <b>原地進行</b><span class="cor c1">1</span><br>不會延遲時，<b>堅硬平面＋仰臥</b><span class="cor c2a">2a</span></p></div>
+      <div class="card navy" style="margin-bottom:18px"><h3>證據</h3><p>跪姿比站姿深度好；胸骨下 1/3 比中段有更高的動脈壓與 EtCO₂。<b>41%</b> 的 OHCA 因搬動病人而延遲 CPR，出院存活率顯著較低。</p></div>
+      <div class="callout ok"><span class="h">俯臥</span>可安全翻身就翻成仰臥；不能翻身時可考慮俯臥 CPR<span class="cor c2b">2b</span></div>
     </div>
   </div>
-  <div class="num"></div>
+  <div class="notes">手放在乳頭連線下方可能壓到劍突，效果較差，所以用「胸骨下半段」描述。2025 年新強調病人高度要在施救者膝部附近，病床上要降床或站踏台。不要為了搬到地板而延遲開始壓胸。</div>
 </section>
 
-<!-- 13 -->
-<section class="slide" data-sec="呼吸道">
-  <div class="kicker">A · AIRWAY</div>
+<!-- ============ 14. AIRWAY ============ -->
+<section class="slide">
+  <div class="kicker">A · Airway</div>
   <h2>打開呼吸道</h2><div class="rule"></div>
-  <div class="grid g2">
+  <div class="cols c2">
     <div>
-      <div class="card navy" style="margin-bottom:14px"><h3>一般病人：壓額抬下巴</h3>
-        <p class="small">無頸椎損傷疑慮 → head tilt–chin lift<span class="cor c1">I</span><br>無意識時舌根與會厭是最常見的阻塞原因</p></div>
-      <div class="card red"><h3><span class="tag new">2025</span>頭頸部創傷</h3>
-        <p class="small">① 專業人員先用<b>推下顎法</b>（不仰頭）<span class="cor c1">I</span><br>② 推下顎＋輔助器仍打不開 → <b>改用壓額抬下巴</b><span class="cor c1">I</span><br><b class="hl">氧合與通氣優先於脊椎損傷風險</b><br>③ 民眾維持<b>徒手</b>脊椎活動限制，<b>不用硬式頸圈</b><span class="cor c3h">III: Harm</span></p></div>
+      <div class="card navy" style="margin-bottom:18px"><h3>一般病人：壓額抬下巴</h3><p>無頸椎損傷疑慮 → head tilt–chin lift<span class="cor c1">1</span>；無意識時舌根與會厭是最常見的阻塞原因</p></div>
+      <div class="card red"><h3><span class="tag new">NEW 2025</span> 頭頸部創傷</h3><p>① 專業人員先用<b>推下顎法</b><span class="cor c1">1</span><br>② 推下顎＋輔助器仍打不開 → <b>改用壓額抬下巴</b><span class="cor c1">1</span><br><b class="hl">氧合與通氣優先於脊椎損傷風險</b><br>③ 民眾維持<b>徒手</b>脊椎活動限制，<b>不用硬式頸圈</b><span class="cor c3">3: Harm</span></p></div>
     </div>
     <div>
       <table>
-        <tr><th>建議</th><th style="width:120px">等級</th></tr>
-        <tr><td>無咳嗽／嘔吐反射時可用口咽或鼻咽呼吸道</td><td><span class="cor c2b">IIb</span></td></tr>
-        <tr><td>疑顱底骨折或嚴重凝血異常：<b>口咽</b>優於鼻咽呼吸道</td><td><span class="cor c2a">IIa</span></td></tr>
-        <tr><td>心臟停止時常規環狀軟骨按壓</td><td><span class="cor c3n">III: No benefit</span></td></tr>
+        <tr><th>建議</th><th style="width:170px">等級</th></tr>
+        <tr><td>無咳嗽／嘔吐反射時可用口咽或鼻咽呼吸道</td><td><span class="cor c2b">2b</span></td></tr>
+        <tr><td>疑顱底骨折或嚴重凝血異常：<b>口咽</b>優於鼻咽呼吸道</td><td><span class="cor c2a">2a</span></td></tr>
+        <tr><td>心臟停止時常規環狀軟骨按壓</td><td><span class="cor c3">3: No Benefit</span></td></tr>
       </table>
-      <div class="note" style="margin-top:16px"><b>口內異物：</b>非異物引起的心臟停止，CPR 時<b>不需常規檢查口腔</b>。異物哽塞者吹氣前才看口中，看得到才取。</div>
+      <div class="callout ok" style="margin-top:20px"><span class="h">口內異物</span>非異物引起的心臟停止，<b>不需常規檢查口腔</b>。異物哽塞者吹氣前才看口中，看得到才取。</div>
     </div>
   </div>
-  <div class="num"></div>
+  <div class="notes">2025 的重要改變：創傷病人推下顎打不開，就用壓額抬下巴，因為打不開呼吸道比頸椎移動更致命。非專業施救者不要用硬式頸圈，可能讓通氣更困難。</div>
 </section>
 
-<!-- 14 -->
-<section class="slide" data-sec="呼吸">
-  <div class="kicker">B · BREATHING</div>
+<!-- ============ 15. BREATHING ============ -->
+<section class="slide">
+  <div class="kicker">B · Breathing</div>
   <h2>人工呼吸與通氣比</h2><div class="rule"></div>
-  <div class="grid g3">
-    <div class="card navy"><h3>口對口</h3>
-      <p class="small">壓額手的拇指與食指捏鼻；另一手輕提下巴<br>正常吸氣（不深吸）→ 吹 1 秒，<b>眼睛看胸部</b><br>等胸部落下再吹第 2 口<br>無起伏 → 先重新打開呼吸道</p></div>
-    <div class="card teal"><h3>袋瓣面罩 BVM</h3>
-      <p class="small">建議<b>兩人</b>操作：一人雙手密合＋暢通呼吸道，一人擠球<span class="cor c2a">IIa</span><br>雙手面罩＋推下顎<b>優於</b>單手 E-C 鉗夾<br>用<b>成人尺寸</b>面罩（兒科面罩易漏氣）<br>單人施救者基本上不建議用 BVM</p></div>
-    <div class="card amber"><h3>替代途徑</h3>
-      <p class="small">口部無法使用 → <b>口對鼻</b><span class="cor c2a">IIa</span><br>氣切造口 → 口對造口、或用<b>圓形兒科面罩</b>罩住造口<span class="cor c2b">IIb</span><br>口對口袋面罩比面膜式防護片有效</p></div>
+  <div class="cols c3">
+    <div class="card navy"><h3>口對口</h3><p>壓額手的拇指與食指捏鼻；另一手輕提下巴。正常吸氣 → 吹 1 秒，<b>眼睛看胸部</b>；等胸部落下再吹第 2 口；無起伏先重新打開呼吸道</p></div>
+    <div class="card teal"><h3>袋瓣面罩 BVM</h3><p>建議<b>兩人</b>操作：一人雙手密合＋暢通呼吸道，一人擠球<span class="cor c2a">2a</span>。雙手面罩＋推下顎<b>優於</b>單手 E-C 鉗夾；用<b>成人尺寸</b>面罩</p></div>
+    <div class="card amber"><h3>替代途徑</h3><p>口部無法使用 → <b>口對鼻</b><span class="cor c2a">2a</span><br>氣切造口 → 口對造口或<b>圓形兒科面罩</b>罩住造口<span class="cor c2b">2b</span><br>口袋面罩比面膜式防護片有效</p></div>
   </div>
-  <table style="margin-top:20px">
-    <tr><th>情境</th><th>做法</th><th style="width:110px">等級</th></tr>
-    <tr><td>未建立進階呼吸道</td><td><b>30:2</b>，按壓暫停時給 2 口，每口 1 秒內</td><td><span class="cor c2a">IIa</span></td></tr>
-    <tr><td>已建立進階呼吸道（SGA／氣管內管）</td><td>持續壓胸 100–120/分，<b>每 6 秒 1 口</b>，不需配合</td><td><span class="cor c2a">IIa</span></td></tr>
-    <tr><td>有脈搏、呼吸停止</td><td><b>每 6 秒 1 口</b>（10 次/分），需見胸部起伏；每 2 分鐘檢查脈搏</td><td><span class="cor c2a">IIa</span></td></tr>
-    <tr><td>無進階呼吸道，專業人員</td><td>可考慮連續壓胸＋非同步通氣（但無法觀察胸部起伏）</td><td><span class="cor c2b">IIb</span></td></tr>
+  <table class="tight" style="margin-top:22px">
+    <tr><th style="width:30%">情境</th><th>做法</th><th style="width:110px">等級</th></tr>
+    <tr><td>未建立進階呼吸道</td><td><b>30:2</b>，按壓暫停時給 2 口，每口 1 秒內</td><td><span class="cor c2a">2a</span></td></tr>
+    <tr><td>已建立進階呼吸道</td><td>持續壓胸 100–120/分，<b>每 6 秒 1 口</b>，不需配合</td><td><span class="cor c2a">2a</span></td></tr>
+    <tr><td>有脈搏、呼吸停止</td><td><b>每 6 秒 1 口</b>（10 次/分），需見胸部起伏；每 2 分鐘檢查脈搏</td><td><span class="cor c2a">2a</span></td></tr>
+    <tr><td>無進階呼吸道，專業人員</td><td>可考慮連續壓胸＋非同步通氣（但無法觀察胸部起伏）</td><td><span class="cor c2b">2b</span></td></tr>
   </table>
-  <div class="num"></div>
+  <div class="notes">BVM 單人很難做好，兩人雙手密合的效果最好。兒科面罩用在成人容易漏氣。30:2 的好處是暫停時可以看到胸部起伏，確認通氣有效。</div>
 </section>
 
-<!-- 15 -->
-<section class="slide" data-sec="AED">
-  <div class="kicker">D · DEFIBRILLATION</div>
+<!-- ============ 16. AED ============ -->
+<section class="slide">
+  <div class="kicker">D · Defibrillation</div>
   <h2>AED 與早期電擊</h2><div class="rule"></div>
-  <div class="grid" style="grid-template-columns:1.1fr 1fr;gap:22px">
+  <div class="cols" style="grid-template-columns:1.1fr 1fr;gap:30px">
     <div>
-      <ol class="steps" style="columns:2;column-gap:24px">
-        <li>打開開關</li>
-        <li>貼上電擊片</li>
-        <li>電擊片插頭接上主機</li>
-        <li>分析時<b>勿接觸病人</b></li>
-        <li>機器判定須電擊 → 自動充電</li>
-        <li>喊「你離開、我離開、大家都離開」＋手勢</li>
-        <li>按下電擊鈕</li>
-        <li><b>立即壓胸</b>，2 分鐘後依指示</li>
+      <ol class="steps" style="columns:2;column-gap:30px">
+        <li>打開開關</li><li>貼上電擊片</li><li>插頭接上主機</li><li>分析時<b>勿接觸病人</b></li>
+        <li>判定須電擊 → 自動充電</li><li>喊「你離開、我離開、大家都離開」</li><li>按下電擊鈕</li><li><b>立即壓胸</b>，2 分鐘後依指示</li>
       </ol>
-      <div class="card red" style="margin-top:8px"><h3>每延遲 1 分鐘電擊</h3>
-        <p class="small">有人壓胸：存活率下降 <b>3–4%</b>　沒人壓胸：下降 <b>7–10%</b></p></div>
+      <div class="card red" style="margin-top:10px"><h3>每延遲 1 分鐘電擊</h3><p>有人壓胸：存活率下降 <b>3–4%</b>；沒人壓胸：下降 <b>7–10%</b></p></div>
     </div>
     <div>
-      <ul class="small" style="font-size:18px">
-        <li>AED 還沒到或在準備時<b>持續 CPR</b><span class="cor c1">I</span></li>
-        <li>目擊／監測中的 VF/pVT 且電擊器在手 → <b>立即電擊</b><span class="cor c2a">IIa</span></li>
-        <li>電擊後<b>立即恢復壓胸</b>，不暫停檢查心律<span class="cor c2a">IIa</span></li>
-        <li>貼片：前外側或前後位，<b>直徑 &gt; 8 cm</b><span class="cor c2a">IIa</span>；外側片貼在腋中線</li>
-        <li>女性：可<b>調整胸罩</b>而非整件移除<span class="cor c2b">IIb</span></li>
-        <li>早期電擊：倒地 <b>5 分鐘內</b>；院內 <b>3 分鐘內</b></li>
+      <ul class="dots sm">
+        <li>AED 還沒到或在準備時<b>持續 CPR</b><span class="cor c1">1</span></li>
+        <li>目擊／監測中的 VF/pVT 且電擊器在手 → <b>立即電擊</b><span class="cor c2a">2a</span></li>
+        <li>電擊後<b>立即恢復壓胸</b>，不暫停檢查心律<span class="cor c2a">2a</span></li>
+        <li>貼片前外側或前後位，<b>直徑 &gt; 8 cm</b><span class="cor c2a">2a</span></li>
+        <li>女性：可<b>調整胸罩</b>而非整件移除<span class="cor c2b">2b</span></li>
+        <li>早期電擊：院外 <b>5 分鐘內</b>、院內 <b>3 分鐘內</b></li>
       </ul>
-      <div class="note" style="margin-top:10px"><b>公共場所設置：</b>交通要衝、長途交通工具、觀光區、學校與大型集會、購物休閒、旅宿、大型浴場溫泉。目擊 VF 救活率可達 49–74%。</div>
+      <div class="callout ok" style="margin-top:14px"><span class="h">公共場所設置</span>交通要衝、長途交通工具、觀光區、學校與集會場所、購物休閒、旅宿、浴場溫泉。目擊 VF 救活率可達 49–74%。</div>
     </div>
   </div>
-  <div class="num"></div>
+  <div class="notes">AED 到了就馬上用，貼片時壓胸不要停。電擊後不要看心律，直接壓 2 分鐘。調整胸罩而非移除是 2025 新增，目的是減少施救者對女性病人的顧慮。</div>
 </section>
 
-<!-- 16 -->
-<section class="slide" data-sec="團隊 CPR">
-  <div class="kicker">TEAM RESUSCITATION</div>
+<!-- ============ 17. TEAM ============ -->
+<section class="slide">
+  <div class="kicker">Team resuscitation</div>
   <h2>二人以上：急救團隊</h2><div class="rule"></div>
-  <div class="grid g4">
-    <div class="card red"><h3>🫸 壓胸者</h3><p class="small">立即開始，維持 100–120/分<br>第 30 下後停，讓出空檔</p></div>
-    <div class="card teal"><h3>💨 通氣者</h3><p class="small">準備甦醒球，空檔給 2 口<br>胸部落下後壓胸者立即接續</p></div>
-    <div class="card navy"><h3>⚡ AED</h3><p class="small">取得、開機、貼片<br>分析時喊清場</p></div>
-    <div class="card amber"><h3>📞 聯絡</h3><p class="small">啟動 EMS／急救小組<br>計時、記錄</p></div>
+  <div class="cols c4">
+    <div class="card red"><h3>🫸 壓胸者</h3><p>立即開始，維持 100–120/分；第 30 下後讓出空檔</p></div>
+    <div class="card teal"><h3>💨 通氣者</h3><p>準備甦醒球，空檔給 2 口；胸部落下後壓胸者立即接續</p></div>
+    <div class="card navy"><h3>⚡ AED</h3><p>取得、開機、貼片；分析時喊清場</p></div>
+    <div class="card amber"><h3>📞 聯絡</h3><p>啟動 EMS／急救小組；計時、記錄</p></div>
   </div>
-  <div class="grid g2" style="margin-top:20px">
-    <div class="card navy"><h3>換手與節奏</h3>
-      <ul class="small"><li>每 <b>2 分鐘</b>交換角色，換手在 <b>10 秒內</b>完成</li>
-        <li>每 5 個循環（約 2 分鐘）評估脈搏</li>
-        <li>有脈搏無呼吸：每 6 秒 1 口，連續 2 分鐘共 20 次</li>
-        <li>有脈搏有呼吸：擺<b>復甦姿勢</b></li></ul></div>
-    <div class="card teal"><h3>院內團隊</h3>
-      <ul class="small"><li>由具 ALS 訓練的成員組成；多一位 ALS 醫師更有利</li>
-        <li>即時與延時事後檢討（debriefing）並用</li>
-        <li>給施救者心理支持——無論急救成功與否</li></ul></div>
+  <div class="cols c2" style="margin-top:26px">
+    <div class="card navy"><h3>換手與節奏</h3><ul class="dots sm"><li>每 <b>2 分鐘</b>交換角色，換手 <b>10 秒內</b>完成</li><li>每 5 個循環評估脈搏</li><li>有脈搏無呼吸：每 6 秒 1 口，2 分鐘共 20 次</li><li>有脈搏有呼吸：擺<b>復甦姿勢</b></li></ul></div>
+    <div class="card teal"><h3>院內團隊</h3><ul class="dots sm"><li>由具 ALS 訓練的成員組成</li><li>即時與延時事後檢討並用</li><li>無論成功與否，給施救者心理支持</li></ul></div>
   </div>
-  <div class="num"></div>
+  <div class="notes">2015 年起強調急救團隊的分工，多人同時進行。換手時間教材寫 10 秒內；AHA 提供者課程通常要求 5 秒內，可依站上評核標準說明。</div>
 </section>
 
-<!-- 17 -->
-<section class="slide" data-sec="常見錯誤">
-  <div class="kicker">COMMON PITFALLS</div>
+<!-- ============ 18. PITFALLS ============ -->
+<section class="slide">
+  <div class="kicker">Common pitfalls</div>
   <h2>CPR 常見錯誤與併發症</h2><div class="rule"></div>
-  <div class="grid" style="grid-template-columns:1.35fr 1fr;gap:22px">
-    <table>
-      <tr><th style="width:120px">環節</th><th>常見錯誤</th></tr>
+  <div class="cols" style="grid-template-columns:1.4fr 1fr;gap:28px">
+    <table class="tight">
+      <tr><th style="width:110px">環節</th><th>常見錯誤</th></tr>
       <tr><td><b>叫</b></td><td>未拍雙肩；未揮手引起注意；未<b>指定一人</b>打 119、拿 AED</td></tr>
       <tr><td><b>A</b></td><td>下巴未確實抬起</td></tr>
-      <tr><td><b>C</b></td><td>位置偏到肋骨；手肘彎曲；速度過快或過慢；跳躍式、搖擺式；未完全回彈或手離開胸部；深度不夠；答數不對</td></tr>
-      <tr><td><b>B</b></td><td>吹不進去：頭後仰不夠 → 嘴沒蓋全 → 鼻沒捏緊 → 嘴被提下巴合攏；吹太長、太深、太用力；<b>沒看胸部</b></td></tr>
+      <tr><td><b>C</b></td><td>位置偏到肋骨；手肘彎曲；速度過快或過慢；跳躍式、搖擺式；未完全回彈；深度不夠；答數不對</td></tr>
+      <tr><td><b>B</b></td><td>吹不進去：頭後仰不夠 → 嘴沒蓋全 → 鼻沒捏緊 → 嘴被合攏；吹太長太用力；<b>沒看胸部</b></td></tr>
       <tr><td><b>節奏</b></td><td>拖泥帶水，2 分鐘做不完 5 個循環</td></tr>
     </table>
     <div>
-      <div class="card red" style="margin-bottom:14px"><h3>併發症</h3>
-        <p class="small">胸骨／肋骨骨折、肋軟骨分離、氣胸、血胸、肺挫傷、肝撕裂傷、脂肪栓塞<br><b>仍以救回病人為優先</b></p></div>
-      <div class="card amber"><h3>胃脹氣</h3>
-        <p class="small">原因：呼吸道不夠通暢、吹太用力或太快<br>不影響呼吸 → 不必理會<br>影響呼吸 → <b>病人側臥</b>再把氣壓出</p></div>
+      <div class="card red" style="margin-bottom:18px"><h3>併發症</h3><p>胸骨／肋骨骨折、肋軟骨分離、氣胸、血胸、肺挫傷、肝撕裂傷、脂肪栓塞。<b>仍以救回病人為優先</b></p></div>
+      <div class="card amber"><h3>胃脹氣</h3><p>原因：呼吸道不夠通暢、吹太用力或太快。不影響呼吸不必理會；影響呼吸 → <b>病人側臥</b>再把氣壓出</p></div>
     </div>
   </div>
-  <div class="num"></div>
+  <div class="notes">這張表可以當作操作評核的檢核表。吹不進去時依序檢查：頭後仰、嘴密合、捏鼻、嘴有沒有被合攏。</div>
 </section>
 
-<!-- 18 -->
-<section class="slide" data-sec="復甦姿勢">
-  <div class="kicker">RECOVERY POSITION</div>
-  <h2>復甦姿勢<small>恢復脈搏、呼吸，但意識未恢復</small></h2><div class="rule" style="margin-bottom:18px"></div>
-  <div class="grid" style="grid-template-columns:1.12fr 1fr;gap:26px;align-items:start">
+<!-- ============ 19. RECOVERY POSITION ============ -->
+<section class="slide">
+  <div class="kicker">Recovery position</div>
+  <h2>復甦姿勢<small>恢復脈搏、呼吸，但意識未恢復</small></h2><div class="rule" style="margin-bottom:22px"></div>
+  <div class="cols" style="grid-template-columns:1.12fr 1fr;gap:32px;align-items:start">
     <div>
       <img class="fig" src="assets/recovery-position.png" alt="復甦姿勢四步驟示意圖">
-      <div class="xs muted" style="margin-top:6px">圖片來源：Rusty〈朋友醉倒了該怎麼辦？尼古喵喵教你「復甦姿勢」的正確步驟〉，一飲樂酒誌（1shot.tw），2026/7/27</div>
-      <div class="note" style="margin-top:12px"><b>原則<span class="cor c2a">IIa</span>：</b>接近側臥、呼吸道通暢、不壓迫胸部、易引流、穩固。標準姿勢沒有統一。</div>
+      <p class="cap">圖片來源：Rusty〈朋友醉倒了該怎麼辦？尼古喵喵教你「復甦姿勢」的正確步驟〉，一飲樂酒誌（1shot.tw），2026/7/27</p>
+      <div class="callout ok" style="margin-top:12px"><span class="h">原則 · Class 2a</span>接近側臥、呼吸道通暢、不壓迫胸部、易引流、穩固。標準姿勢沒有統一。</div>
     </div>
     <div>
       <ol class="steps">
-        <li><b>近側手擺直角：</b>跪於病人一側，把靠近你的手擺成與身體呈直角</li>
-        <li><b>遠側手過胸：</b>把遠側手橫過胸前，手背貼在近你側的臉頰／肩旁</li>
-        <li><b>屈膝、翻身：</b>遠側腳彎起；扶住遠側肩膀與臀部，將病人往你這側翻過來</li>
-        <li><b>調整穩定：</b>上方腿呈弓箭步；臉頰枕在手背上；<b>頭微後仰</b>保持呼吸道通暢</li>
+        <li><b>近側手擺直角：</b>跪於病人一側，靠近你的手與身體呈直角</li>
+        <li><b>遠側手過胸：</b>遠側手橫過胸前，手背貼在近你側的臉頰／肩旁</li>
+        <li><b>屈膝、翻身：</b>遠側腳彎起；扶住遠側肩膀與臀部，往你這側翻</li>
+        <li><b>調整穩定：</b>上方腿呈弓箭步；臉頰枕手背；<b>頭微後仰</b></li>
       </ol>
-      <div class="warn" style="margin-top:10px"><b>指引補充：</b>只用在<b>呼吸正常</b>、不需 CPR 者；瀕死呼吸或創傷者不要擺復甦姿勢。擺好後要<b>持續監測呼吸</b>，一旦呼吸變不正常 → 翻回仰臥開始 CPR。</div>
+      <div class="callout red" style="margin-top:12px"><span class="h">⚠ 指引補充</span>只用在<b>呼吸正常</b>者；瀕死呼吸或創傷者不要擺。擺好後<b>持續監測呼吸</b>，變不正常 → 翻回仰臥開始 CPR。</div>
     </div>
   </div>
-  <div class="src">ACLS 精華第七版 第 3 章；ERC Guidelines 2025 First Aid（recovery position）</div>
-  <div class="num"></div>
+  <div class="src">ACLS 精華第七版 第 3 章；ERC Guidelines 2025 First Aid</div>
+  <div class="notes">復甦姿勢的目的是防止舌根後倒和嘔吐吸入。教材的五步驟在這裡合成四步，對應圖的四格。ERC 2025 急救指引補充：瀕死呼吸或創傷不要擺復甦姿勢，擺好後要持續看呼吸，避免錯過心臟停止。</div>
 </section>
 
-<!-- 19 -->
-<section class="slide" data-sec="異物哽塞 FBAO">
-  <div class="kicker">FOREIGN-BODY AIRWAY OBSTRUCTION · CONSCIOUS</div>
+<!-- ============ 20. FBAO CONSCIOUS ============ -->
+<section class="slide">
+  <div class="kicker">FBAO · Conscious · 圖 3-2</div>
   <h2>呼吸道異物哽塞（清醒）</h2><div class="rule"></div>
-  <div class="grid g2">
+  <div class="cols c2">
     <div>
-      <div class="card teal" style="margin-bottom:14px"><h3>輕度阻塞</h3>
-        <p class="small">能咳嗽、能說話 → <b>鼓勵咳嗽</b>，持續觀察是否惡化<span class="cor c1">I</span></p></div>
-      <div class="card red"><h3>嚴重阻塞的徵象</h3>
-        <p class="small">雙手掐住脖子（標準手勢）<br>咳嗽微弱或無法咳嗽・無法說話<br>發紺・意識改變・呼吸停止</p></div>
-      <div class="card navy" style="margin-top:14px"><h3>情境</h3>
-        <p class="small">餐廳裡有人站起掐住脖子，「你是不是嗆到了？」→ 起初大力咳嗽 → 咳聲漸弱、只能點頭、臉色發紺 → <b>指派一人打 119，開始處置</b></p></div>
+      <div class="card teal" style="margin-bottom:16px"><h3>輕度阻塞</h3><p>能咳嗽、能說話 → <b>鼓勵咳嗽</b>，觀察是否惡化<span class="cor c1">1</span></p></div>
+      <div class="card red" style="margin-bottom:16px"><h3>嚴重阻塞的徵象</h3><p>雙手掐住脖子（標準手勢）；咳嗽微弱或無法咳嗽；無法說話；發紺；意識改變；呼吸停止</p></div>
+      <div class="card navy"><h3>情境</h3><p>餐廳有人掐住脖子 →「你是不是嗆到了？」→ 咳聲漸弱、只能點頭、臉色發紺 → <b>指派一人打 119，開始處置</b></p></div>
     </div>
     <div>
-      <div class="card red" style="border-width:2px;border-color:var(--red)"><h3><span class="tag new">2025</span>嚴重 FBAO：重複循環</h3>
-        <p style="font-size:26px;font-weight:900;color:var(--red);margin:6px 0 10px">5 次拍背 ⇄ 5 次腹戳</p>
-        <p class="small">直到異物排出或病人失去反應<span class="cor c1">I</span>；並<b>啟動 EMS</b><span class="cor c1">I</span><br>
-        拍背：站於側後方，扶住胸前，掌根拍兩肩胛骨間<br>
-        腹戳：拳眼朝內，置於<b>肚臍稍上方</b>，另一手包住，向內向上</p></div>
-      <div class="card amber" style="margin-top:14px"><h3>改用胸戳</h3>
-        <p class="small"><b>懷孕後期</b>或<b>無法環抱腹部</b>（肥胖、輪椅）→ 5 次拍背 ⇄ <b>5 次胸戳</b><span class="cor c1">I</span></p></div>
-      <div class="note" style="margin-top:14px"><b>為什麼加入拍背？</b>傷害較腹戳少（腹戳曾致主動脈剝離、胃破裂），且與兒科一致；通常需要多種手法才能移除異物。</div>
+      <div class="card red" style="border:2px solid var(--red);border-top-width:6px;margin-bottom:16px"><h3><span class="tag new">NEW 2025</span> 嚴重 FBAO：重複循環</h3>
+        <p style="font-size:36px;font-weight:900;color:var(--red);margin:6px 0 10px">5 次拍背 ⇄ 5 次腹戳</p>
+        <p>直到異物排出或失去反應<span class="cor c1">1</span>；並<b>啟動 EMS</b><span class="cor c1">1</span><br>腹戳：拳眼朝內置於<b>肚臍稍上方</b>，另一手包住，向內向上</p></div>
+      <div class="card amber" style="margin-bottom:16px"><h3>改用胸戳</h3><p><b>懷孕後期</b>或<b>無法環抱腹部</b> → 5 次拍背 ⇄ <b>5 次胸戳</b><span class="cor c1">1</span></p></div>
+      <div class="callout ok"><span class="h">為什麼加拍背</span>傷害較腹戳少（腹戳曾致主動脈剝離、胃破裂），且與兒科一致。</div>
     </div>
   </div>
-  <div class="num"></div>
+  <div class="notes">2025 年成人 FBAO 改成拍背和腹戳交替，和嬰兒、兒童的做法一致。輕度阻塞還能咳嗽時不要介入，鼓勵咳嗽並觀察。</div>
 </section>
 
-<!-- 20 -->
-<section class="slide" data-sec="異物哽塞 FBAO">
-  <div class="kicker">FBAO · UNRESPONSIVE</div>
+<!-- ============ 21. FBAO UNRESPONSIVE ============ -->
+<section class="slide">
+  <div class="kicker">FBAO · Unresponsive</div>
   <h2>異物哽塞：失去意識之後</h2><div class="rule"></div>
-  <div class="grid g2">
-    <div class="flow">
-      <div class="fbox r">病人失去反應 → 保護病人慢慢躺平</div><div class="arrow">▼</div>
-      <div class="fbox">尚未有人求救 → <b>立即啟動 EMS</b></div><div class="arrow">▼</div>
-      <div class="fbox r"><b>立即 CPR，從壓胸開始</b><span class="cor c1">I</span><br><span class="small">壓胸產生的呼吸道壓力可推出異物；無論有無脈搏都壓</span></div><div class="arrow">▼</div>
-      <div class="fbox t">每次吹氣前看口腔，<b>看得到才移除</b><span class="cor c1">I</span></div><div class="arrow">▼</div>
-      <div class="fbox">持續 CPR 直到高級救護人員到達</div>
+  <div class="cols c2">
+    <div class="fl">
+      <div class="fb r">病人失去反應 → 保護病人慢慢躺平</div><div class="fa">▼</div>
+      <div class="fb">尚未有人求救 → <b>立即啟動 EMS</b></div><div class="fa">▼</div>
+      <div class="fb r"><b>立即 CPR，從壓胸開始</b><span class="cor c1">1</span><br>壓胸的呼吸道壓力可推出異物</div><div class="fa">▼</div>
+      <div class="fb t">每次吹氣前看口腔，<b>看得到才移除</b><span class="cor c1">1</span></div><div class="fa">▼</div>
+      <div class="fb">持續 CPR 直到高級救護人員到達</div>
     </div>
     <div>
       <table>
-        <tr><th>不要做</th><th style="width:130px">等級</th></tr>
-        <tr><td><b>盲目手指掏取</b>（blind finger sweep）：可能把異物推得更深</td><td><span class="cor c3h">III: Harm</span></td></tr>
-        <tr><td>吸力型呼吸道清除裝置：有效性與安全性尚未確立</td><td><span class="cor c2b">IIb</span></td></tr>
+        <tr><th>不要做</th><th style="width:150px">等級</th></tr>
+        <tr><td><b>盲目手指掏取</b>：可能把異物推更深</td><td><span class="cor c3">3: Harm</span></td></tr>
+        <tr><td>吸力型呼吸道清除裝置：有效性與安全性未確立</td><td><span class="cor c2b">2b</span></td></tr>
       </table>
-      <div class="note" style="margin-top:18px"><b>通氣會不會把異物推更深？</b>沒有證據顯示有異物時通氣會使阻塞惡化；理論上把異物推入單側主支氣管反而能解除完全阻塞。</div>
-      <div class="warn" style="margin-top:14px">移除異物<b>不可延誤</b>壓胸與通氣的時間。</div>
+      <div class="callout ok" style="margin-top:22px"><span class="h">通氣會把異物推更深嗎？</span>沒有證據顯示會惡化阻塞；理論上推入單側主支氣管反而能解除完全阻塞。</div>
+      <div class="callout red" style="margin-top:16px"><span class="h">注意</span>移除異物<b>不可延誤</b>壓胸與通氣。</div>
     </div>
   </div>
   <div class="src">ACLS 精華第七版 圖 3-2 2025 年成人 FBAO 流程圖</div>
-  <div class="num"></div>
+  <div class="notes">失去意識後無論有沒有脈搏都直接從壓胸開始 CPR，這與較好的神經預後相關。盲目手指掏取是 Class 3 有害。</div>
 </section>
 
-<!-- 21 -->
-<section class="slide" data-sec="特殊情況">
-  <div class="kicker">SPECIAL CIRCUMSTANCES</div>
+<!-- ============ 22. SPECIAL ============ -->
+<section class="slide">
+  <div class="kicker">Special circumstances</div>
   <h2>特殊情況下的 BLS</h2><div class="rule"></div>
-  <div class="grid g3">
-    <div class="card red"><h3>💊 鴉片過量</h3><p class="small">等 Naloxone 時先求救＋含通氣的 CPR<span class="cor c1">I</span><br>有脈搏、呼吸抑制 → 人工呼吸／BVM<span class="cor c1">I</span><br>給 <b>Naloxone</b><span class="cor c1">I</span>，民眾也可施打</p></div>
-    <div class="card teal"><h3>🌊 溺水</h3><p class="small"><b>先急救 2 分鐘再求救</b>，重點在呼吸<br>水不是呼吸道阻塞的原因<br>只有明顯外傷、酒醉、跳水時才需護頸</p></div>
-    <div class="card navy"><h3>🥶 低體溫</h3><p class="small">流程與一般相同<br>脈搏檢查仍 ≤ 10 秒<br><b>不要量體溫、不要等回溫</b>才 CPR；搬運動作輕柔</p></div>
-    <div class="card amber"><h3>🤰 孕婦</h3><p class="small">宮底 ≥ 臍：<b>徒手左推子宮</b><span class="cor c1">I</span><br>100% O<sub>2</sub>、避免過度通氣<span class="cor c1">I</span><br>未 ROSC → 復甦性生產，<b>5 分鐘內</b>娩出<span class="cor c1">I</span><br>CPR 中不監測胎心<span class="cor c3n">III</span></p></div>
-    <div class="card navy"><h3>⚖️ 肥胖</h3><p class="small">技巧<b>與一般相同</b><span class="cor c1">I</span><br>不延遲時移到堅硬平面<span class="cor c2a">IIa</span>；可加大力量<span class="cor c2b">IIb</span><br>院內常規用 CPR 背板<span class="cor c3h">III: Harm</span></p></div>
-    <div class="card red"><h3>⚙️ 機械 CPR</h3><p class="small"><b>不建議常規使用</b><span class="cor c3h">III: Harm</span><br>大型 RCT 無存活益處，神經預後較差<br>特定情境（運送、狹窄空間）可考慮<span class="cor c2b">IIb</span>，嚴格限制中斷</p></div>
+  <div class="cols c3" style="gap:22px">
+    <div class="card red"><h3>💊 鴉片過量</h3><p>等 Naloxone 時先求救＋含通氣的 CPR<span class="cor c1">1</span>；有脈搏、呼吸抑制 → 人工呼吸／BVM<span class="cor c1">1</span>；給 <b>Naloxone</b><span class="cor c1">1</span>，民眾也可施打</p></div>
+    <div class="card teal"><h3>🌊 溺水</h3><p><b>先急救 2 分鐘再求救</b>，重點在呼吸；水不是阻塞原因；只有明顯外傷、酒醉、跳水才需護頸</p></div>
+    <div class="card navy"><h3>🥶 低體溫</h3><p>流程與一般相同；脈搏檢查仍 ≤ 10 秒；<b>不要量體溫、不要等回溫</b>才 CPR；搬運輕柔</p></div>
+    <div class="card amber"><h3>🤰 孕婦</h3><p>宮底 ≥ 臍：<b>徒手左推子宮</b><span class="cor c1">1</span>；100% O₂、避免過度通氣<span class="cor c1">1</span>；未 ROSC → 復甦性生產 <b>5 分鐘內</b><span class="cor c1">1</span></p></div>
+    <div class="card navy"><h3>⚖️ 肥胖</h3><p>技巧<b>與一般相同</b><span class="cor c1">1</span>；不延遲時移到堅硬平面<span class="cor c2a">2a</span>；可加大力量<span class="cor c2b">2b</span>；院內常規 CPR 背板<span class="cor c3">3: Harm</span></p></div>
+    <div class="card red"><h3>⚙️ 機械 CPR</h3><p><b>不建議常規使用</b><span class="cor c3">3: Harm</span>；RCT 無存活益處、神經預後較差；運送或狹窄空間可考慮<span class="cor c2b">2b</span></p></div>
   </div>
-  <div class="num"></div>
+  <div class="notes">這頁每一項在第 12 章特殊狀況下的復甦術會詳細講，BLS 站只需要知道重點：鴉片過量給 naloxone、溺水先救、低體溫不要等回溫、孕婦推子宮、肥胖照常壓、不要常規用機械 CPR。</div>
 </section>
 
-<!-- 22 -->
-<section class="slide" data-sec="特殊情況">
-  <div class="kicker">TIME-SENSITIVE EMERGENCIES</div>
-  <h2>BLS 在心肌梗塞與中風的角色：<span style="color:var(--red)">認出症狀、立即就醫</span></h2><div class="rule"></div>
-  <div class="grid g2">
-    <div class="card red"><h3>❤️ 急性心肌梗塞</h3>
-      <ul class="small">
-        <li>半數以上死亡發生在院外、症狀出現後 <b>4 小時內</b></li>
-        <li>典型：胸部不適、喘、冒冷汗、放射至左肩，<b>&gt; 15 分鐘</b>；老人、女性、糖尿病易不典型</li>
-        <li>無禁忌症：嚼碎 Aspirin <b>160–325 mg</b>（Bokey 100 mg × 2–3 顆）<span class="cor c2a">IIa</span>；不確定就不給</li>
-        <li>12 導程 ECG；STEMI 直送 PCI 醫院（30 分鐘內）<span class="cor c2a">IIa</span>，可直入導管室</li>
-        <li>O<sub>2</sub> 只在 SaO<sub>2</sub> &lt; 90% 或呼吸困難時給<span class="cor c1">I</span></li>
-        <li>NTG 禁忌：低血壓、24 h 內用過 Viagra；NSTE-ACS 用 Morphine 要小心</li>
-      </ul></div>
-    <div class="card teal"><h3>🧠 急性腦中風</h3>
-      <ul class="small">
-        <li>出現症狀 → <b>立即打 119</b><span class="cor c1">I</span>；很多延誤來自病人本身</li>
-        <li>血栓溶解劑需在發作 3–4.5 小時內</li>
-        <li><b>FAST</b>：Face・Arm・Speech・Time</li>
-        <li><b>CPSS</b>：微笑、舉雙手、說句話，任一項異常 → 中風可能性 <b>72%</b></li>
-        <li>EMT 院前中風評估<span class="cor c1">I</span>；問清<b>最後正常時間</b>，家屬隨車</li>
-        <li>SpO<sub>2</sub> &lt; 94% 才給氧<span class="cor c1">I</span>；到院可直送電腦斷層室</li>
-      </ul></div>
+<!-- ============ 23. AMI & STROKE ============ -->
+<section class="slide">
+  <div class="kicker">Time-sensitive emergencies</div>
+  <h2>BLS 在心肌梗塞與中風：<span class="red">認出症狀、立即就醫</span></h2><div class="rule"></div>
+  <div class="cols c2">
+    <div class="card red"><h3>❤️ 急性心肌梗塞</h3><ul class="dots sm">
+      <li>半數以上死亡在院外、症狀出現後 <b>4 小時內</b></li>
+      <li>胸部不適、喘、冒冷汗、放射至左肩，<b>&gt; 15 分鐘</b>；老人、女性、糖尿病易不典型</li>
+      <li>無禁忌症：嚼碎 Aspirin <b>160–325 mg</b><span class="cor c2a">2a</span>；不確定就不給</li>
+      <li>STEMI 直送 PCI 醫院（30 分鐘內）<span class="cor c2a">2a</span></li>
+      <li>SaO₂ &lt; 90% 或呼吸困難才給氧<span class="cor c1">1</span></li>
+    </ul></div>
+    <div class="card teal"><h3>🧠 急性腦中風</h3><ul class="dots sm">
+      <li>出現症狀 → <b>立即打 119</b><span class="cor c1">1</span>；延誤多來自病人本身</li>
+      <li>血栓溶解劑需在發作 3–4.5 小時內</li>
+      <li><b>FAST</b>：Face・Arm・Speech・Time</li>
+      <li><b>CPSS</b>：微笑、舉雙手、說句話，任一異常 → 中風可能 <b>72%</b></li>
+      <li>問清<b>最後正常時間</b>；SpO₂ &lt; 94% 才給氧<span class="cor c1">1</span></li>
+    </ul></div>
   </div>
-  <div class="num"></div>
+  <div class="notes">BLS 在這兩個疾病的角色就是辨識和送醫。細節分別在第 9 章 ACS 和第 11 章腦中風的投影片。Aspirin 國內常用 Bokey 100 mg，2 到 3 顆。</div>
 </section>
 
-<!-- 23 -->
-<section class="slide" data-sec="統整">
-  <div class="kicker">SUMMARY</div>
+<!-- ============ 24. TAKE-HOME ============ -->
+<section class="slide">
+  <div class="kicker">Take-home</div>
   <h2>統整：成人 BLS 一頁看完</h2><div class="rule" style="margin-bottom:16px"></div>
-  <div class="grid g3 sumgrid" style="gap:14px">
-    <div class="card red"><h3>① 辨識與啟動</h3><ul>
-      <li>無反應＋無呼吸／瀕死呼吸＝心臟停止</li>
-      <li>專業人員 ≤ 10 秒同時查脈搏呼吸</li>
-      <li>手機擴音：邊打 119 邊 CPR</li></ul></div>
-    <div class="card red"><h3>② 高品質 CPR</h3><ul>
-      <li>100–120 次/分・5–6 cm・完全回彈</li>
-      <li>中斷 &lt; 10 秒・CCF ≥ 60%・2 分鐘換手</li>
-      <li>堅硬平面，軀幹約與施救者膝齊</li></ul></div>
-    <div class="card red"><h3>③ 呼吸道與通氣</h3><ul>
-      <li>壓額抬下巴；創傷先推下顎，不行就仰頭</li>
-      <li>30:2，每口 1 秒，見胸部起伏即可</li>
-      <li>有進階呼吸道或有脈搏：每 6 秒 1 口</li></ul></div>
-    <div class="card navy"><h3>④ AED</h3><ul>
-      <li>AED 到就用，準備時不停壓</li>
-      <li>電擊 1 次 → 立即 CPR 2 分鐘</li>
-      <li>院外 ≤ 5 分鐘、院內 ≤ 3 分鐘電擊</li></ul></div>
-    <div class="card navy"><h3>⑤ 復甦姿勢・異物</h3><ul>
-      <li>有脈搏、呼吸正常、意識未恢復 → 側臥並持續監測</li>
-      <li>清醒嚴重 FBAO：5 拍背 ⇄ 5 腹戳（孕婦／肥胖改胸戳）</li>
-      <li>失去意識 → CPR；不盲目掏取</li></ul></div>
-    <div class="card teal"><h3>⑥ 2025 要記得的</h3><ul>
-      <li>一條六環生存之鏈</li>
-      <li>Naloxone 納入 BLS；機械 CPR 不常規使用</li>
-      <li>肥胖病人 CPR 技巧不變</li></ul></div>
+  <div class="cols c3 th" style="gap:16px">
+    <div class="card red"><h3><span class="mono red">01</span> 辨識與啟動</h3><ul class="dots sm"><li>無反應＋無呼吸／瀕死呼吸＝心臟停止</li><li>專業人員 ≤ 10 秒同時查脈搏呼吸</li><li>手機擴音：邊打 119 邊 CPR</li></ul></div>
+    <div class="card red"><h3><span class="mono red">02</span> 高品質 CPR</h3><ul class="dots sm"><li>100–120 次/分・5–6 cm・完全回彈</li><li>中斷 &lt; 10 秒・CCF ≥ 60%・2 分鐘換手</li><li>堅硬平面，軀幹約與施救者膝齊</li></ul></div>
+    <div class="card red"><h3><span class="mono red">03</span> 呼吸道與通氣</h3><ul class="dots sm"><li>壓額抬下巴；創傷先推下顎，不行就仰頭</li><li>30:2，每口 1 秒，見胸部起伏即可</li><li>有進階呼吸道或有脈搏：每 6 秒 1 口</li></ul></div>
+    <div class="card navy"><h3><span class="mono red">04</span> AED</h3><ul class="dots sm"><li>AED 到就用，準備時不停壓</li><li>電擊 1 次 → 立即 CPR 2 分鐘</li><li>院外 ≤ 5 分鐘、院內 ≤ 3 分鐘</li></ul></div>
+    <div class="card navy"><h3><span class="mono red">05</span> 復甦姿勢・異物</h3><ul class="dots sm"><li>呼吸正常、意識未恢復 → 側臥並監測</li><li>清醒嚴重 FBAO：5 拍背 ⇄ 5 腹戳</li><li>失去意識 → CPR；不盲目掏取</li></ul></div>
+    <div class="card teal"><h3><span class="mono red">06</span> 2025 要記得的</h3><ul class="dots sm"><li>一條六環生存之鏈</li><li>Naloxone 納入 BLS；機械 CPR 不常規</li><li>肥胖病人 CPR 技巧不變</li></ul></div>
   </div>
-  <div class="warn" style="margin-top:16px;text-align:center;font-size:20px"><b>壓得快、壓得深、完全回彈、少中斷、勿過度通氣</b>——有高品質 BLS，後面的 ACLS 才有機會。</div>
-  <div class="num"></div>
+  <div class="callout red" style="margin-top:18px;text-align:center;font-size:25px"><b>壓得快、壓得深、完全回彈、少中斷、勿過度通氣</b>——有高品質 BLS，後面的 ACLS 才有機會。</div>
+  <div class="notes">最後用這頁做總複習，可以請學員輪流說出每一格的重點。</div>
 </section>
 
-<!-- 24 -->
-<section class="slide" data-sec="參考文獻">
-  <div class="kicker">REFERENCES</div>
-  <h2>參考文獻</h2><div class="rule"></div>
-  <ol style="padding-left:1.3em">
-    <li class="small">胡勝川、吳孟諭、楊久滕、施美秀。〈第 3 章 成人基本救命術〉。《ACLS 精華》第七版。</li>
-    <li class="small">Kleinman ME, Buick JE, Huber N, et al. Part 7: Adult Basic Life Support: 2025 American Heart Association Guidelines for CPR and ECC. <i>Circulation.</i> 2025;152(suppl 2):S448–S478. doi:10.1161/CIR.0000000000001369</li>
-    <li class="small">Del Rios M, Bartos JA, Panchal AR, et al. Part 1: Executive Summary: 2025 AHA Guidelines for CPR and ECC. <i>Circulation.</i> 2025;152(suppl 2):S284–S312. doi:10.1161/CIR.0000000000001372</li>
-    <li class="small">Dezfulian C, Cabañas JG, Buckley JR, et al. Part 4: Systems of Care: 2025 AHA Guidelines for CPR and ECC. <i>Circulation.</i> 2025;152(suppl 2):S353–S384. doi:10.1161/CIR.0000000000001378</li>
-    <li class="small">Smyth MA, van Goor S, Hansen CM, et al. European Resuscitation Council Guidelines 2025 Adult Basic Life Support. <i>Resuscitation.</i> 2025;215(suppl 1):110771. doi:10.1016/j.resuscitation.2025.110771</li>
-    <li class="small">European Resuscitation Council Guidelines 2025: First Aid（recovery position）. <i>Resuscitation.</i> 2025.</li>
-    <li class="small">復甦姿勢示意圖：Rusty。〈朋友醉倒了該怎麼辦？尼古喵喵教你「復甦姿勢」的正確步驟〉。一飲樂酒誌（1shot.tw），2026 年 7 月 27 日。</li>
-  </ol>
-  <p class="xs muted" style="margin-top:22px">建議等級：<span class="cor c1">I</span> 強烈建議　<span class="cor c2a">IIa</span> 中度建議　<span class="cor c2b">IIb</span> 弱建議　<span class="cor c3n">III: No benefit</span> 無益　<span class="cor c3h">III: Harm</span> 有害</p>
-  <p class="xs muted" style="margin-top:10px">操作：← → / 空白鍵換頁・F 全螢幕・Home/End 首末頁・列印可輸出 PDF</p>
-  <div class="num"></div>
+<!-- ============ 25. REFERENCES ============ -->
+<section class="slide">
+  <div class="kicker">References</div>
+  <h2>參考資料 <small>點擊「連結 ↗」開啟原文（DOI）</small></h2><div class="rule" style="margin-bottom:18px"></div>
+  <ul class="refs">
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">教材</span>胡勝川、吳孟諭、楊久滕、施美秀。〈第 3 章 成人基本救命術〉。《ACLS 精華》第七版。圖 3-1、3-2 依原圖內容重繪。</li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Kleinman ME, Buick JE, Huber N, et al. Part 7: Adult Basic Life Support. 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i> 2025;152(16 Suppl 2):S448–S478. <a href="https://doi.org/10.1161/CIR.0000000000001369" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Del Rios M, Bartos JA, Panchal AR, et al. Part 1: Executive Summary. 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i> 2025;152(16 Suppl 2):S284–S312. <a href="https://doi.org/10.1161/CIR.0000000000001372" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Dezfulian C, Cabañas JG, Buckley JR, et al. Part 4: Systems of Care. 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i> 2025;152(16 Suppl 2):S353–S384. <a href="https://doi.org/10.1161/CIR.0000000000001378" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Smyth MA, van Goor S, Hansen CM, et al. European Resuscitation Council Guidelines 2025 Adult Basic Life Support. <i>Resuscitation</i> 2025;215(Suppl 1):110771. <a href="https://doi.org/10.1016/j.resuscitation.2025.110771" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>European Resuscitation Council Guidelines 2025: First Aid（recovery position）. <i>Resuscitation</i> 2025.</li>
+    <li><span class="tag warn" style="vertical-align:1px;margin-right:8px">圖片</span>復甦姿勢示意圖：Rusty。〈朋友醉倒了該怎麼辦？尼古喵喵教你「復甦姿勢」的正確步驟〉。一飲樂酒誌（1shot.tw），2026-07-27。<a href="https://www.1shot.tw/63697/%E5%B0%BC%E5%8F%A4%E5%96%B5%E5%96%B5%E6%95%99%E4%BD%A0%E3%80%8C%E5%BE%A9%E7%94%A6%E5%A7%BF%E5%8B%A2%E3%80%8D%E7%9A%84%E6%AD%A3%E7%A2%BA%E6%AD%A5%E9%A9%9F" target="_blank" rel="noopener">連結 ↗</a></li>
+  </ul>
+  <div class="callout" style="margin-top:18px;font-size:18px;padding:10px 18px"><span class="h">使用聲明</span>本投影片供 ACLS 教學使用。實際處置依最新指引與院內規範。</div>
 </section>
 
-</div>
-<div id="nav"><button id="prev" aria-label="上一頁">◀</button><button id="full" aria-label="全螢幕">⛶</button><button id="next" aria-label="下一頁">▶</button></div>
-<div id="help">← → 換頁・F 全螢幕</div>
+</div></div>
+<div id="bar"></div>
+<div id="help">← → 翻頁 · F 全螢幕 · N 備註 · P 列印</div>
+<div id="notes"></div>
+<nav id="mnav"><button id="mprev" aria-label="上一頁">‹</button><div class="mid"><span id="mpg"></span><button class="nb" id="mnotes">備註</button></div><button id="mnext" aria-label="下一頁">›</button></nav>
+
 <script>
-(function(){
-  var slides=[].slice.call(document.querySelectorAll('.slide'));
-  var stage=document.getElementById('stage'), bar=document.getElementById('bar');
-  var n=slides.length, i=0;
-  slides.forEach(function(s,k){var e=s.querySelector('.num'); if(e) e.textContent=(k+1)+' / '+n;});
-  function fit(){var s=Math.min(innerWidth/1280,innerHeight/720);stage.style.transform='translate(-50%,-50%) scale('+s+')';}
-  function go(k){i=Math.max(0,Math.min(n-1,k));slides.forEach(function(s,j){s.classList.toggle('active',j===i)});
-    bar.style.width=((i+1)/n*100)+'%'; if(location.hash!=='#'+(i+1)) history.replaceState(null,'','#'+(i+1));}
-  function fs(){ if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();} else {document.exitFullscreen();}}
-  addEventListener('keydown',function(e){
-    if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();go(i+1);}
-    else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();go(i-1);}
-    else if(e.key==='Home')go(0); else if(e.key==='End')go(n-1);
-    else if(e.key==='f'||e.key==='F')fs();
+/* ---------- deck controller ---------- */
+const slides=[...document.querySelectorAll(".slide")];
+const deck=document.getElementById("deck"),bar=document.getElementById("bar"),notesEl=document.getElementById("notes");
+slides.forEach((s,i)=>s.setAttribute("data-num",(i+1)+" / "+slides.length));
+let cur=0,mobile=false;
+/* wrap wide content so it can scroll sideways on phones (no effect on desktop) */
+deck.querySelectorAll("table,svg.flow,.tl").forEach(t=>{const w=document.createElement("div");w.className="xs";t.parentNode.insertBefore(w,t);w.appendChild(t)});
+/* minimum readable font size in mobile mode (logical px, before zoom) */
+const MINFS=19;let bumped=[];
+function bumpFonts(){
+  deck.querySelectorAll(".slide *").forEach(e=>{
+    if(e.closest("svg"))return;
+    const fs=parseFloat(getComputedStyle(e).fontSize);
+    if(fs<MINFS){bumped.push([e,e.style.fontSize]);e.style.fontSize=MINFS+"px"}
   });
-  document.getElementById('next').onclick=function(){go(i+1)};
-  document.getElementById('prev').onclick=function(){go(i-1)};
-  document.getElementById('full').onclick=fs;
-  var x0=null; addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
-  addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)go(i+(dx<0?1:-1));x0=null;});
-  addEventListener('resize',fit); fit();
-  setTimeout(function(){var h=document.getElementById('help'); if(h) h.style.display='none';},5000);
-  var h=parseInt(location.hash.slice(1),10); go(isNaN(h)?0:h-1);
-})();
+}
+function unbumpFonts(){bumped.forEach(([e,v])=>e.style.fontSize=v);bumped=[]}
+function isMobile(){return innerWidth<1000||innerWidth/innerHeight<1.2}
+function fit(){
+  const m=isMobile()&&!window.__printing;
+  if(m){
+    const k=Math.min(1,Math.max(.62,innerWidth/1000)),w=innerWidth/k;
+    if(!mobile){deck.style.zoom="";unbumpFonts();bumpFonts()}
+    mobile=true;document.body.classList.add("m");document.documentElement.classList.add("m");
+    document.body.classList.toggle("wide",w>=900);
+    deck.style.setProperty("--mw",w+"px");deck.style.setProperty("--mh",(innerHeight-52)/k+"px");
+    deck.style.zoom=k;
+    deck.querySelectorAll(".xs").forEach(x=>x.classList.remove("can"));
+    requestAnimationFrame(()=>deck.querySelectorAll(".slide.active .xs").forEach(x=>x.classList.toggle("can",x.scrollWidth>x.clientWidth+2)));
+  }else{
+    if(mobile){unbumpFonts();deck.style.zoom="";document.body.classList.remove("m","wide");document.documentElement.classList.remove("m")}
+    mobile=false;
+    const k=Math.min(innerWidth/1600,innerHeight/900);deck.style.transform="scale("+k+")";
+  }
+}
+function go(n){
+  const prev=cur;
+  cur=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,i)=>s.classList.toggle("active",i===cur));
+  if(mobile){if(prev!==cur)scrollTo(0,0);slides[cur].querySelectorAll(".xs").forEach(x=>x.classList.toggle("can",x.scrollWidth>x.clientWidth+2))}
+  bar.style.width=((cur+1)/slides.length*100)+"%";
+  document.getElementById("mpg").textContent=(cur+1)+" / "+slides.length;
+  document.getElementById("mprev").disabled=cur===0;
+  document.getElementById("mnext").disabled=cur===slides.length-1;
+  const nt=slides[cur].querySelector(".notes");notesEl.textContent=nt?nt.textContent:"（本頁無備註）";
+  if(location.hash!=="#"+(cur+1))history.replaceState(null,"","#"+(cur+1));
+}
+addEventListener("resize",fit);fit();
+go((parseInt(location.hash.slice(1))||1)-1);
+addEventListener("keydown",e=>{
+  if(["ArrowRight","PageDown"," ","Enter"].includes(e.key)){e.preventDefault();go(cur+1)}
+  else if(["ArrowLeft","PageUp","Backspace"].includes(e.key)){e.preventDefault();go(cur-1)}
+  else if(e.key==="Home")go(0); else if(e.key==="End")go(slides.length-1);
+  else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
+  else if(e.key==="n"||e.key==="N")notesEl.classList.toggle("on");
+  else if(e.key==="p"||e.key==="P")print();
+});
+addEventListener("hashchange",()=>go((parseInt(location.hash.slice(1))||1)-1));
+document.querySelectorAll(".reveal").forEach(r=>r.addEventListener("click",e=>{e.stopPropagation();r.classList.toggle("shown")}));
+document.getElementById("stage").addEventListener("click",e=>{if(mobile||e.target.closest("a,.reveal"))return;const x=e.clientX/innerWidth;go(x<.25?cur-1:cur+1)});
+document.getElementById("mprev").addEventListener("click",()=>go(cur-1));
+document.getElementById("mnext").addEventListener("click",()=>go(cur+1));
+document.getElementById("mnotes").addEventListener("click",e=>{notesEl.classList.toggle("on");e.currentTarget.classList.toggle("on",notesEl.classList.contains("on"))});
+/* swipe: horizontal only, and not when the finger starts on a sideways-scrollable table/figure */
+let tx=null,ty=null;
+addEventListener("touchstart",e=>{
+  const x=e.target.closest&&e.target.closest(".xs");
+  if(e.touches.length>1||(mobile&&x&&x.scrollWidth>x.clientWidth+2)||e.target.closest("#notes,#mnav")){tx=null;return}
+  tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+addEventListener("touchend",e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>60&&Math.abs(dx)>1.5*Math.abs(dy)&&!(window.visualViewport&&visualViewport.scale>1.05))go(cur+(dx<0?1:-1));tx=null},{passive:true});
+/* always print the 16:9 layout */
+addEventListener("beforeprint",()=>{window.__printing=true;fit()});
+addEventListener("afterprint",()=>{window.__printing=false;fit()});
 </script>
 </body>
 </html>
