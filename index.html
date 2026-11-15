@@ -209,12 +209,15 @@ img.fig{width:100%;border-radius:12px;border:1px solid var(--line);background:#f
 body.m .chain{grid-template-columns:1fr 1fr;row-gap:16px}
 body.m .chain .link::after{display:none}
 body.m ol.steps{columns:1!important}
+.mn{display:inline-block;background:var(--red);color:#fff;font:900 15px var(--font);border-radius:5px;padding:1px 7px;margin-right:6px;vertical-align:2px}
+.reveal .hint{display:block;margin-top:8px}
+.card.reveal{position:relative}
 </style>
 </head>
 <body>
 <div id="stage"><div id="deck">
 
-<!-- ============ 1. TITLE ============ -->
+<!-- ============ TITLE ============ -->
 <section class="slide title">
   <svg class="ekg-band" viewBox="0 0 1600 140" preserveAspectRatio="none"><path fill="none" stroke="#ff4d67" stroke-width="4" stroke-linejoin="round" d="M0 90 H240 l14 -8 14 8 H300 l8 14 14 -96 12 112 10 -30 H380 q8 -50 26 -50 h70 q22 0 34 30 H700 l14 -8 14 8 H760 l8 14 14 -96 12 112 10 -30 H840 q8 -50 26 -50 h70 q22 0 34 30 H1100 l10 -50 10 90 10 -80 10 70 10 -60 10 55 10 -45 10 40 10 -30 10 25 10 -15 10 5 V90 H1600"/></svg>
   <div class="inner">
@@ -227,198 +230,222 @@ body.m ol.steps{columns:1!important}
   <div class="notes">開場：BLS 是 ACLS 的地基，病人要先得到高品質 CPR，後面的 ACLS 才有機會。這份投影片以教科書第 3 章為骨架，建議等級與 2025 AHA Part 7 Adult BLS 對照過。BLS 站採 3D 教學：Describe 講解 → Demo 示範 → Do 大部分時間讓學員操作，講師從旁糾正。</div>
 </section>
 
-<!-- ============ 2. MAP ============ -->
+<!-- ============ MAP ============ -->
 <section class="slide">
   <div class="kicker">Roadmap</div>
   <h2>本章地圖</h2><div class="rule"></div>
   <div class="cols c3" style="gap:24px">
-    <div class="card navy"><h3>① 為什麼要學</h3><ul class="dots sm"><li>流行病學與存活率</li><li>2025 重點更新、生存之鏈</li><li>心理建設</li></ul></div>
-    <div class="card navy"><h3>② CPR 生理</h3><ul class="dots sm"><li>心臟幫浦 vs 胸腔幫浦</li><li>通氣：氧合與 CO₂</li><li>為什麼不能過度通氣</li></ul></div>
-    <div class="card red"><h3>③ 叫叫 CAB</h3><ul class="dots sm"><li>辨識心臟停止、啟動 EMS</li><li>高品質 CPR 六個數字</li><li>呼吸道與人工呼吸</li></ul></div>
-    <div class="card red"><h3>④ AED 與團隊</h3><ul class="dots sm"><li>AED 八步驟、貼片位置</li><li>多人急救分工與換手</li><li>常見錯誤與併發症</li></ul></div>
-    <div class="card teal"><h3>⑤ 復甦姿勢・異物</h3><ul class="dots sm"><li>復甦姿勢四步驟</li><li>清醒 FBAO：拍背 ⇄ 腹戳</li><li>失去意識 → CPR</li></ul></div>
-    <div class="card teal"><h3>⑥ 特殊情況</h3><ul class="dots sm"><li>鴉片、溺水、低體溫、孕婦、肥胖</li><li>心肌梗塞與中風的 BLS 角色</li><li>統整</li></ul></div>
+    <div class="card navy"><h3>① 為什麼要學</h3><ul class="dots sm"><li>猜猜看：存活率數據</li><li>生存之鏈、早期電擊</li><li>心理建設</li></ul></div>
+    <div class="card red"><h3>② 心肺復甦術的技巧</h3><ul class="dots sm"><li>叫叫 CAB 流程與不同施救者</li><li>每個口訣一頁＋實證</li><li>貼片／能量、給藥途徑</li></ul></div>
+    <div class="card red"><h3>③ 併發症與其他概念</h3><ul class="dots sm"><li>常見錯誤、併發症</li><li>壓錯人會怎樣</li><li>復甦姿勢、偽 PEA</li></ul></div>
+    <div class="card teal"><h3>④ 呼吸道異物哽塞</h3><ul class="dots sm"><li>FBAO 流程圖</li><li>清醒／失去意識</li><li>特殊情況</li></ul></div>
+    <div class="card teal"><h3>⑤ 特殊情況</h3><ul class="dots sm"><li>鴉片過量、肥胖病人</li><li>替代技術、ECLS</li><li>溺水・低體溫・孕婦</li></ul></div>
+    <div class="card navy"><h3>⑥ 統整</h3><ul class="dots sm"><li>一頁看完</li><li>2025 重點更新</li><li>參考資料</li></ul></div>
   </div>
-  <p style="margin-top:30px;font-size:22px" class="muted">圖例：<span class="cor c1">Class 1</span> 建議 <span class="cor c2a">2a</span> 合理 <span class="cor c2b">2b</span> 可考慮 <span class="cor c3">3</span> 無益 / 有害　<span class="tag ok">✓ 已核實</span> <span class="tag warn">⚠ 需補充</span> <span class="tag new">NEW 2025</span></p>
+  <p style="margin-top:30px;font-size:22px" class="muted">圖例：<span class="cor c1">Class 1</span> 建議 <span class="cor c2a">2a</span> 合理 <span class="cor c2b">2b</span> 可考慮 <span class="cor c3">3</span> 無益 / 有害　<span class="tag new">NEW 2025</span></p>
 </section>
 
-<!-- ============ 3. EPIDEMIOLOGY ============ -->
+<!-- ============ GUESS ============ -->
+<section class="slide">
+  <div class="kicker">Why it matters · 猜猜看</div>
+  <h2>猜猜看：心臟停止的現況<small>點卡片揭曉答案</small></h2><div class="rule"></div>
+  <div class="cols c3" style="gap:22px">
+    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">美國院外心臟停止（OHCA）<br><b>存活出院率</b>？</p><div class="stat ans">10.5<small>%</small></div><p class="lbl ans">發生率 378.7／10 萬人</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">成人 OHCA 有接受<br><b>旁觀者 CPR</b> 的比例？</p><div class="stat ans">41.7<small>%</small></div><p class="lbl ans">不到一半</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">旁觀者有<br><b>使用 AED</b> 的比例？</p><div class="stat ans">12.6<small>%</small></div><p class="lbl ans">AED 使用率更低</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card teal reveal"><p class="lbl" style="margin:0 0 10px">成人院內心臟停止（IHCA）<br><b>存活出院率</b>？</p><div class="stat ans" style="color:var(--teal)">23.6<small>%</small></div><p class="lbl ans">約院外的兩倍</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card navy reveal" style="grid-column:span 2"><p class="lbl" style="margin:0 0 10px">公共場所、有人目擊的 <b>VF／可電擊</b>心律，<b>救活率</b>可以多高？</p>
+      <div class="ans" style="display:flex;gap:40px;align-items:flex-end">
+        <div><div class="stat" style="color:var(--navy)">43<small>%</small></div><p class="lbl">救護人員到場才電擊</p></div>
+        <div><div class="stat">66.5<small>%</small></div><p class="lbl">旁觀者先用 AED 電擊</p></div>
+        <p class="lbl" style="flex:1">早期電擊可讓 VF 救活率<b>接近甚至超過 50%</b>；旁觀者電擊者 57.1% 出院時功能良好（mRS ≤ 2）</p>
+      </div><span class="hint">▸ 點擊揭曉</span></div>
+  </div>
+  <div class="src">2025 AHA Part 1 Executive Summary；Pollack RA, et al. Circulation 2018;137:2104–13</div>
+  <div class="notes">先讓學員猜，再點開。重點對比：一般 OHCA 存活率只有一成，但目擊 VF 若能早期電擊，存活率可以到一半以上。VF 數據來自 ROC 登錄（2011–2015）：公共場所目擊、可電擊心律的 OHCA，旁觀者 AED 電擊者存活出院 66.5%，救護人員才電擊者 43.0%。這就是推動 AED 的理由。</div>
+</section>
+
+<!-- ============ GAP ============ -->
 <section class="slide">
   <div class="kicker">Why it matters</div>
-  <h2>心臟停止的現況</h2><div class="rule"></div>
-  <div class="cols c4">
-    <div class="card red"><div class="stat">10.5<small>%</small></div><p class="lbl">美國 OHCA 存活率<br>發生率 378.7／10 萬人</p></div>
-    <div class="card red"><div class="stat">41.7<small>%</small></div><p class="lbl">成人 OHCA 接受<br>旁救者 CPR 的比例</p></div>
-    <div class="card red"><div class="stat">12.6<small>%</small></div><p class="lbl">旁救者有使用<br>AED 的比例</p></div>
-    <div class="card teal"><div class="stat" style="color:var(--teal)">23.6<small>%</small></div><p class="lbl">成人 IHCA 存活率</p></div>
-  </div>
-  <div class="cols c2" style="margin-top:28px">
-    <div class="card navy"><h3>旁救者 CPR 的差距</h3><p>有目擊且有旁救者 CPR 存活率 <b class="hl">13.0%</b>，沒有則 <b>7.6%</b>；公共場所存活率高於住宅（8.9%）。</p></div>
-    <div class="card navy"><h3>4–6 分鐘的黃金時段</h3><p>腦部無血流超過 4–6 分鐘就會永久壞死。119 到場常超過 4 分鐘，<b>只有目擊者立即 CPR 才來得及</b>。</p></div>
+  <h2>第一個在場的人最關鍵</h2><div class="rule"></div>
+  <div class="cols c2" style="gap:36px">
+    <div class="card navy"><h3>旁觀者 CPR 的差距</h3>
+      <p class="lbl" style="margin-top:18px">有目擊、<b>有</b>旁觀者 CPR</p>
+      <div style="display:flex;align-items:center;gap:16px;margin:6px 0 16px"><div style="height:46px;width:78%;background:var(--red);border-radius:8px"></div><span class="num" style="font-size:36px">13.0%</span></div>
+      <p class="lbl">有目擊、<b>沒有</b>旁觀者 CPR</p>
+      <div style="display:flex;align-items:center;gap:16px;margin:6px 0 16px"><div style="height:46px;width:46%;background:#a9b2c3;border-radius:8px"></div><span class="num" style="font-size:36px;color:var(--muted)">7.6%</span></div>
+      <p style="margin-top:14px">有旁觀者 CPR，存活率<b class="hl">接近兩倍</b>。<br>公共場所存活率高於住宅（住宅 8.9%）。</p></div>
+    <div class="card red"><h3>4–6 分鐘的黃金時段</h3>
+      <div style="display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin:22px 0 8px">
+        <div style="height:40px;background:var(--c1);border-radius:6px"></div><div style="height:40px;background:var(--c1);border-radius:6px"></div><div style="height:40px;background:var(--c1);border-radius:6px"></div><div style="height:40px;background:var(--c1);border-radius:6px"></div>
+        <div style="height:40px;background:var(--c2b);border-radius:6px"></div><div style="height:40px;background:var(--c2b);border-radius:6px"></div>
+        <div style="height:40px;background:var(--c3);border-radius:6px"></div><div style="height:40px;background:var(--c3);border-radius:6px"></div><div style="height:40px;background:var(--c3);border-radius:6px"></div><div style="height:40px;background:var(--c3);border-radius:6px"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between" class="lbl mono"><span>0</span><span>4</span><span>6</span><span>10 分鐘</span></div>
+      <p style="margin-top:22px">腦部無血流超過 <b>4–6 分鐘</b>就會永久壞死。119 到場常超過 4 分鐘，<b class="hl">只有目擊者立即 CPR 才來得及</b>。</p></div>
   </div>
   <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 1 Executive Summary</div>
-  <div class="notes">美國資料：OHCA 存活率約一成，旁救者 CPR 只有四成，AED 使用更低。有旁救者 CPR 的存活率幾乎是沒有的兩倍，這就是推動全民 CPR 的理由。院外救護車到場時間常超過 4 分鐘，所以第一個在場的人最關鍵。</div>
+  <div class="notes">有旁觀者 CPR 的存活率幾乎是沒有的兩倍，這就是推動全民 CPR 的理由。院外救護車到場時間常超過 4 分鐘，所以第一個在場的人最關鍵。</div>
 </section>
 
-<!-- ============ 4. WHAT'S NEW ============ -->
-<section class="slide">
-  <div class="kicker">What's new · 2025</div>
-  <h2>2025 年成人 BLS 重點更新</h2><div class="rule"></div>
-  <div class="cols c2">
-    <ul class="dots">
-      <li><span class="tag new">按壓</span> 堅硬平面；病人軀幹約與施救者<b>膝部齊高</b></li>
-      <li><span class="tag new">呼吸道</span> 頭頸創傷：推下顎＋輔助器失敗 → <b>改用壓額抬下巴</b></li>
-      <li><span class="tag new">通氣</span> 呼吸停止有脈搏：<b>每 6 秒 1 次</b>，需見胸部起伏</li>
-      <li><span class="tag new">肥胖</span> CPR 技巧<b>與一般病人相同</b></li>
-    </ul>
-    <ul class="dots">
-      <li><span class="tag new">設備</span> <b>不建議常規使用</b>機械 CPR 裝置</li>
-      <li><span class="tag new">鴉片</span> <b>Naloxone</b> 正式納入 BLS 流程</li>
-      <li><span class="tag new">異物</span> 嚴重 FBAO：<b>5 次拍背 ⇄ 5 次腹戳</b></li>
-      <li><span class="tag new">生存之鏈</span> 四條整合為<b>一條六環</b></li>
-    </ul>
-  </div>
-  <div class="callout ok" style="margin-top:26px"><span class="h">✓ 2025 指引</span>2025 年未做完整證據回顧的題目沿用 2020 年建議。舊教材中「四條生存之鏈」的圖需要更新。</div>
-  <div class="src">Kleinman ME, et al. Part 7: Adult Basic Life Support. Circulation 2025;152(suppl 2):S448–S478</div>
-  <div class="notes">這八點是 2025 版和 2020 版最大的差異，後面各頁會逐一展開。特別提醒：頭頸部創傷病人，如果推下顎打不開呼吸道，要改用壓額抬下巴，因為氧合優先於頸椎風險。</div>
-</section>
-
-<!-- ============ 5. CHAIN ============ -->
+<!-- ============ CHAIN ============ -->
 <section class="slide">
   <div class="kicker">Chain of survival</div>
   <h2>統一的六環生存之鏈<small>成人／兒童、院內／院外通用</small></h2><div class="rule"></div>
   <div class="chain">
     <div class="link"><div class="n">1</div><div class="t">辨識心臟停止<br>啟動緊急應變</div><div class="e">叫叫 → 119</div></div>
-    <div class="link"><div class="n">2</div><div class="t">高品質<br>CPR</div><div class="e">壓胸＋通氣<br>（加入肺部圖示）</div></div>
+    <div class="link"><div class="n">2</div><div class="t">高品質<br>CPR</div><div class="e">壓胸＋通氣</div></div>
     <div class="link"><div class="n">3</div><div class="t">去顫<br>電擊</div><div class="e">AED ≤ 5 分鐘</div></div>
     <div class="link"><div class="n">4</div><div class="t">高級<br>復甦術</div><div class="e">ALS / ACLS</div></div>
     <div class="link"><div class="n">5</div><div class="t">心臟停止<br>後照護</div><div class="e">跨單位整合</div></div>
     <div class="link"><div class="n">6</div><div class="t">復原</div><div class="e">身體、神經<br>認知評估</div></div>
   </div>
-  <div class="cols c2" style="margin-top:34px">
+  <div class="cols" style="grid-template-columns:1fr 1.5fr;margin-top:34px">
     <div class="card navy"><h3>演進</h3><p>2010 四環 → 加入復甦後照護<br>2015 分 OHCA／IHCA 兩條<br>2020 新增「復原」，共四條<br>2025 <b>整合成一條</b></p></div>
-    <div class="card amber"><h3>還沒放進鏈裡：預防與準備</h3><p>預防心臟停止、建立快速反應系統同樣重要，但定義尚未明確，<b>暫緩納入</b>。任一環節失效，存活率可由近 50% 掉到 5–50%。</p></div>
+    <div class="card red"><h3>為什麼要早期電擊</h3><p>VF 時每延遲 <b>1 分鐘</b>電擊：</p>
+      <div class="cols c2" style="gap:18px;margin-top:10px">
+        <div><div class="stat" style="font-size:60px">3–4<small>%</small></div><p class="lbl">有人<b>同時壓胸</b>，救活率每分鐘才下降 3–4%</p></div>
+        <div><div class="stat" style="font-size:60px;color:var(--muted)">7–10<small>%</small></div><p class="lbl"><b>沒有壓胸</b>，救活率每分鐘下降 7–10%</p></div>
+      </div>
+      <p class="lbl" style="margin-top:8px">→ 等 AED 時 CPR 不能停；CPR 替電擊爭取時間</p></div>
   </div>
-  <div class="src">Dezfulian C, et al. Part 4: Systems of Care. Circulation 2025;152(suppl 2):S353–S384</div>
-  <div class="notes">2025 年把原本成人、兒童、院內、院外四條鏈合成一條，簡化教學。高品質 CPR 的圖示加入肺部，強調通氣在兒科、溺水、鴉片中毒的重要性。預防與準備這一環被討論過，但因定義不清暫緩納入。</div>
+  <div class="src">ACLS 精華第七版 第 3 章 p.28；Dezfulian C, et al. Part 4: Systems of Care. Circulation 2025;152(suppl 2):S353–S384</div>
+  <div class="notes">2025 年把原本成人、兒童、院內、院外四條鏈合成一條，簡化教學。早期電擊這一格是本頁重點：電擊前有沒有人在壓胸，決定了每分鐘救活率掉多快。CPR 不能取代電擊，但能延緩 VF 惡化成難以電擊的狀態。</div>
 </section>
 
-<!-- ============ 6. BARRIERS ============ -->
+<!-- ============ BARRIERS ============ -->
 <section class="slide">
   <div class="kicker">Overcoming barriers</div>
   <h2>學了 CPR 卻不敢救？</h2><div class="rule"></div>
   <div class="cols c3">
     <div class="card red"><h3>⚖️ 怕法律糾紛</h3><p>醫師法第 28 條：非醫師不得執行醫療業務，<b>但臨時施行急救除外</b>。</p><p style="margin-top:10px">尚無因 CPR 被告成功的案例。<b class="hl">一個人不會死兩次。</b></p></div>
-    <div class="card teal"><h3>🦠 怕傳染病</h3><p>理論上可能但機率極低；全球無因 CPR 感染 HIV 的病例。</p><p style="margin-top:10px">可取得時，民眾 CPR 使用 PPE<span class="cor c2a">2a</span></p><p class="muted">但不可因此延誤壓胸</p></div>
+    <div class="card teal"><h3>🦠 怕傳染病</h3><p>理論上可能但機率極低；全球無因 CPR 感染 HIV 的病例。</p>
+      <p style="margin-top:10px">可取得時，民眾 CPR 使用 PPE<span class="cor c2a">2a</span></p>
+      <p style="margin-top:10px"><b>COVID-19 等呼吸道傳染病</b>：人工呼吸建議使用<b>單向閥面罩／面膜</b>；醫療人員先穿戴 <b>PPE</b>（含 N95）再進入</p>
+      <p class="muted">但不可因此延誤壓胸</p></div>
     <div class="card navy"><h3>💪 自信心不足</h3><p>最大的障礙：先壓還是先吹？先救還是先叫？</p><p style="margin-top:10px">你只有一雙手、一支手機和一句口訣：</p><p style="font-size:40px;font-weight:900;color:var(--red);margin-top:6px">叫叫 CAB</p></div>
   </div>
-  <div class="callout" style="margin-top:26px"><span class="h">給講師</span>BLS 站若要求不嚴、考試「差不多就好」，學員離開教室後知能存留有限，空有證書仍不敢做。以「高品質教學」把關「高品質 CPR」。</div>
-  <div class="notes">心理建設是小組教學一開始就要講的。三個常見障礙：法律、傳染、信心。最大的是信心，所以要把叫叫 CAB 練到反射動作。講師的嚴格程度直接決定學員遇到真病人時敢不敢做。</div>
+  <div class="src">ACLS 精華第七版 第 3 章；Edelson DP, et al. Circulation 2020;141:e933–e943（COVID-19 interim guidance）</div>
+  <div class="notes">心理建設是小組教學一開始就要講的。三個常見障礙：法律、傳染、信心。COVID-19 之後，口對口人工呼吸建議用單向閥面罩或面膜；醫療人員要先穿好 PPE 再處理，但民眾在沒有防護時仍可做純壓胸 CPR。最大的障礙是信心，所以要把叫叫 CAB 練到反射動作。</div>
 </section>
 
-<!-- ============ 7. CPR PHYSIOLOGY ============ -->
-<section class="slide">
-  <div class="kicker">Physiology</div>
-  <h2>CPR 為什麼能產生血流？</h2><div class="rule"></div>
-  <div class="cols c2">
-    <div class="card navy"><h3>心臟幫浦 Cardiac pump</h3><p>按壓胸骨直接擠壓心臟，把血液擠出。<br><span class="muted">可能較適用於體型瘦小者</span></p></div>
-    <div class="card navy"><h3>胸腔幫浦 Thoracic pump</h3><p>按壓使整個胸內壓上升，血液由高壓流向低壓。<br><span class="muted">目前支持者較多</span></p></div>
-  </div>
-  <div class="cols c3" style="margin-top:28px">
-    <div class="card red"><div class="stat">25–33<small>%</small></div><p class="lbl">CPR 產生的心輸出量（相對正常）</p></div>
-    <div class="card red"><div class="stat">60–80</div><p class="lbl">可達收縮壓 mmHg（舒張壓仍低）</p></div>
-    <div class="card red"><div class="stat">&lt;40</div><p class="lbl">頸動脈平均動脈壓 mmHg</p></div>
-  </div>
-  <div class="callout red" style="margin-top:26px"><span class="h">為什麼要少中斷</span>停止按壓 → <b>冠狀動脈灌流壓立即歸零</b>，重新按壓需要好幾下才能回升。</div>
-  <div class="notes">兩種學說都有證據，可能跟體型有關。重點是 CPR 最多只能打出正常心輸出量的四分之一到三分之一，所以每一次中斷都很昂貴。</div>
+<!-- ============ DIVIDER: TECHNIQUES ============ -->
+<section class="slide divider">
+  <div class="big"><div class="no">02</div><h2>心肺復甦術的技巧</h2><p>叫叫 CAB(D)：流程 → 不同施救者 → 每個口訣的做法與實證</p></div>
 </section>
 
-<!-- ============ 8. VENTILATION ============ -->
-<section class="slide">
-  <div class="kicker">Ventilation physiology</div>
-  <h2>通氣：為什麼不用給太多、太快？</h2><div class="rule"></div>
-  <div class="cols c2">
-    <div>
-      <div class="card teal" style="margin-bottom:20px"><h3>① 為什麼要給氣 → 氧合</h3><p>空氣含氧 21%，呼出氣約 16–17%。<b>「給一點氧氣總比什麼都沒給好」</b>。只壓不吹，動脈血氧含量會逐漸下降，窒息性心臟停止尤其明顯。</p></div>
-      <div class="card navy"><h3>② 給多少 → 由 CO₂ 決定</h3><p>CPR 時肺血流只剩 25–33% → <b>送回肺部的 CO₂ 大幅減少</b> → 較低的潮氣量與次數就能維持適當 V/Q 比。這也是 CPR 中 EtCO₂ 偏低、可反映按壓品質的原因。</p></div>
-    </div>
-    <div>
-      <div class="card red" style="margin-bottom:20px"><h3>目標</h3><p>潮氣量約 <b>500–600 mL</b>（6–7 mL/kg）<span class="cor c2a">2a</span><br>實務上：<b class="hl">看到胸部起伏即可</b><span class="cor c2a">2a</span><br>每口約 <b>1 秒</b><span class="cor c2b">2b</span>，正常吸氣即可</p></div>
-      <div class="callout red"><span class="h">過度通氣有害 · Class 3</span>胸內壓 ↑ → 靜脈回流 ↓ → 心輸出量與冠狀動脈灌流 ↓；胃脹氣 → 逆流、吸入。通氣不足同樣有害，低／高碳酸血症及其波動都與較差的 1 個月神經預後相關。</div>
-    </div>
-  </div>
-  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS（Ventilation）</div>
-  <div class="notes">教科書原文用「V/Q 比」解釋為什麼通氣量可以比平常低，但要分清楚：給氣是為了氧合，給多少則由 CO₂ 清除決定。CPR 時肺血流很低，送到肺的 CO₂ 很少，所以很少的通氣就夠。多給的氣只會增加胸內壓、減少靜脈回流。</div>
-</section>
-
-<!-- ============ 9. ALGORITHM ============ -->
+<!-- ============ ALGORITHM ============ -->
 <section class="slide">
   <div class="kicker">Algorithm · Healthcare provider · 圖 3-1</div>
-  <h2>2025 成人心臟停止急救流程（專業人員）</h2><div class="rule" style="margin-bottom:22px"></div>
+  <h2>叫叫 CAB 流程圖（2025 成人，專業人員）</h2><div class="rule" style="margin-bottom:22px"></div>
   <div class="cols" style="grid-template-columns:1.05fr 1fr 1fr;gap:22px;align-items:start">
     <div class="fl">
       <div class="fb">評估現場環境安全</div><div class="fa">▼</div>
-      <div class="fb">確認意識・呼叫旁人<br>（手機）啟動 EMS・請人拿 AED</div><div class="fa">▼</div>
+      <div class="fb"><span class="mn">叫</span>確認意識<br><span class="mn">叫</span>呼叫旁人（手機）啟動 EMS・請人拿 AED</div><div class="fa">▼</div>
       <div class="fb y"><b>10 秒內</b>同時檢查脈搏與呼吸<br>（有無正常呼吸或瀕死呼吸）</div>
     </div>
     <div class="fl">
       <div class="fb t"><b>有脈搏、呼吸正常</b><br>監測直到救護人員到達</div>
-      <div class="fb t"><b>有脈搏、無正常呼吸</b><br>• 每 6 秒 1 次通氣（10 次/分）<br>• 每 2 分鐘檢查脈搏，無脈搏 → CPR<br>• 疑鴉片過量：給 <b>Naloxone</b></div>
+      <div class="fb t"><b>有脈搏、無正常呼吸</b><br>• <span class="mn">B</span>每 6 秒 1 次通氣（10 次/分）<br>• 每 2 分鐘檢查脈搏，無脈搏 → CPR<br>• 疑鴉片過量：給 <b>Naloxone</b></div>
     </div>
     <div class="fl">
-      <div class="fb r"><b>無脈搏、無呼吸或瀕死呼吸</b><br>開始 CPR 30:2・儘早用 AED<br>疑鴉片過量：給 Naloxone</div><div class="fa">▼ AED 分析</div>
+      <div class="fb r"><b>無脈搏、無呼吸或瀕死呼吸</b><br><span class="mn">C</span><span class="mn">A</span><span class="mn">B</span>開始 CPR 30:2<br>疑鴉片過量：給 Naloxone</div><div class="fa">▼ <span class="mn">D</span> AED 分析</div>
       <div class="fb r"><b>可電擊</b>：電擊 1 次 → 立即 CPR 2 分鐘</div>
       <div class="fb"><b>不可電擊</b>：立即 CPR 2 分鐘</div>
       <div class="fb">持續直到 ALS 到達或病人開始活動</div>
     </div>
   </div>
   <div class="src">ACLS 精華第七版 圖 3-1；2025 AHA Adult BLS Algorithm for Healthcare Providers</div>
-  <div class="notes">流程圖的關鍵分岔是 10 秒內的脈搏與呼吸評估。有脈搏沒正常呼吸的，是呼吸停止，每 6 秒給一口氣，這是 2025 新強調的。疑似鴉片過量的兩條路都要給 naloxone。</div>
+  <div class="notes">先用流程圖把叫叫 CAB(D) 串起來，後面每個口訣各一頁展開。關鍵分岔是 10 秒內的脈搏與呼吸評估。有脈搏沒正常呼吸的，是呼吸停止，每 6 秒給一口氣。疑似鴉片過量的兩條路都要給 naloxone。</div>
 </section>
 
-<!-- ============ 10. STEP 1 ============ -->
+<!-- ============ TABLE 3-1 ============ -->
 <section class="slide">
-  <div class="kicker">Step 1 · 叫叫</div>
-  <h2>確認反應、立即求救</h2><div class="rule"></div>
-  <div class="cols c2">
-    <ol class="steps">
-      <li>確認環境安全，原則上<b>原地 CPR</b></li>
-      <li>跪於病人一側，雙膝與肩同寬</li>
-      <li>輕拍<b>雙肩</b>，大聲問「你還好嗎？」</li>
-      <li>無反應 → 揮手、<b>指定一人</b>：「請你打 119，並取得 AED！」</li>
-      <li>沒人在場 → 自己打 119，開<b>擴音</b>邊打邊做</li>
-      <li>擺成仰臥，懷疑創傷注意頸椎</li>
-    </ol>
-    <div>
-      <div class="card navy" style="margin-bottom:18px"><h3>先救還是先叫？</h3><p><b>成人：先求救再 CPR</b><span class="cor c1">1</span>（目的：早期電擊）<br>有手機：<b>同時</b>啟動 EMS 與 CPR<span class="cor c1">1</span></p></div>
-      <div class="card amber" style="margin-bottom:18px"><h3>例外：先急救 2 分鐘再求救</h3><p>非心因性：溺水、創傷、藥物中毒、呼吸道異物；嬰兒與兒童（多為呼吸問題）</p></div>
-      <div class="callout ok"><span class="h">其他工具</span>119 派遣員線上指導 CPR；「全民守護者 APP」通知附近志工帶 AED 支援。</div>
-    </div>
-  </div>
-  <div class="notes">教學重點是「指定一人」，對著特定的人講，否則旁觀者效應會讓大家都以為別人會打。手機擴音可以讓單人施救者同時求救和壓胸。</div>
+  <div class="kicker">Sequence by rescuer · 表 3-1</div>
+  <h2>不同施救者的急救順序</h2><div class="rule" style="margin-bottom:20px"></div>
+  <table class="tight">
+    <tr><th style="width:120px">步驟</th><th>未受訓民眾</th><th>受過訓練的民眾</th><th>醫療人員</th></tr>
+    <tr><td><b>1 安全</b></td><td colspan="3">確認現場環境安全</td></tr>
+    <tr><td><b>2 叫</b></td><td colspan="3">拍雙肩、大聲呼喚，確認有無反應</td></tr>
+    <tr><td><b>3 叫</b></td><td>大聲求救；打 119（手機擴音，留在病人身旁）</td><td>大聲求救、打 119；<b>指定一人</b>拿 AED</td><td>呼叫旁人／啟動急救小組；可在此時或檢查脈搏呼吸後啟動</td></tr>
+    <tr><td><b>4 辨識</b></td><td>依 119 派遣員指示判斷</td><td>看有無呼吸或只有瀕死呼吸</td><td><b>≤ 10 秒同時</b>檢查呼吸與脈搏</td></tr>
+    <tr><td><b>5 CPR</b></td><td>依派遣員指導<b>純壓胸</b></td><td>壓胸＋人工呼吸 <b>30:2</b>；不會或不願給氣 → 純壓胸</td><td>立即 CPR <b>30:2</b>；有進階呼吸道 → 每 6 秒 1 口</td></tr>
+    <tr><td><b>6 AED</b></td><td>依派遣員指示找 AED</td><td>AED 一到立即使用</td><td>第二位施救者到 → 雙人 CPR＋AED／電擊器</td></tr>
+  </table>
+  <div class="callout ok" style="margin-top:20px"><span class="h">共同點</span>無論哪一種施救者：<b>沒反應、沒正常呼吸 → 就開始壓胸</b>；差別只在「要不要摸脈搏」與「要不要給氣」。</div>
+  <div class="src">ACLS 精華第七版 表 3-1（p.41）；2025 AHA Part 7 Adult BLS</div>
+  <div class="notes">這張表回答學員最常問的「我是民眾，要不要摸脈搏、要不要吹氣」。未受訓的民眾聽 119 派遣員指示純壓胸；受過訓練的民眾做 30:2；醫療人員多了同時檢查脈搏與呼吸、啟動急救小組。</div>
 </section>
 
-<!-- ============ 11. RECOGNITION ============ -->
+<!-- ============ 叫 1 ============ -->
 <section class="slide">
-  <div class="kicker">Step 2 · Recognition</div>
-  <h2>儘速辨識心臟停止</h2><div class="rule"></div>
+  <div class="kicker">叫 · 確認意識</div>
+  <h2>叫：確認反應、辨識心臟停止</h2><div class="rule"></div>
   <div class="cols c2">
     <div>
-      <div class="card navy" style="margin-bottom:18px"><h3>一般民眾</h3><p>無反應＋無呼吸或只有瀕死呼吸 → <b>當作心臟停止</b><span class="cor c1">1</span>；不需檢查脈搏，直接純壓胸 CPR</p></div>
-      <div class="card red"><h3>醫療人員</h3><p>脈搏與呼吸<b>同時檢查，≤ 10 秒</b><span class="cor c1">1</span><br>頸動脈：甲狀軟骨往自己這側滑入胸鎖乳突肌凹溝；數「一千零一…一千零七」<br><b class="hl">沒有明確摸到脈搏 → 立即 CPR</b></p></div>
+      <div class="card navy" style="margin-bottom:18px"><h3>做法</h3><ol class="steps" style="margin:0"><li style="font-size:22px;margin:8px 0">確認環境安全，原則上<b>原地 CPR</b></li><li style="font-size:22px;margin:8px 0">跪於病人一側，雙膝與肩同寬</li><li style="font-size:22px;margin:8px 0">輕拍<b>雙肩</b>，大聲問「你還好嗎？」</li><li style="font-size:22px;margin:8px 0">無反應 → 看胸腹有無起伏（民眾）／同時摸頸動脈（醫療人員）</li></ol></div>
+      <div class="card red"><h3>判斷</h3><p>民眾：無反應＋無呼吸或只有瀕死呼吸 → <b>當作心臟停止</b><span class="cor c1">1</span><br>醫療人員：脈搏與呼吸<b>同時檢查，≤ 10 秒</b><span class="cor c1">1</span>；<b class="hl">沒有明確摸到脈搏 → 立即 CPR</b></p></div>
     </div>
     <div>
-      <div class="card amber" style="margin-bottom:18px"><h3>瀕死呼吸 Gasping</h3><p>緩慢、不規則的喘氣，<b>屬無效呼吸</b>。出現在 <b>40–60%</b> 的 OHCA，是誤判「還有呼吸」最常見的原因。全身抽搐也可能是心臟停止。</p></div>
-      <div class="card teal"><h3>壓錯人的風險很低</h3><p>對未心臟停止者壓胸：胸痛 8.7%・骨折 1.7%・橫紋肌溶解 0.3%・<b>無內臟傷害</b> → <b>寧可壓錯，不可不壓</b></p></div>
+      <div class="card amber" style="margin-bottom:18px"><h3>實證：瀕死呼吸 Gasping</h3><p>緩慢、不規則的喘氣，<b>屬無效呼吸</b>。出現在 <b>40–60%</b> 的 OHCA，是誤判「還有呼吸」最常見的原因。全身抽搐也可能是心臟停止。</p></div>
+      <div class="card teal"><h3>實證：脈搏不可靠</h3><p>連醫護人員摸脈搏都常判斷錯誤、耗時過久。頸動脈：甲狀軟骨往自己這側滑入胸鎖乳突肌凹溝；數「一千零一…一千零七」。民眾<b>不需檢查脈搏</b>。</p></div>
     </div>
   </div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS</div>
   <div class="notes">脈搏很難摸，連醫護人員也常判斷錯，所以 10 秒內摸不到明確脈搏就開始壓。瀕死呼吸是最大陷阱，請學員記住：喘氣不等於呼吸。</div>
 </section>
 
-<!-- ============ 12. HQ CPR ============ -->
+<!-- ============ 叫 2 ============ -->
 <section class="slide">
-  <div class="kicker">High-quality CPR</div>
-  <h2>高品質 CPR 的六個數字</h2><div class="rule"></div>
+  <div class="kicker">叫 · 求救</div>
+  <h2>叫：立即求救、取得 AED</h2><div class="rule"></div>
+  <div class="cols c2">
+    <div>
+      <ol class="steps">
+        <li>無反應 → 揮手、<b>指定一人</b>：「請你打 119，並取得 AED！」</li>
+        <li>沒人在場 → 自己打 119，開<b>擴音</b>邊打邊做</li>
+        <li>聽從 119 派遣員線上指導 CPR</li>
+        <li>擺成仰臥，懷疑創傷注意頸椎</li>
+      </ol>
+      <div class="callout ok" style="margin-top:12px"><span class="h">其他工具</span>「全民守護者 APP」通知附近志工帶 AED 支援。</div>
+    </div>
+    <div>
+      <div class="card navy" style="margin-bottom:18px"><h3>先救還是先叫？</h3><p><b>成人：先求救再 CPR</b><span class="cor c1">1</span>（目的：早期電擊）<br>有手機：<b>同時</b>啟動 EMS 與 CPR<span class="cor c1">1</span></p></div>
+      <div class="card amber" style="margin-bottom:18px"><h3>例外：先急救 2 分鐘再求救</h3><p>非心因性：溺水、創傷、藥物中毒、呼吸道異物；嬰兒與兒童（多為呼吸問題）</p></div>
+      <div class="card teal"><h3>實證</h3><p>成人突發心臟停止多為 VF，<b>決定存活的是電擊時間</b>；派遣員指導 CPR 可提高旁觀者 CPR 比例與存活率。</p></div>
+    </div>
+  </div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS、Part 4 Systems of Care</div>
+  <div class="notes">教學重點是「指定一人」，對著特定的人講，否則旁觀者效應會讓大家都以為別人會打。手機擴音可以讓單人施救者同時求救和壓胸。成人先叫是因為成人多為 VF，需要電擊；溺水、兒童多為窒息性，先做 2 分鐘 CPR。</div>
+</section>
+
+<!-- ============ C POSITION ============ -->
+<section class="slide">
+  <div class="kicker">C · Circulation</div>
+  <h2>C：按壓位置與姿勢</h2><div class="rule"></div>
+  <div class="cols c2">
+    <ul class="dots">
+      <li>胸部中央、<b>胸骨下半段</b>（目測，不需脫衣）<span class="cor c1">1</span></li>
+      <li>兩手掌根相疊、十指交扣，<b>下方手指翹起</b></li>
+      <li>手肘打直，肩膀在胸骨正上方，以<b>上半身重量垂直下壓</b></li>
+      <li>可考慮用<b>慣用手</b>貼在胸骨上<span class="cor c2b">2b</span></li>
+      <li>答數「一下、二下…十一、十二…」一字一動作</li>
+    </ul>
+    <div>
+      <div class="card red" style="margin-bottom:18px"><h3><span class="tag new">NEW 2025</span> 病人與施救者的位置</h3><p>病人軀幹約在施救者<b>膝部附近</b><span class="cor c1">1</span><br>現場安全且能做高品質 CPR → <b>原地進行</b><span class="cor c1">1</span><br>不會延遲時，<b>堅硬平面＋仰臥</b><span class="cor c2a">2a</span></p></div>
+      <div class="card navy" style="margin-bottom:18px"><h3>實證</h3><p>跪姿比站姿深度好；胸骨下 1/3 比中段有更高的動脈壓與 EtCO₂。<b>41%</b> 的 OHCA 因搬動病人而延遲 CPR，出院存活率顯著較低。</p></div>
+      <div class="callout ok"><span class="h">俯臥</span>可安全翻身就翻成仰臥；不能翻身時可考慮俯臥 CPR<span class="cor c2b">2b</span></div>
+    </div>
+  </div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS</div>
+  <div class="notes">手放在乳頭連線下方可能壓到劍突，效果較差，所以用「胸骨下半段」描述。2025 年新強調病人高度要在施救者膝部附近，病床上要降床或站踏台。不要為了搬到地板而延遲開始壓胸。</div>
+</section>
+
+<!-- ============ C HQ CPR ============ -->
+<section class="slide">
+  <div class="kicker">C · High-quality CPR</div>
+  <h2>C：高品質 CPR 的六個數字</h2><div class="rule"></div>
   <div class="cols c3" style="gap:22px">
     <div class="card red"><div class="stat">100–120<small> 次/分</small></div><p class="lbl">速率；30 下約 15–18 秒<span class="cor c2a">2a</span></p></div>
     <div class="card red"><div class="stat">5–6<small> 公分</small></div><p class="lbl">深度；&gt; 6 cm 反而降低存活<span class="cor c1">1</span></p></div>
@@ -431,34 +458,32 @@ body.m ol.steps{columns:1!important}
     <div class="callout ok"><span class="h">回饋裝置</span>建議用影音回饋即時優化 CPR 品質<span class="cor c2a">2a</span>，與 ROSC 及出院存活改善相關。</div>
     <div class="callout red"><span class="h">第六項</span>勿過度通氣。高品質 CPR 是心臟停止病人最關鍵的單一措施。</div>
   </div>
+  <div class="src">2025 AHA Part 7 Adult BLS</div>
   <div class="notes">這頁是整章最重要的一頁。速率、深度、回彈、中斷、壓胸分率、換手時間，六個數字要背起來。深度超過 6 公分反而降低存活。90 到 120 秒後深度就開始下降，即使施救者自己不覺得累，所以兩分鐘一定要換。</div>
 </section>
 
-<!-- ============ 13. POSITION ============ -->
+<!-- ============ C PHYSIOLOGY ============ -->
 <section class="slide">
-  <div class="kicker">C · Circulation</div>
-  <h2>按壓位置與姿勢</h2><div class="rule"></div>
+  <div class="kicker">C · 實證：Physiology</div>
+  <h2>C 的實證：CPR 為什麼能產生血流？</h2><div class="rule"></div>
   <div class="cols c2">
-    <ul class="dots">
-      <li>胸部中央、<b>胸骨下半段</b>（目測，不需脫衣）<span class="cor c1">1</span></li>
-      <li>兩手掌根相疊、十指交扣，<b>下方手指翹起</b></li>
-      <li>手肘打直，肩膀在胸骨正上方，以<b>上半身重量垂直下壓</b></li>
-      <li>可考慮用<b>慣用手</b>貼在胸骨上<span class="cor c2b">2b</span></li>
-      <li>答數「一下、二下…十一、十二…」一字一動作</li>
-    </ul>
-    <div>
-      <div class="card red" style="margin-bottom:18px"><h3><span class="tag new">NEW 2025</span> 病人與施救者的位置</h3><p>病人軀幹約在施救者<b>膝部附近</b><span class="cor c1">1</span><br>現場安全且能做高品質 CPR → <b>原地進行</b><span class="cor c1">1</span><br>不會延遲時，<b>堅硬平面＋仰臥</b><span class="cor c2a">2a</span></p></div>
-      <div class="card navy" style="margin-bottom:18px"><h3>證據</h3><p>跪姿比站姿深度好；胸骨下 1/3 比中段有更高的動脈壓與 EtCO₂。<b>41%</b> 的 OHCA 因搬動病人而延遲 CPR，出院存活率顯著較低。</p></div>
-      <div class="callout ok"><span class="h">俯臥</span>可安全翻身就翻成仰臥；不能翻身時可考慮俯臥 CPR<span class="cor c2b">2b</span></div>
-    </div>
+    <div class="card navy"><h3>心臟幫浦 Cardiac pump</h3><p>按壓胸骨直接擠壓心臟，把血液擠出。<br><span class="muted">可能較適用於體型瘦小者</span></p></div>
+    <div class="card navy"><h3>胸腔幫浦 Thoracic pump</h3><p>按壓使整個胸內壓上升，血液由高壓流向低壓。<br><span class="muted">目前支持者較多</span></p></div>
   </div>
-  <div class="notes">手放在乳頭連線下方可能壓到劍突，效果較差，所以用「胸骨下半段」描述。2025 年新強調病人高度要在施救者膝部附近，病床上要降床或站踏台。不要為了搬到地板而延遲開始壓胸。</div>
+  <div class="cols c3" style="margin-top:28px">
+    <div class="card red"><div class="stat">25–33<small>%</small></div><p class="lbl">CPR 產生的心輸出量（相對正常）</p></div>
+    <div class="card red"><div class="stat">60–80</div><p class="lbl">可達收縮壓 mmHg（舒張壓仍低）</p></div>
+    <div class="card red"><div class="stat">&lt;40</div><p class="lbl">頸動脈平均動脈壓 mmHg</p></div>
+  </div>
+  <div class="callout red" style="margin-top:26px"><span class="h">為什麼要少中斷</span>停止按壓 → <b>冠狀動脈灌流壓立即歸零</b>，重新按壓需要好幾下才能回升。</div>
+  <div class="src">ACLS 精華第七版 第 3 章</div>
+  <div class="notes">兩種學說都有證據，可能跟體型有關。重點是 CPR 最多只能打出正常心輸出量的四分之一到三分之一，所以每一次中斷都很昂貴。</div>
 </section>
 
-<!-- ============ 14. AIRWAY ============ -->
+<!-- ============ A ============ -->
 <section class="slide">
   <div class="kicker">A · Airway</div>
-  <h2>打開呼吸道</h2><div class="rule"></div>
+  <h2>A：打開呼吸道</h2><div class="rule"></div>
   <div class="cols c2">
     <div>
       <div class="card navy" style="margin-bottom:18px"><h3>一般病人：壓額抬下巴</h3><p>無頸椎損傷疑慮 → head tilt–chin lift<span class="cor c1">1</span>；無意識時舌根與會厭是最常見的阻塞原因</p></div>
@@ -474,13 +499,14 @@ body.m ol.steps{columns:1!important}
       <div class="callout ok" style="margin-top:20px"><span class="h">口內異物</span>非異物引起的心臟停止，<b>不需常規檢查口腔</b>。異物哽塞者吹氣前才看口中，看得到才取。</div>
     </div>
   </div>
+  <div class="src">2025 AHA Part 7 Adult BLS</div>
   <div class="notes">2025 的重要改變：創傷病人推下顎打不開，就用壓額抬下巴，因為打不開呼吸道比頸椎移動更致命。非專業施救者不要用硬式頸圈，可能讓通氣更困難。</div>
 </section>
 
-<!-- ============ 15. BREATHING ============ -->
+<!-- ============ B ============ -->
 <section class="slide">
   <div class="kicker">B · Breathing</div>
-  <h2>人工呼吸與通氣比</h2><div class="rule"></div>
+  <h2>B：人工呼吸與通氣比</h2><div class="rule"></div>
   <div class="cols c3">
     <div class="card navy"><h3>口對口</h3><p>壓額手的拇指與食指捏鼻；另一手輕提下巴。正常吸氣 → 吹 1 秒，<b>眼睛看胸部</b>；等胸部落下再吹第 2 口；無起伏先重新打開呼吸道</p></div>
     <div class="card teal"><h3>袋瓣面罩 BVM</h3><p>建議<b>兩人</b>操作：一人雙手密合＋暢通呼吸道，一人擠球<span class="cor c2a">2a</span>。雙手面罩＋推下顎<b>優於</b>單手 E-C 鉗夾；用<b>成人尺寸</b>面罩</p></div>
@@ -493,75 +519,142 @@ body.m ol.steps{columns:1!important}
     <tr><td>有脈搏、呼吸停止</td><td><b>每 6 秒 1 口</b>（10 次/分），需見胸部起伏；每 2 分鐘檢查脈搏</td><td><span class="cor c2a">2a</span></td></tr>
     <tr><td>無進階呼吸道，專業人員</td><td>可考慮連續壓胸＋非同步通氣（但無法觀察胸部起伏）</td><td><span class="cor c2b">2b</span></td></tr>
   </table>
+  <div class="src">2025 AHA Part 7 Adult BLS</div>
   <div class="notes">BVM 單人很難做好，兩人雙手密合的效果最好。兒科面罩用在成人容易漏氣。30:2 的好處是暫停時可以看到胸部起伏，確認通氣有效。</div>
 </section>
 
-<!-- ============ 16. AED ============ -->
+<!-- ============ B PHYSIOLOGY ============ -->
+<section class="slide">
+  <div class="kicker">B · 實證：Ventilation physiology</div>
+  <h2>B 的實證：為什麼不用給太多、太快？</h2><div class="rule"></div>
+  <div class="cols c2">
+    <div>
+      <div class="card teal" style="margin-bottom:20px"><h3>① 為什麼要給氣 → 氧合</h3><p>空氣含氧 21%，呼出氣約 16–17%。<b>「給一點氧氣總比什麼都沒給好」</b>。只壓不吹，動脈血氧含量會逐漸下降，窒息性心臟停止尤其明顯。</p></div>
+      <div class="card navy"><h3>② 給多少 → 由 CO₂ 決定</h3><p>CPR 時肺血流只剩 25–33% → <b>送回肺部的 CO₂ 大幅減少</b> → 較低的潮氣量與次數就能維持適當 V/Q 比。這也是 CPR 中 EtCO₂ 偏低、可反映按壓品質的原因。</p></div>
+    </div>
+    <div>
+      <div class="card red" style="margin-bottom:20px"><h3>目標</h3><p>潮氣量約 <b>500–600 mL</b>（6–7 mL/kg）<span class="cor c2a">2a</span><br>實務上：<b class="hl">看到胸部起伏即可</b><span class="cor c2a">2a</span><br>每口約 <b>1 秒</b><span class="cor c2b">2b</span>，正常吸氣即可</p></div>
+      <div class="callout red"><span class="h">過度通氣有害 · Class 3</span>胸內壓 ↑ → 靜脈回流 ↓ → 心輸出量與冠狀動脈灌流 ↓；胃脹氣 → 逆流、吸入。通氣不足同樣有害，低／高碳酸血症及其波動都與較差的 1 個月神經預後相關。</div>
+    </div>
+  </div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS（Ventilation）</div>
+  <div class="notes">教科書原文用「V/Q 比」解釋為什麼通氣量可以比平常低，但要分清楚：給氣是為了氧合，給多少則由 CO₂ 清除決定。CPR 時肺血流很低，送到肺的 CO₂ 很少，所以很少的通氣就夠。多給的氣只會增加胸內壓、減少靜脈回流。</div>
+</section>
+
+<!-- ============ D AED ============ -->
 <section class="slide">
   <div class="kicker">D · Defibrillation</div>
-  <h2>AED 與早期電擊</h2><div class="rule"></div>
+  <h2>D：AED 操作與早期電擊</h2><div class="rule"></div>
   <div class="cols" style="grid-template-columns:1.1fr 1fr;gap:30px">
     <div>
       <ol class="steps" style="columns:2;column-gap:30px">
         <li>打開開關</li><li>貼上電擊片</li><li>插頭接上主機</li><li>分析時<b>勿接觸病人</b></li>
         <li>判定須電擊 → 自動充電</li><li>喊「你離開、我離開、大家都離開」</li><li>按下電擊鈕</li><li><b>立即壓胸</b>，2 分鐘後依指示</li>
       </ol>
-      <div class="card red" style="margin-top:10px"><h3>每延遲 1 分鐘電擊</h3><p>有人壓胸：存活率下降 <b>3–4%</b>；沒人壓胸：下降 <b>7–10%</b></p></div>
+      <div class="callout ok" style="margin-top:14px"><span class="h">公共場所設置</span>交通要衝、長途交通工具、觀光區、學校與集會場所、購物休閒、旅宿、浴場溫泉。</div>
     </div>
     <div>
       <ul class="dots sm">
         <li>AED 還沒到或在準備時<b>持續 CPR</b><span class="cor c1">1</span></li>
-        <li>目擊／監測中的 VF/pVT 且電擊器在手 → <b>立即電擊</b><span class="cor c2a">2a</span></li>
+        <li>貼片時壓胸<b>不要停</b>，只在分析與電擊時暫停</li>
         <li>電擊後<b>立即恢復壓胸</b>，不暫停檢查心律<span class="cor c2a">2a</span></li>
-        <li>貼片前外側或前後位，<b>直徑 &gt; 8 cm</b><span class="cor c2a">2a</span></li>
-        <li>女性：可<b>調整胸罩</b>而非整件移除<span class="cor c2b">2b</span></li>
         <li>早期電擊：院外 <b>5 分鐘內</b>、院內 <b>3 分鐘內</b></li>
       </ul>
-      <div class="callout ok" style="margin-top:14px"><span class="h">公共場所設置</span>交通要衝、長途交通工具、觀光區、學校與集會場所、購物休閒、旅宿、浴場溫泉。目擊 VF 救活率可達 49–74%。</div>
+      <div class="card red" style="margin-top:14px"><h3>實證</h3><p>公共場所目擊的可電擊 OHCA：旁觀者 AED 電擊存活出院 <b>66.5%</b>，等救護人員電擊 <b>43%</b>；救護車越晚到，差距越大。</p></div>
     </div>
   </div>
-  <div class="notes">AED 到了就馬上用，貼片時壓胸不要停。電擊後不要看心律，直接壓 2 分鐘。調整胸罩而非移除是 2025 新增，目的是減少施救者對女性病人的顧慮。</div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS；Pollack RA, et al. Circulation 2018;137:2104–13</div>
+  <div class="notes">AED 到了就馬上用，貼片時壓胸不要停。電擊後不要看心律，直接壓 2 分鐘。實證這格可以回扣第一張的猜猜看。</div>
 </section>
 
-<!-- ============ 17. TEAM ============ -->
+<!-- ============ D PADS / ENERGY ============ -->
 <section class="slide">
-  <div class="kicker">Team resuscitation</div>
-  <h2>二人以上：急救團隊</h2><div class="rule"></div>
-  <div class="cols c4">
-    <div class="card red"><h3>🫸 壓胸者</h3><p>立即開始，維持 100–120/分；第 30 下後讓出空檔</p></div>
-    <div class="card teal"><h3>💨 通氣者</h3><p>準備甦醒球，空檔給 2 口；胸部落下後壓胸者立即接續</p></div>
-    <div class="card navy"><h3>⚡ AED</h3><p>取得、開機、貼片；分析時喊清場</p></div>
-    <div class="card amber"><h3>📞 聯絡</h3><p>啟動 EMS／急救小組；計時、記錄</p></div>
+  <div class="kicker">D · Pads · CPR first? · Energy</div>
+  <h2>D：電擊貼片、先 CPR 或先電擊、能量</h2><div class="rule"></div>
+  <div class="cols c3" style="gap:22px">
+    <div class="card navy"><h3>貼片位置</h3><ul class="dots sm">
+      <li><b>前外側</b>（右鎖骨下＋左腋中線心尖）或<b>前後位</b>皆可</li>
+      <li>直徑 <b>&gt; 8 cm</b><span class="cor c2a">2a</span></li>
+      <li>女性可<b>調整胸罩</b>而非整件移除<span class="cor c2b">2b</span></li>
+      <li>胸毛多：快速剃除，或先貼一組再撕掉除毛</li>
+      <li>胸前濕：擦乾；藥物貼片：撕掉擦淨</li>
+      <li>植入式節律器／去顫器：貼片<b>避開</b>裝置正上方</li>
+    </ul></div>
+    <div class="card red"><h3>先 CPR 還是先電擊？</h3><ul class="dots sm">
+      <li>目擊或監測中的 VF/pVT 且電擊器在手 → <b>立即電擊</b><span class="cor c2a">2a</span></li>
+      <li>未目擊：準備電擊器時持續 CPR；<b>不需刻意先做</b> 1.5–3 分鐘 CPR 再電擊</li>
+      <li><b>單次電擊</b>後立即 CPR 2 分鐘，不疊加連續電擊</li>
+      <li>頑固性 VF（≥ 3 次電擊）：改前後位或雙重連續電擊，效益未確立<span class="cor c2b">2b</span></li>
+    </ul></div>
+    <div class="card teal"><h3>能量</h3><ul class="dots sm">
+      <li>雙相波優於單相波<span class="cor c2a">2a</span></li>
+      <li>雙相波首次：依廠商建議（通常 <b>120–200 J</b>）</li>
+      <li>不知廠商建議 → 可用<b>最大能量</b><span class="cor c2b">2b</span></li>
+      <li>第二次以後可考慮<b>提高能量</b><span class="cor c2b">2b</span></li>
+      <li>單相波：<b>360 J</b></li>
+      <li>AED 自動決定能量，民眾不需設定</li>
+    </ul></div>
   </div>
-  <div class="cols c2" style="margin-top:26px">
-    <div class="card navy"><h3>換手與節奏</h3><ul class="dots sm"><li>每 <b>2 分鐘</b>交換角色，換手 <b>10 秒內</b>完成</li><li>每 5 個循環評估脈搏</li><li>有脈搏無呼吸：每 6 秒 1 口，2 分鐘共 20 次</li><li>有脈搏有呼吸：擺<b>復甦姿勢</b></li></ul></div>
-    <div class="card teal"><h3>院內團隊</h3><ul class="dots sm"><li>由具 ALS 訓練的成員組成</li><li>即時與延時事後檢討並用</li><li>無論成功與否，給施救者心理支持</li></ul></div>
-  </div>
-  <div class="notes">2015 年起強調急救團隊的分工，多人同時進行。換手時間教材寫 10 秒內；AHA 提供者課程通常要求 5 秒內，可依站上評核標準說明。</div>
+  <div class="src">ACLS 精華第七版 第 3 章 p.48–53；2025 AHA Part 7 Adult BLS、Part 9 Adult ALS（Circulation 2025;152(suppl 2):S538–S577）</div>
+  <div class="notes">這頁偏向醫療人員。貼片前外側或前後位都可以，重點是快速貼好、不中斷壓胸。頑固性 VF 的換向電擊與雙重連續電擊，2025 AHA 仍給 2b、效益未確立；ILCOR 弱建議可考慮。能量部分：雙相波依廠商，不清楚就用最大，後續可升高。</div>
 </section>
 
-<!-- ============ 18. PITFALLS ============ -->
+<!-- ============ IV / IO / CVC ============ -->
+<section class="slide">
+  <div class="kicker">Vascular access</div>
+  <h2>給藥途徑：IV、IO、中心靜脈</h2><div class="rule"></div>
+  <div class="cols c3" style="gap:22px">
+    <div class="card red"><h3>周邊靜脈 IV <span class="tag new">2025</span></h3><p><b>首選</b>給藥途徑<span class="cor c1">1</span></p><ul class="dots sm" style="margin-top:8px"><li>選大條、近心端（肘前靜脈）</li><li>給藥後推 <b>20 mL</b> 生理食鹽水，並<b>抬高肢體 10–20 秒</b></li></ul></div>
+    <div class="card amber"><h3>骨內注射 IO</h3><p>IV <b>失敗或無法建立</b>時改用<span class="cor c2a">2a</span></p><ul class="dots sm" style="margin-top:8px"><li>常用：脛骨近端、肱骨近端</li><li>2025 ILCOR 系統性回顧（含 3 個大型 RCT）：IO 相較 IV，<b>持續 ROSC 較低</b></li></ul></div>
+    <div class="card navy"><h3>中心靜脈 CVC</h3><p>已有中心靜脈導管 → <b>可優先使用</b>，藥物最快到達中樞循環</p><ul class="dots sm" style="margin-top:8px"><li>急救中<b>不常規新置</b>：需中斷 CPR、併發症多</li></ul></div>
+  </div>
+  <div class="callout red" style="margin-top:26px"><span class="h">BLS 的角度</span>建立管路、給藥都<b>不可中斷壓胸</b>；藥物再好也只能靠 CPR 送到心臟。</div>
+  <div class="src">2025 AHA Part 9 Adult ALS；AHA Top Things to Know: 2025 Guidelines for CPR and ECC</div>
+  <div class="notes">2020 年 IV 與 IO 被視為同等，2025 年改為 IV 優先、IO 為替代，依據是 2025 ILCOR 系統性回顧顯示 IO 的持續 ROSC 較低。周邊給藥後推 20 mL 並抬高肢體，是讓藥物進入中樞循環的老觀念，仍適用。</div>
+</section>
+
+<!-- ============ DIVIDER: COMPLICATIONS ============ -->
+<section class="slide divider">
+  <div class="big"><div class="no">03</div><h2>併發症與其他概念</h2><p>常見錯誤・併發症・壓錯人會怎樣・復甦姿勢・偽 PEA</p></div>
+</section>
+
+<!-- ============ PITFALLS ============ -->
 <section class="slide">
   <div class="kicker">Common pitfalls</div>
-  <h2>CPR 常見錯誤與併發症</h2><div class="rule"></div>
-  <div class="cols" style="grid-template-columns:1.4fr 1fr;gap:28px">
-    <table class="tight">
-      <tr><th style="width:110px">環節</th><th>常見錯誤</th></tr>
-      <tr><td><b>叫</b></td><td>未拍雙肩；未揮手引起注意；未<b>指定一人</b>打 119、拿 AED</td></tr>
-      <tr><td><b>A</b></td><td>下巴未確實抬起</td></tr>
-      <tr><td><b>C</b></td><td>位置偏到肋骨；手肘彎曲；速度過快或過慢；跳躍式、搖擺式；未完全回彈；深度不夠；答數不對</td></tr>
-      <tr><td><b>B</b></td><td>吹不進去：頭後仰不夠 → 嘴沒蓋全 → 鼻沒捏緊 → 嘴被合攏；吹太長太用力；<b>沒看胸部</b></td></tr>
-      <tr><td><b>節奏</b></td><td>拖泥帶水，2 分鐘做不完 5 個循環</td></tr>
-    </table>
-    <div>
-      <div class="card red" style="margin-bottom:18px"><h3>併發症</h3><p>胸骨／肋骨骨折、肋軟骨分離、氣胸、血胸、肺挫傷、肝撕裂傷、脂肪栓塞。<b>仍以救回病人為優先</b></p></div>
-      <div class="card amber"><h3>胃脹氣</h3><p>原因：呼吸道不夠通暢、吹太用力或太快。不影響呼吸不必理會；影響呼吸 → <b>病人側臥</b>再把氣壓出</p></div>
-    </div>
-  </div>
+  <h2>CPR 常見錯誤</h2><div class="rule"></div>
+  <table>
+    <tr><th style="width:130px">環節</th><th>常見錯誤</th></tr>
+    <tr><td><b>叫</b></td><td>未拍雙肩；未揮手引起注意；未<b>指定一人</b>打 119、拿 AED</td></tr>
+    <tr><td><b>A</b></td><td>下巴未確實抬起</td></tr>
+    <tr><td><b>C</b></td><td>位置偏到肋骨；手肘彎曲；速度過快或過慢；跳躍式、搖擺式；未完全回彈；深度不夠；答數不對</td></tr>
+    <tr><td><b>B</b></td><td>吹不進去：頭後仰不夠 → 嘴沒蓋全 → 鼻沒捏緊 → 嘴被合攏；吹太長太用力；<b>沒看胸部</b></td></tr>
+    <tr><td><b>節奏</b></td><td>拖泥帶水，2 分鐘做不完 5 個循環</td></tr>
+  </table>
+  <div class="card amber" style="margin-top:24px"><h3>胃脹氣</h3><p>原因：呼吸道不夠通暢、吹太用力或太快。不影響呼吸不必理會；影響呼吸 → <b>病人側臥</b>再把氣壓出</p></div>
+  <div class="src">ACLS 精華第七版 第 3 章</div>
   <div class="notes">這張表可以當作操作評核的檢核表。吹不進去時依序檢查：頭後仰、嘴密合、捏鼻、嘴有沒有被合攏。</div>
 </section>
 
-<!-- ============ 19. RECOVERY POSITION ============ -->
+<!-- ============ COMPLICATIONS ============ -->
+<section class="slide">
+  <div class="kicker">Complications</div>
+  <h2>CPR 的併發症：壓錯人會怎樣？</h2><div class="rule"></div>
+  <div class="cols c2">
+    <div class="card red"><h3>心臟停止病人的 CPR 併發症</h3><p>胸骨／肋骨骨折、肋軟骨分離、氣胸、血胸、肺挫傷、肝撕裂傷、脂肪栓塞。</p><p style="margin-top:12px">深度 &gt; 6 cm 傷害增加；位置偏低易壓到劍突與肝臟。</p><p style="margin-top:12px"><b class="hl">仍以救回病人為優先</b></p></div>
+    <div class="card teal"><h3>對「沒有心臟停止」的人壓胸</h3>
+      <div class="cols c3" style="gap:12px;margin:14px 0">
+        <div><div class="stat" style="font-size:52px;color:var(--teal)">8.7<small>%</small></div><p class="lbl">胸痛</p></div>
+        <div><div class="stat" style="font-size:52px;color:var(--teal)">1.7<small>%</small></div><p class="lbl">骨折</p></div>
+        <div><div class="stat" style="font-size:52px;color:var(--teal)">0.3<small>%</small></div><p class="lbl">橫紋肌溶解</p></div>
+      </div>
+      <p><b>無內臟傷害</b>。</p></div>
+  </div>
+  <div class="callout red" style="margin-top:26px;font-size:26px;text-align:center"><b>寧可壓錯，不可不壓</b>——不壓的代價是死亡，壓錯的代價多半是胸痛。</div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS</div>
+  <div class="notes">民眾最怕「萬一他沒有心臟停止，我壓了會不會壓壞」。數據顯示對未心臟停止者壓胸的傷害非常低，所以指引鼓勵民眾只要無反應、沒正常呼吸就開始壓。</div>
+</section>
+
+<!-- ============ RECOVERY POSITION ============ -->
 <section class="slide">
   <div class="kicker">Recovery position</div>
   <h2>復甦姿勢<small>恢復脈搏、呼吸，但意識未恢復</small></h2><div class="rule" style="margin-bottom:22px"></div>
@@ -585,10 +678,58 @@ body.m ol.steps{columns:1!important}
   <div class="notes">復甦姿勢的目的是防止舌根後倒和嘔吐吸入。教材的五步驟在這裡合成四步，對應圖的四格。ERC 2025 急救指引補充：瀕死呼吸或創傷不要擺復甦姿勢，擺好後要持續看呼吸，避免錯過心臟停止。</div>
 </section>
 
-<!-- ============ 20. FBAO CONSCIOUS ============ -->
+<!-- ============ PSEUDO-PEA ============ -->
 <section class="slide">
-  <div class="kicker">FBAO · Conscious · 圖 3-2</div>
-  <h2>呼吸道異物哽塞（清醒）</h2><div class="rule"></div>
+  <div class="kicker">Other concepts · Pseudo-PEA</div>
+  <h2>偽 PEA（pseudo-PEA）</h2><div class="rule"></div>
+  <div class="cols c2">
+    <div>
+      <div class="card navy" style="margin-bottom:18px"><h3>是什麼</h3><p>心電圖有組織性節律、<b>摸不到脈搏</b>，但超音波仍看得到<b>心臟收縮</b>（或動脈導管仍有壓力波形）。屬於極低灌流狀態，而非真正的電氣機械分離。</p></div>
+      <div class="card teal"><h3>線索</h3><ul class="dots sm"><li>窄 QRS、心跳較快</li><li>EtCO₂ 相對偏高</li><li>POCUS 見心肌運動</li></ul><p class="lbl">ROSC 機率高於「心臟靜止」的真 PEA</p></div>
+    </div>
+    <div>
+      <div class="card red" style="margin-bottom:18px"><h3>指引怎麼說</h3><ul class="dots sm"><li>2025 AHA 演算法<b>未將偽 PEA 與真 PEA 分開</b>：同樣持續 CPR、儘早給 Epinephrine、找可逆病因</li><li>有經驗者可在<b>不中斷 CPR</b> 下用 POCUS 找可逆病因<span class="cor c2b">2b</span></li><li>窄 QRS 且 EtCO₂ 偏高時，需想到偽 PEA 而非真的無脈搏</li></ul></div>
+      <div class="callout red"><span class="h">BLS 的啟示</span>摸不到<b>明確</b>脈搏就壓。微弱的心臟收縮無法維持灌流，<b>不要因為「好像還有一點跳動」而不壓</b>。</div>
+    </div>
+  </div>
+  <div class="src">2025 AHA Part 9 Adult ALS；EM Cases Ep 215（2026）；Kataria S, et al. World J Clin Cases 2026;14(19):120233</div>
+  <div class="notes">這是延伸概念。偽 PEA 是脈搏摸不到但心臟仍有收縮的低灌流狀態，可呼應「對沒心臟停止的人壓胸會怎樣」：即使心臟還有微弱收縮，CPR 的傷害也遠小於不壓的代價。2025 AHA 沒有獨立的偽 PEA 處置建議，演算法與 PEA 相同；部分專家主張依 EtCO₂、動脈壓或超音波調整，但證據多為觀察性。</div>
+</section>
+
+<!-- ============ DIVIDER: FBAO ============ -->
+<section class="slide divider">
+  <div class="big"><div class="no">04</div><h2>呼吸道異物哽塞 FBAO</h2><p>流程圖 → 清醒 → 失去意識 → 特殊情況</p></div>
+</section>
+
+<!-- ============ FBAO FLOW ============ -->
+<section class="slide">
+  <div class="kicker">FBAO · Algorithm · 圖 3-2</div>
+  <h2>2025 成人呼吸道異物哽塞流程</h2><div class="rule" style="margin-bottom:22px"></div>
+  <div class="cols c3" style="gap:22px;align-items:start">
+    <div class="fl">
+      <div class="fb">疑似異物哽塞<br>「你是不是嗆到了？」</div><div class="fa">▼ 評估嚴重度</div>
+      <div class="fb t"><b>輕度</b>：能咳嗽、能說話<br>→ <b>鼓勵咳嗽</b>，持續觀察<span class="cor c1">1</span></div><div class="fa">▼ 惡化</div>
+      <div class="fb y"><b>嚴重</b>：無法說話、咳嗽微弱、發紺、雙手掐頸</div>
+    </div>
+    <div class="fl">
+      <div class="fb">指派一人<b>打 119</b><span class="cor c1">1</span></div><div class="fa">▼ 病人清醒</div>
+      <div class="fb r" style="text-align:center"><b style="font-size:28px;color:var(--red)">5 次拍背 ⇄ 5 次腹戳</b><br>重複直到異物排出或失去反應<span class="cor c1">1</span></div><div class="fa">▼</div>
+      <div class="fb y">孕婦後期／無法環抱腹部<br>→ 5 次拍背 ⇄ <b>5 次胸戳</b><span class="cor c1">1</span></div>
+    </div>
+    <div class="fl">
+      <div class="fb r"><b>失去意識</b><br>扶病人躺下，未求救者立即啟動 EMS</div><div class="fa">▼</div>
+      <div class="fb r"><b>立即 CPR，從壓胸開始</b><span class="cor c1">1</span></div><div class="fa">▼</div>
+      <div class="fb t">每次吹氣前看口腔，<b>看得到才取</b><br>不可盲目掏取<span class="cor c3">3: Harm</span></div>
+    </div>
+  </div>
+  <div class="src">ACLS 精華第七版 圖 3-2；2025 AHA Part 7 Adult BLS（Adult FBAO Algorithm）</div>
+  <div class="notes">先用流程圖看全貌：輕度鼓勵咳嗽；嚴重而清醒，拍背腹戳交替；失去意識就 CPR。後面三頁分別展開。</div>
+</section>
+
+<!-- ============ FBAO CONSCIOUS ============ -->
+<section class="slide">
+  <div class="kicker">FBAO · Conscious</div>
+  <h2>異物哽塞（清醒）</h2><div class="rule"></div>
   <div class="cols c2">
     <div>
       <div class="card teal" style="margin-bottom:16px"><h3>輕度阻塞</h3><p>能咳嗽、能說話 → <b>鼓勵咳嗽</b>，觀察是否惡化<span class="cor c1">1</span></p></div>
@@ -598,15 +739,15 @@ body.m ol.steps{columns:1!important}
     <div>
       <div class="card red" style="border:2px solid var(--red);border-top-width:6px;margin-bottom:16px"><h3><span class="tag new">NEW 2025</span> 嚴重 FBAO：重複循環</h3>
         <p style="font-size:36px;font-weight:900;color:var(--red);margin:6px 0 10px">5 次拍背 ⇄ 5 次腹戳</p>
-        <p>直到異物排出或失去反應<span class="cor c1">1</span>；並<b>啟動 EMS</b><span class="cor c1">1</span><br>腹戳：拳眼朝內置於<b>肚臍稍上方</b>，另一手包住，向內向上</p></div>
-      <div class="card amber" style="margin-bottom:16px"><h3>改用胸戳</h3><p><b>懷孕後期</b>或<b>無法環抱腹部</b> → 5 次拍背 ⇄ <b>5 次胸戳</b><span class="cor c1">1</span></p></div>
-      <div class="callout ok"><span class="h">為什麼加拍背</span>傷害較腹戳少（腹戳曾致主動脈剝離、胃破裂），且與兒科一致。</div>
+        <p><b>拍背</b>：站病人側後方，一手扶胸使其前傾，另一手掌根拍兩肩胛骨之間<br><b>腹戳</b>：拳眼朝內置於<b>肚臍稍上方</b>，另一手包住，向內向上</p></div>
+      <div class="callout ok"><span class="h">為什麼加拍背</span>傷害較腹戳少（腹戳曾致主動脈剝離、胃破裂），且與兒科一致。成功排除後仍建議就醫檢查腹戳傷害。</div>
     </div>
   </div>
-  <div class="notes">2025 年成人 FBAO 改成拍背和腹戳交替，和嬰兒、兒童的做法一致。輕度阻塞還能咳嗽時不要介入，鼓勵咳嗽並觀察。</div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS</div>
+  <div class="notes">2025 年成人 FBAO 改成拍背和腹戳交替，和兒童的做法一致。輕度阻塞還能咳嗽時不要介入，鼓勵咳嗽並觀察。</div>
 </section>
 
-<!-- ============ 21. FBAO UNRESPONSIVE ============ -->
+<!-- ============ FBAO UNRESPONSIVE ============ -->
 <section class="slide">
   <div class="kicker">FBAO · Unresponsive</div>
   <h2>異物哽塞：失去意識之後</h2><div class="rule"></div>
@@ -628,78 +769,177 @@ body.m ol.steps{columns:1!important}
       <div class="callout red" style="margin-top:16px"><span class="h">注意</span>移除異物<b>不可延誤</b>壓胸與通氣。</div>
     </div>
   </div>
-  <div class="src">ACLS 精華第七版 圖 3-2 2025 年成人 FBAO 流程圖</div>
+  <div class="src">ACLS 精華第七版 圖 3-2；2025 AHA Part 7 Adult BLS</div>
   <div class="notes">失去意識後無論有沒有脈搏都直接從壓胸開始 CPR，這與較好的神經預後相關。盲目手指掏取是 Class 3 有害。</div>
 </section>
 
-<!-- ============ 22. SPECIAL ============ -->
+<!-- ============ FBAO SPECIAL ============ -->
 <section class="slide">
-  <div class="kicker">Special circumstances</div>
-  <h2>特殊情況下的 BLS</h2><div class="rule"></div>
-  <div class="cols c3" style="gap:22px">
-    <div class="card red"><h3>💊 鴉片過量</h3><p>等 Naloxone 時先求救＋含通氣的 CPR<span class="cor c1">1</span>；有脈搏、呼吸抑制 → 人工呼吸／BVM<span class="cor c1">1</span>；給 <b>Naloxone</b><span class="cor c1">1</span>，民眾也可施打</p></div>
-    <div class="card teal"><h3>🌊 溺水</h3><p><b>先急救 2 分鐘再求救</b>，重點在呼吸；水不是阻塞原因；只有明顯外傷、酒醉、跳水才需護頸</p></div>
-    <div class="card navy"><h3>🥶 低體溫</h3><p>流程與一般相同；脈搏檢查仍 ≤ 10 秒；<b>不要量體溫、不要等回溫</b>才 CPR；搬運輕柔</p></div>
-    <div class="card amber"><h3>🤰 孕婦</h3><p>宮底 ≥ 臍：<b>徒手左推子宮</b><span class="cor c1">1</span>；100% O₂、避免過度通氣<span class="cor c1">1</span>；未 ROSC → 復甦性生產 <b>5 分鐘內</b><span class="cor c1">1</span></p></div>
-    <div class="card navy"><h3>⚖️ 肥胖</h3><p>技巧<b>與一般相同</b><span class="cor c1">1</span>；不延遲時移到堅硬平面<span class="cor c2a">2a</span>；可加大力量<span class="cor c2b">2b</span>；院內常規 CPR 背板<span class="cor c3">3: Harm</span></p></div>
-    <div class="card red"><h3>⚙️ 機械 CPR</h3><p><b>不建議常規使用</b><span class="cor c3">3: Harm</span>；RCT 無存活益處、神經預後較差；運送或狹窄空間可考慮<span class="cor c2b">2b</span></p></div>
+  <div class="kicker">FBAO · Special situations</div>
+  <h2>異物哽塞：特殊情況</h2><div class="rule"></div>
+  <div class="cols c2" style="gap:26px">
+    <div class="card amber"><h3>🤰 懷孕後期・肥胖（無法環抱腹部）</h3><p>改用 <b>5 次拍背 ⇄ 5 次胸戳</b><span class="cor c1">1</span><br>胸戳：雙手由腋下環抱，拳頭置於<b>胸骨中央</b>（與 CPR 按壓位置相同），向後擠壓</p></div>
+    <div class="card navy"><h3>🧍 獨自一人時自救</h3><p>自己握拳置於肚臍稍上方，另一手包住向內向上擠壓；或將上腹部<b>抵住椅背、桌緣</b>用力下壓。<br>先撥 119（無法說話也可接通定位）</p></div>
+    <div class="card teal"><h3>♿ 坐輪椅／無法站立</h3><p>施救者在病人後方或跪於側邊施行拍背與腹戳；無法環抱時改胸戳。病人失去反應 → 移至地面開始 CPR</p></div>
+    <div class="card red"><h3>👶 與兒童、嬰兒的差異</h3><p>兒童：同成人 <b>5 拍背 ⇄ 5 腹戳</b><br>嬰兒（&lt; 1 歲）：<b>5 拍背 ⇄ 5 胸壓</b>，不做腹戳</p></div>
   </div>
-  <div class="notes">這頁每一項在第 12 章特殊狀況下的復甦術會詳細講，BLS 站只需要知道重點：鴉片過量給 naloxone、溺水先救、低體溫不要等回溫、孕婦推子宮、肥胖照常壓、不要常規用機械 CPR。</div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS、Part 6 Pediatric BLS</div>
+  <div class="notes">特殊情況的重點：腹部抱不住就改胸戳；獨自一人可自己腹戳或抵椅背。嬰兒不做腹戳，以免傷到肝臟。自救的做法沒有強證據，屬於實務建議。</div>
 </section>
 
-<!-- ============ 23. AMI & STROKE ============ -->
+<!-- ============ DIVIDER: SPECIAL ============ -->
+<section class="slide divider">
+  <div class="big"><div class="no">05</div><h2>特殊情況</h2><p>鴉片過量・肥胖病人・替代技術・ECLS・溺水／低體溫／孕婦</p></div>
+</section>
+
+<!-- ============ OPIOID ============ -->
 <section class="slide">
-  <div class="kicker">Time-sensitive emergencies</div>
-  <h2>BLS 在心肌梗塞與中風：<span class="red">認出症狀、立即就醫</span></h2><div class="rule"></div>
+  <div class="kicker">Special · Opioid overdose</div>
+  <h2>鴉片類藥物過量</h2><div class="rule"></div>
   <div class="cols c2">
-    <div class="card red"><h3>❤️ 急性心肌梗塞</h3><ul class="dots sm">
-      <li>半數以上死亡在院外、症狀出現後 <b>4 小時內</b></li>
-      <li>胸部不適、喘、冒冷汗、放射至左肩，<b>&gt; 15 分鐘</b>；老人、女性、糖尿病易不典型</li>
-      <li>無禁忌症：嚼碎 Aspirin <b>160–325 mg</b><span class="cor c2a">2a</span>；不確定就不給</li>
-      <li>STEMI 直送 PCI 醫院（30 分鐘內）<span class="cor c2a">2a</span></li>
-      <li>SaO₂ &lt; 90% 或呼吸困難才給氧<span class="cor c1">1</span></li>
-    </ul></div>
-    <div class="card teal"><h3>🧠 急性腦中風</h3><ul class="dots sm">
-      <li>出現症狀 → <b>立即打 119</b><span class="cor c1">1</span>；延誤多來自病人本身</li>
-      <li>血栓溶解劑需在發作 3–4.5 小時內</li>
-      <li><b>FAST</b>：Face・Arm・Speech・Time</li>
-      <li><b>CPSS</b>：微笑、舉雙手、說句話，任一異常 → 中風可能 <b>72%</b></li>
-      <li>問清<b>最後正常時間</b>；SpO₂ &lt; 94% 才給氧<span class="cor c1">1</span></li>
-    </ul></div>
+    <div>
+      <div class="card red" style="margin-bottom:18px"><h3>心臟停止</h3><p>先求救＋<b>含通氣的 CPR</b><span class="cor c1">1</span>；<b>不可為了等 Naloxone 延誤 CPR</b><br>可給 Naloxone，但 CPR 優先</p></div>
+      <div class="card teal"><h3>有脈搏、呼吸抑制</h3><p>打開呼吸道，給人工呼吸／BVM<span class="cor c1">1</span><br>給 <b>Naloxone</b><span class="cor c1">1</span>，持續監測直到救護人員到達</p></div>
+    </div>
+    <div>
+      <div class="card navy" style="margin-bottom:18px"><h3><span class="tag new">NEW 2025</span> 納入 BLS 流程</h3><p>Naloxone 正式寫入 BLS 流程圖兩條路徑；<b>民眾也可施打</b>（鼻噴、肌注）。鼓勵 AED 旁放置 Naloxone、推動帶回家 Naloxone 計畫。</p></div>
+      <div class="callout"><span class="h">注意</span>Naloxone 作用時間短於多數鴉片類藥物 → 甦醒後仍可能再度抑制呼吸，需<b>持續觀察、送醫</b>。</div>
+    </div>
   </div>
-  <div class="notes">BLS 在這兩個疾病的角色就是辨識和送醫。細節分別在第 9 章 ACS 和第 11 章腦中風的投影片。Aspirin 國內常用 Bokey 100 mg，2 到 3 顆。</div>
+  <div class="src">2025 AHA Part 7 Adult BLS、Part 10 Special Circumstances</div>
+  <div class="notes">鴉片過量的心臟停止多是窒息性，所以要做含通氣的 CPR。Naloxone 對呼吸抑制有效，但心臟停止時 CPR 優先。台灣民眾取得 naloxone 的管道有限，可依院內或地方規範說明。</div>
 </section>
 
-<!-- ============ 24. TAKE-HOME ============ -->
+<!-- ============ OBESITY ============ -->
+<section class="slide">
+  <div class="kicker">Special · Obesity</div>
+  <h2>肥胖病人</h2><div class="rule"></div>
+  <div class="cols c2">
+    <table>
+      <tr><th>建議</th><th style="width:150px">等級</th></tr>
+      <tr><td>CPR 技巧<b>與一般病人相同</b></td><td><span class="cor c1">1</span></td></tr>
+      <tr><td>不會延遲時，移到<b>堅硬平面</b></td><td><span class="cor c2a">2a</span></td></tr>
+      <tr><td>可能需較大力量、較早換手以達到深度</td><td><span class="cor c2b">2b</span></td></tr>
+      <tr><td>院內常規放 CPR 背板</td><td><span class="cor c3">3</span></td></tr>
+    </table>
+    <div>
+      <div class="card navy" style="margin-bottom:18px"><h3>實證</h3><p>2024 ILCOR 範圍回顧（34 篇觀察性研究）：<b>沒有證據</b>支持需修改標準 CPR 技巧。</p></div>
+      <div class="card amber"><h3>實務提醒</h3><ul class="dots sm"><li>床墊軟：降床、踏台，維持病人在施救者膝部高度</li><li>BVM 密合困難 → 雙人雙手面罩</li><li>異物哽塞抱不住 → 胸戳</li></ul></div>
+    </div>
+  </div>
+  <div class="src">2025 AHA Part 7 Adult BLS</div>
+  <div class="notes">2025 年明確說肥胖病人 CPR 技巧不變。實務上肥胖病人按壓深度較難達到，施救者容易累，可以更頻繁換手。</div>
+</section>
+
+<!-- ============ ALT TECHNIQUES ============ -->
+<section class="slide">
+  <div class="kicker">Special · Alternative techniques</div>
+  <h2>CPR 替代技術與輔助裝置</h2><div class="rule" style="margin-bottom:20px"></div>
+  <table class="tight">
+    <tr><th style="width:290px">技術</th><th>建議</th><th style="width:160px">等級</th></tr>
+    <tr><td><b>機械 CPR 裝置</b></td><td><b>不建議常規使用</b>；RCT 無存活益處，部分神經預後較差</td><td><span class="cor c3">3: No Benefit</span></td></tr>
+    <tr><td>機械 CPR（特殊情境）</td><td>運送中、狹窄空間、人力不足、導管室、ECPR 準備時可考慮；需訓練、縮短裝設中斷</td><td><span class="cor c2b">2b</span></td></tr>
+    <tr><td><b>抬頭 CPR</b>（head-up CPR）</td><td>僅限研究，不建議臨床常規使用</td><td><span class="cor c3">3: No Benefit</span></td></tr>
+    <tr><td>主動加壓減壓 ACD-CPR ＋ ITD</td><td>具設備與受訓人員的系統可考慮</td><td><span class="cor c2b">2b</span></td></tr>
+    <tr><td>阻抗閥 ITD ＋ 傳統 CPR</td><td>不建議常規使用</td><td><span class="cor c3">3: No Benefit</span></td></tr>
+    <tr><td>腹部間歇按壓 IAC-CPR</td><td>院內有受訓人員時可考慮</td><td><span class="cor c2b">2b</span></td></tr>
+    <tr><td>咳嗽 CPR</td><td>監測中、清醒病人剛發生不穩定心律時可短暫使用；<b>不可取代標準 CPR</b></td><td><span class="cor c2b">2b</span></td></tr>
+    <tr><td>俯臥 CPR</td><td>無法翻成仰臥時可考慮</td><td><span class="cor c2b">2b</span></td></tr>
+  </table>
+  <div class="callout ok" style="margin-top:18px"><span class="h">結論</span>沒有任何裝置或替代技術優於<b>高品質的徒手 CPR</b>。</div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 7 Adult BLS（Alternative Techniques）、Part 9 Adult ALS</div>
+  <div class="notes">2025 BLS 最受討論的是機械 CPR：常規使用為 Class 3 No Benefit，但運送或特殊情境可考慮。抬頭 CPR 只限研究。其餘替代技術多為 2b，重點是不要因為裝設而中斷壓胸。</div>
+</section>
+
+<!-- ============ ECLS ============ -->
+<section class="slide">
+  <div class="kicker">Special · ECLS / ECPR</div>
+  <h2>體外維生系統 ECLS（ECPR）</h2><div class="rule"></div>
+  <div class="cols c2">
+    <div>
+      <div class="card navy" style="margin-bottom:18px"><h3>是什麼</h3><p>傳統 CPR 無法 ROSC 時，以 <b>VA-ECMO</b> 建立循環與氧合，爭取時間處理可逆病因（如冠狀動脈阻塞、肺栓塞、低體溫）。</p></div>
+      <div class="card red"><h3>建議</h3><p>經過<b>篩選</b>的病人、在具備 ECPR 系統的機構，傳統 CPR 失敗時使用 ECPR 是<b>合理</b>的<span class="cor c2a">2a</span></p></div>
+    </div>
+    <div>
+      <div class="card teal" style="margin-bottom:18px"><h3>常見篩選條件</h3><ul class="dots sm"><li>有目擊、有旁觀者 CPR</li><li>初始可電擊心律</li><li>較年輕、無重大共病</li><li>低灌流時間短（目標 60 分鐘內上機）</li><li>推測有可逆病因</li></ul></div>
+      <div class="callout red"><span class="h">BLS 的角色</span>ECPR 的成功取決於上機前的<b>高品質 CPR</b>；運送途中可考慮機械 CPR 作為橋接<span class="cor c2b">2b</span>。</div>
+    </div>
+  </div>
+  <div class="src">2025 AHA Part 9 Adult ALS；ELSO ECPR 共識</div>
+  <div class="notes">ECPR 不是 BLS 技術，但 BLS 品質決定了 ECPR 病人能不能有好的神經預後。篩選條件各中心不同，可依院內 ECPR 流程說明。</div>
+</section>
+
+<!-- ============ OTHER SPECIAL ============ -->
+<section class="slide">
+  <div class="kicker">Special · Others</div>
+  <h2>其他特殊情況</h2><div class="rule"></div>
+  <div class="cols c3" style="gap:22px">
+    <div class="card teal"><h3>🌊 溺水</h3><p><b>先急救 2 分鐘再求救</b>，重點在呼吸，從人工呼吸開始；水不是阻塞原因，不需倒水；只有明顯外傷、酒醉、跳水才需護頸</p></div>
+    <div class="card navy"><h3>🥶 低體溫</h3><p>流程與一般相同；脈搏檢查仍 ≤ 10 秒；<b>不要量體溫、不要等回溫</b>才 CPR；搬運輕柔；嚴重低體溫可考慮 ECLS</p></div>
+    <div class="card amber"><h3>🤰 孕婦</h3><p>宮底 ≥ 臍：<b>徒手左推子宮</b><span class="cor c1">1</span>；100% O₂、避免過度通氣<span class="cor c1">1</span>；未 ROSC → 復甦性生產 <b>5 分鐘內</b><span class="cor c1">1</span></p></div>
+  </div>
+  <div class="src">ACLS 精華第七版 第 3 章；2025 AHA Part 10 Special Circumstances</div>
+  <div class="notes">這頁每一項在第 12 章特殊狀況下的復甦術會詳細講，BLS 站只需要知道重點：溺水先救、低體溫不要等回溫、孕婦推子宮。</div>
+</section>
+
+<!-- ============ TAKE-HOME ============ -->
 <section class="slide">
   <div class="kicker">Take-home</div>
   <h2>統整：成人 BLS 一頁看完</h2><div class="rule" style="margin-bottom:16px"></div>
   <div class="cols c3 th" style="gap:16px">
-    <div class="card red"><h3><span class="mono red">01</span> 辨識與啟動</h3><ul class="dots sm"><li>無反應＋無呼吸／瀕死呼吸＝心臟停止</li><li>專業人員 ≤ 10 秒同時查脈搏呼吸</li><li>手機擴音：邊打 119 邊 CPR</li></ul></div>
-    <div class="card red"><h3><span class="mono red">02</span> 高品質 CPR</h3><ul class="dots sm"><li>100–120 次/分・5–6 cm・完全回彈</li><li>中斷 &lt; 10 秒・CCF ≥ 60%・2 分鐘換手</li><li>堅硬平面，軀幹約與施救者膝齊</li></ul></div>
-    <div class="card red"><h3><span class="mono red">03</span> 呼吸道與通氣</h3><ul class="dots sm"><li>壓額抬下巴；創傷先推下顎，不行就仰頭</li><li>30:2，每口 1 秒，見胸部起伏即可</li><li>有進階呼吸道或有脈搏：每 6 秒 1 口</li></ul></div>
-    <div class="card navy"><h3><span class="mono red">04</span> AED</h3><ul class="dots sm"><li>AED 到就用，準備時不停壓</li><li>電擊 1 次 → 立即 CPR 2 分鐘</li><li>院外 ≤ 5 分鐘、院內 ≤ 3 分鐘</li></ul></div>
+    <div class="card red"><h3><span class="mono red">01</span> 叫叫：辨識與啟動</h3><ul class="dots sm"><li>無反應＋無呼吸／瀕死呼吸＝心臟停止</li><li>專業人員 ≤ 10 秒同時查脈搏呼吸</li><li>指定一人；手機擴音邊打 119 邊 CPR</li></ul></div>
+    <div class="card red"><h3><span class="mono red">02</span> C：高品質 CPR</h3><ul class="dots sm"><li>100–120 次/分・5–6 cm・完全回彈</li><li>中斷 &lt; 10 秒・CCF ≥ 60%・2 分鐘換手</li><li>堅硬平面，軀幹約與施救者膝齊</li></ul></div>
+    <div class="card red"><h3><span class="mono red">03</span> A・B：呼吸道與通氣</h3><ul class="dots sm"><li>壓額抬下巴；創傷先推下顎，不行就仰頭</li><li>30:2，每口 1 秒，見胸部起伏即可</li><li>有進階呼吸道或有脈搏：每 6 秒 1 口</li></ul></div>
+    <div class="card navy"><h3><span class="mono red">04</span> D：AED</h3><ul class="dots sm"><li>AED 到就用，準備時不停壓</li><li>電擊 1 次 → 立即 CPR 2 分鐘</li><li>每晚 1 分鐘：有壓胸 −3–4%、沒壓 −7–10%</li></ul></div>
     <div class="card navy"><h3><span class="mono red">05</span> 復甦姿勢・異物</h3><ul class="dots sm"><li>呼吸正常、意識未恢復 → 側臥並監測</li><li>清醒嚴重 FBAO：5 拍背 ⇄ 5 腹戳</li><li>失去意識 → CPR；不盲目掏取</li></ul></div>
-    <div class="card teal"><h3><span class="mono red">06</span> 2025 要記得的</h3><ul class="dots sm"><li>一條六環生存之鏈</li><li>Naloxone 納入 BLS；機械 CPR 不常規</li><li>肥胖病人 CPR 技巧不變</li></ul></div>
+    <div class="card teal"><h3><span class="mono red">06</span> 特殊情況</h3><ul class="dots sm"><li>鴉片過量：CPR 優先＋Naloxone</li><li>肥胖技巧不變；機械 CPR 不常規</li><li>IV 優先，IO 為替代</li></ul></div>
   </div>
   <div class="callout red" style="margin-top:18px;text-align:center;font-size:25px"><b>壓得快、壓得深、完全回彈、少中斷、勿過度通氣</b>——有高品質 BLS，後面的 ACLS 才有機會。</div>
   <div class="notes">最後用這頁做總複習，可以請學員輪流說出每一格的重點。</div>
 </section>
 
-<!-- ============ 25. REFERENCES ============ -->
+<!-- ============ WHAT'S NEW (moved last) ============ -->
+<section class="slide">
+  <div class="kicker">What's new · 2025</div>
+  <h2>2025 年成人 BLS 重點更新</h2><div class="rule"></div>
+  <div class="cols c2">
+    <ul class="dots">
+      <li><span class="tag new">按壓</span> 堅硬平面；病人軀幹約與施救者<b>膝部齊高</b></li>
+      <li><span class="tag new">呼吸道</span> 頭頸創傷：推下顎＋輔助器失敗 → <b>改用壓額抬下巴</b></li>
+      <li><span class="tag new">通氣</span> 呼吸停止有脈搏：<b>每 6 秒 1 次</b>，需見胸部起伏</li>
+      <li><span class="tag new">肥胖</span> CPR 技巧<b>與一般病人相同</b></li>
+      <li><span class="tag new">電擊</span> 可<b>調整胸罩</b>而非移除；貼片前外側或前後位皆可</li>
+    </ul>
+    <ul class="dots">
+      <li><span class="tag new">設備</span> <b>不建議常規使用</b>機械 CPR 裝置</li>
+      <li><span class="tag new">鴉片</span> <b>Naloxone</b> 正式納入 BLS 流程</li>
+      <li><span class="tag new">異物</span> 嚴重 FBAO：<b>5 次拍背 ⇄ 5 次腹戳</b></li>
+      <li><span class="tag new">生存之鏈</span> 四條整合為<b>一條六環</b></li>
+      <li><span class="tag new">給藥</span> <b>IV 優先</b>，IO 為替代</li>
+    </ul>
+  </div>
+  <div class="src">Kleinman ME, et al. Part 7: Adult Basic Life Support. Circulation 2025;152(suppl 2):S448–S478；Part 9: Adult ALS. S538–S577</div>
+  <div class="notes">放在最後當作複習：這些是 2025 版和 2020 版最大的差異，前面各頁都已經講過，可以請學員回想每一點在哪一頁出現。</div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
 <section class="slide">
   <div class="kicker">References</div>
   <h2>參考資料 <small>點擊「連結 ↗」開啟原文（DOI）</small></h2><div class="rule" style="margin-bottom:18px"></div>
   <ul class="refs">
-    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">教材</span>胡勝川、吳孟諭、楊久滕、施美秀。〈第 3 章 成人基本救命術〉。《ACLS 精華》第七版。圖 3-1、3-2 依原圖內容重繪。</li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">教材</span>胡勝川、吳孟諭、楊久滕、施美秀。〈第 3 章 成人基本救命術〉。《ACLS 精華》第七版。圖 3-1、3-2、表 3-1 依原圖內容重繪。</li>
     <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Kleinman ME, Buick JE, Huber N, et al. Part 7: Adult Basic Life Support. 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i> 2025;152(16 Suppl 2):S448–S478. <a href="https://doi.org/10.1161/CIR.0000000000001369" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Wigginton JG, et al. Part 9: Adult Advanced Life Support. 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i> 2025;152(16 Suppl 2):S538–S577. <a href="https://doi.org/10.1161/CIR.0000000000001376" target="_blank" rel="noopener">連結 ↗</a></li>
     <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Del Rios M, Bartos JA, Panchal AR, et al. Part 1: Executive Summary. 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i> 2025;152(16 Suppl 2):S284–S312. <a href="https://doi.org/10.1161/CIR.0000000000001372" target="_blank" rel="noopener">連結 ↗</a></li>
     <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Dezfulian C, Cabañas JG, Buckley JR, et al. Part 4: Systems of Care. 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i> 2025;152(16 Suppl 2):S353–S384. <a href="https://doi.org/10.1161/CIR.0000000000001378" target="_blank" rel="noopener">連結 ↗</a></li>
     <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Smyth MA, van Goor S, Hansen CM, et al. European Resuscitation Council Guidelines 2025 Adult Basic Life Support. <i>Resuscitation</i> 2025;215(Suppl 1):110771. <a href="https://doi.org/10.1016/j.resuscitation.2025.110771" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>Edelson DP, Sasson C, Chan PS, et al. Interim Guidance for BLS and ALS in Adults, Children, and Neonates With Suspected or Confirmed COVID-19. <i>Circulation</i> 2020;141:e933–e943. <a href="https://doi.org/10.1161/CIRCULATIONAHA.120.047463" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">研究</span>Pollack RA, Brown SP, Rea T, et al. Impact of Bystander AED Use on Survival and Functional Outcomes in Shockable Observed Public Cardiac Arrests. <i>Circulation</i> 2018;137:2104–2113. <a href="https://doi.org/10.1161/CIRCULATIONAHA.117.030700" target="_blank" rel="noopener">連結 ↗</a></li>
+    <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">回顧</span>Kataria S, Goel S, Juneja D. Pseudo-pulseless electrical activity. <i>World J Clin Cases</i> 2026;14(19):120233. <a href="https://doi.org/10.12998/wjcc.120233" target="_blank" rel="noopener">連結 ↗</a></li>
     <li><span class="tag ok" style="vertical-align:1px;margin-right:8px">指引</span>European Resuscitation Council Guidelines 2025: First Aid（recovery position）. <i>Resuscitation</i> 2025.</li>
     <li><span class="tag warn" style="vertical-align:1px;margin-right:8px">圖片</span>復甦姿勢示意圖：Rusty。〈朋友醉倒了該怎麼辦？尼古喵喵教你「復甦姿勢」的正確步驟〉。一飲樂酒誌（1shot.tw），2026-07-27。<a href="https://www.1shot.tw/63697/%E5%B0%BC%E5%8F%A4%E5%96%B5%E5%96%B5%E6%95%99%E4%BD%A0%E3%80%8C%E5%BE%A9%E7%94%A6%E5%A7%BF%E5%8B%A2%E3%80%8D%E7%9A%84%E6%AD%A3%E7%A2%BA%E6%AD%A5%E9%A9%9F" target="_blank" rel="noopener">連結 ↗</a></li>
   </ul>
-  <div class="callout" style="margin-top:18px;font-size:18px;padding:10px 18px"><span class="h">使用聲明</span>本投影片供 ACLS 教學使用。實際處置依最新指引與院內規範。</div>
+  <div class="callout" style="margin-top:14px;font-size:18px;padding:10px 18px"><span class="h">使用聲明</span>本投影片供 ACLS 教學使用。實際處置依最新指引與院內規範。</div>
 </section>
 
 </div></div>
