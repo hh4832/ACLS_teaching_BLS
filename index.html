@@ -107,7 +107,7 @@ svg.flow text{font-family:var(--font)}
 
 /* reveal */
 .reveal{cursor:pointer}
-.reveal .ans{visibility:hidden}
+.reveal:not(.shown) .ans{visibility:hidden!important}
 .reveal.shown .ans{visibility:visible}
 .reveal .hint{font:500 16px var(--mono);color:#a29c8e}
 .reveal.shown .hint{display:none}
@@ -185,7 +185,6 @@ body.m #mnav{display:flex;position:fixed;left:0;right:0;bottom:0;height:calc(52p
   #deck{transform:none!important;width:1600px;height:auto}
   .slide{position:relative;display:block!important;width:1600px;height:900px;page-break-after:always;break-after:page}
   #bar,#help,#notes{display:none!important}
-  .reveal .ans{visibility:visible!important}.reveal .hint{display:none}
 }
 
 /* ---------- BLS-specific components ---------- */
@@ -212,6 +211,8 @@ body.m ol.steps{columns:1!important}
 .mn{display:inline-block;background:var(--red);color:#fff;font:900 15px var(--font);border-radius:5px;padding:1px 7px;margin-right:6px;vertical-align:2px}
 .reveal .hint{display:block;margin-top:8px}
 .card.reveal{position:relative}
+.reveal .q{position:absolute;left:26px;font:700 76px var(--mono);color:#d9d4c7;line-height:1;pointer-events:none}
+.reveal.shown .q{display:none}
 </style>
 </head>
 <body>
@@ -248,14 +249,14 @@ body.m ol.steps{columns:1!important}
 <!-- ============ GUESS ============ -->
 <section class="slide">
   <div class="kicker">Why it matters · 猜猜看</div>
-  <h2>猜猜看：心臟停止的現況<small>點卡片揭曉答案</small></h2><div class="rule"></div>
+  <h2>猜猜看：心臟停止的現況<small>點卡片揭曉・按 A 全部揭曉</small></h2><div class="rule"></div>
   <div class="cols c3" style="gap:22px">
-    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">美國院外心臟停止（OHCA）<br><b>存活出院率</b>？</p><div class="stat ans">10.5<small>%</small></div><p class="lbl ans">發生率 378.7／10 萬人</p><span class="hint">▸ 點擊揭曉</span></div>
-    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">成人 OHCA 有接受<br><b>旁觀者 CPR</b> 的比例？</p><div class="stat ans">41.7<small>%</small></div><p class="lbl ans">不到一半</p><span class="hint">▸ 點擊揭曉</span></div>
-    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">旁觀者有<br><b>使用 AED</b> 的比例？</p><div class="stat ans">12.6<small>%</small></div><p class="lbl ans">AED 使用率更低</p><span class="hint">▸ 點擊揭曉</span></div>
-    <div class="card teal reveal"><p class="lbl" style="margin:0 0 10px">成人院內心臟停止（IHCA）<br><b>存活出院率</b>？</p><div class="stat ans" style="color:var(--teal)">23.6<small>%</small></div><p class="lbl ans">約院外的兩倍</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">美國院外心臟停止（OHCA）<br><b>存活出院率</b>？</p><div class="q">?</div><div class="stat ans">10.5<small>%</small></div><p class="lbl ans">發生率 378.7／10 萬人</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">成人 OHCA 有接受<br><b>旁觀者 CPR</b> 的比例？</p><div class="q">?</div><div class="stat ans">41.7<small>%</small></div><p class="lbl ans">不到一半</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card red reveal"><p class="lbl" style="margin:0 0 10px">旁觀者有<br><b>使用 AED</b> 的比例？</p><div class="q">?</div><div class="stat ans">12.6<small>%</small></div><p class="lbl ans">AED 使用率更低</p><span class="hint">▸ 點擊揭曉</span></div>
+    <div class="card teal reveal"><p class="lbl" style="margin:0 0 10px">成人院內心臟停止（IHCA）<br><b>存活出院率</b>？</p><div class="q">?</div><div class="stat ans" style="color:var(--teal)">23.6<small>%</small></div><p class="lbl ans">約院外的兩倍</p><span class="hint">▸ 點擊揭曉</span></div>
     <div class="card navy reveal" style="grid-column:span 2"><p class="lbl" style="margin:0 0 10px">公共場所、有人目擊的 <b>VF／可電擊</b>心律，<b>救活率</b>可以多高？</p>
-      <div class="ans" style="display:flex;gap:40px;align-items:flex-end">
+      <div class="q">?</div><div class="ans" style="display:flex;gap:40px;align-items:flex-end">
         <div><div class="stat" style="color:var(--navy)">43<small>%</small></div><p class="lbl">救護人員到場才電擊</p></div>
         <div><div class="stat">66.5<small>%</small></div><p class="lbl">旁觀者先用 AED 電擊</p></div>
         <p class="lbl" style="flex:1">早期電擊可讓 VF 救活率<b>接近甚至超過 50%</b>；旁觀者電擊者 57.1% 出院時功能良好（mRS ≤ 2）</p>
@@ -1005,6 +1006,7 @@ addEventListener("keydown",e=>{
   else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
   else if(e.key==="n"||e.key==="N")notesEl.classList.toggle("on");
   else if(e.key==="p"||e.key==="P")print();
+  else if(e.key==="a"||e.key==="A"){const r=slides[cur].querySelectorAll(".reveal"),on=[...r].some(x=>!x.classList.contains("shown"));r.forEach(x=>x.classList.toggle("shown",on))}
 });
 addEventListener("hashchange",()=>go((parseInt(location.hash.slice(1))||1)-1));
 document.querySelectorAll(".reveal").forEach(r=>r.addEventListener("click",e=>{e.stopPropagation();r.classList.toggle("shown")}));
