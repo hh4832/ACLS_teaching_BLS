@@ -339,28 +339,53 @@ body.m ol.steps{columns:1!important}
 <!-- ============ ALGORITHM ============ -->
 <section class="slide">
   <div class="kicker">Algorithm · Healthcare provider · 圖 3-1</div>
-  <h2>叫叫 CAB 流程圖（2025 成人，專業人員）</h2><div class="rule" style="margin-bottom:22px"></div>
-  <div class="cols" style="grid-template-columns:1.05fr 1fr 1fr;gap:22px;align-items:start">
-    <div class="fl">
-      <div class="fb">評估現場環境安全</div><div class="fa">▼</div>
-      <div class="fb"><span class="mn">叫</span>確認意識<br><span class="mn">叫</span>呼叫旁人、啟動 EMS、拿 AED</div><div class="fa">▼</div>
-      <div class="fb y"><b>10 秒內</b>同時檢查脈搏與呼吸</div>
-    </div>
-    <div class="fl">
-      <div class="fb t"><b>有脈搏、呼吸正常</b><br>監測到救護人員抵達</div>
-      <div class="fb t"><b>有脈搏、無正常呼吸</b><br>• <span class="mn">B</span>每 6 秒 1 次通氣<br>• 每 2 分鐘查脈搏，無 → CPR<br>• 疑鴉片：給 <b>Naloxone</b></div>
-    </div>
-    <div class="fl">
-      <div class="fb r"><b>無脈搏、無呼吸／瀕死呼吸</b><br><span class="mn">C</span><span class="mn">A</span><span class="mn">B</span>CPR 30:2<br>疑鴉片：給 Naloxone</div><div class="fa">▼ <span class="mn">D</span> AED 分析</div>
-      <div class="fb r"><b>可電擊</b>：電擊 1 次 → CPR 2 分鐘</div>
-      <div class="fb"><b>不可電擊</b>：CPR 2 分鐘</div>
-      <div class="fb">直到 ALS 到達或病人活動</div>
-    </div>
-  </div>
+  <h2>叫叫 CAB 流程圖（2025 成人，專業人員）</h2><div class="rule" style="margin-bottom:12px"></div>
+  <svg class="flow" viewBox="0 0 1430 680" font-size="22" style="height:650px;width:auto;margin:0 auto">
+    <defs><marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14284b"/></marker></defs>
+    <g fill="none" stroke="#14284b" stroke-width="2.5" marker-end="url(#ah1)">
+      <path d="M560 46V62"/><path d="M560 140V156"/>
+      <path d="M820 213H900V178H956"/><path d="M900 213V276H956"/>
+      <path d="M1080 332V352H844"/>
+      <path d="M560 268V290"/><path d="M560 372V394"/>
+      <path d="M360 440H280V506"/><path d="M760 440H840V506"/>
+      <path d="M280 606V626"/><path d="M840 606V626"/>
+    </g>
+    <g font-size="18" fill="#5d6678" font-weight="700">
+      <text x="572" y="285">無呼吸／瀕死呼吸、無脈搏</text><text x="572" y="389">AED 到達</text>
+      <text x="290" y="430">可電擊</text><text x="770" y="430">不可電擊</text><text x="900" y="374">無脈搏</text>
+    </g>
+    <rect x="280" y="0" width="560" height="46" rx="12" fill="#fff" stroke="#14284b" stroke-width="2.5"/>
+    <text x="560" y="31" text-anchor="middle" font-weight="700" fill="#14284b">確認現場環境安全</text>
+    <rect x="280" y="64" width="560" height="76" rx="12" fill="#fff" stroke="#14284b" stroke-width="2.5"/>
+    <text x="560" y="96" text-anchor="middle" fill="#1b2333"><tspan font-weight="900" fill="#b3122e">叫</tspan> 無反應　<tspan font-weight="900" fill="#b3122e">叫</tspan> 呼叫旁人、手機啟動 EMS</text>
+    <text x="560" y="126" text-anchor="middle" font-size="19" fill="#1b2333">取得 AED 與急救設備（或請人去拿）</text>
+    <path d="M560 158L820 213L560 268L300 213Z" fill="#fff4dc" stroke="#a86a00" stroke-width="2.5"/>
+    <text x="560" y="206" text-anchor="middle" font-weight="700" fill="#1b2333">10 秒內同時看呼吸、摸脈搏</text>
+    <text x="560" y="234" text-anchor="middle" font-size="19" fill="#1b2333">確定摸到脈搏？</text>
+    <rect x="958" y="150" width="452" height="56" rx="12" fill="#e3f3f1" stroke="#0f6e6e" stroke-width="2.5"/>
+    <text x="1184" y="185" text-anchor="middle" font-size="20" fill="#1b2333"><tspan font-weight="700" fill="#0f6e6e">呼吸正常、有脈搏</tspan>：監測至救護抵達</text>
+    <rect x="958" y="222" width="452" height="110" rx="12" fill="#e3f3f1" stroke="#0f6e6e" stroke-width="2.5"/>
+    <text x="1184" y="251" text-anchor="middle" font-size="20" font-weight="700" fill="#0f6e6e">無正常呼吸、有脈搏</text>
+    <text x="1184" y="278" text-anchor="middle" font-size="19" fill="#1b2333"><tspan font-weight="900" fill="#b3122e">B</tspan> 每 6 秒 1 次通氣（10 次/分）</text>
+    <text x="1184" y="301" text-anchor="middle" font-size="19" fill="#1b2333">每 2 分鐘查脈搏</text>
+    <text x="1184" y="324" text-anchor="middle" font-size="19" fill="#1b2333">疑鴉片過量：給 Naloxone</text>
+    <rect x="280" y="292" width="560" height="80" rx="12" fill="#fbe9ec" stroke="#b3122e" stroke-width="3"/>
+    <text x="560" y="325" text-anchor="middle" font-size="26" font-weight="900" fill="#b3122e">C-A-B　開始 CPR 30:2</text>
+    <text x="560" y="356" text-anchor="middle" font-size="19" fill="#1b2333"><tspan font-weight="900" fill="#b3122e">D</tspan> AED 到就用・疑鴉片過量給 Naloxone</text>
+    <path d="M560 396L760 440L560 484L360 440Z" fill="#fff4dc" stroke="#a86a00" stroke-width="2.5"/>
+    <text x="560" y="448" text-anchor="middle" font-weight="700" fill="#1b2333">分析心律：可電擊？</text>
+    <rect x="40" y="508" width="480" height="98" rx="12" fill="#fbe9ec" stroke="#b3122e" stroke-width="3"/>
+    <text x="280" y="546" text-anchor="middle" font-weight="900" fill="#b3122e">電擊 1 次</text>
+    <text x="280" y="580" text-anchor="middle" font-size="19" fill="#1b2333">立即 CPR 約 2 分鐘（依 AED 指示）</text>
+    <rect x="600" y="508" width="480" height="98" rx="12" fill="#fff" stroke="#14284b" stroke-width="2.5"/>
+    <text x="840" y="546" text-anchor="middle" font-weight="700" fill="#14284b">立即 CPR 約 2 分鐘</text>
+    <text x="840" y="580" text-anchor="middle" font-size="19" fill="#1b2333">每 2 分鐘分析心律</text>
+    <rect x="40" y="628" width="1040" height="48" rx="12" fill="#fff" stroke="#14284b" stroke-width="2.5"/>
+    <text x="560" y="660" text-anchor="middle" fill="#1b2333">持續到 ALS 接手，或病人開始活動</text>
+  </svg>
   <div class="src">ACLS 精華第七版 圖 3-1；2025 AHA Adult BLS Algorithm for Healthcare Providers</div>
-  <div class="notes">先用流程圖把叫叫 CAB(D) 串起來，後面每個口訣各一頁展開。關鍵分岔是 10 秒內的脈搏與呼吸評估（有無正常呼吸或瀕死呼吸）。有脈搏沒正常呼吸的，是呼吸停止，每 6 秒給一口氣（10 次/分）。疑似鴉片過量的兩條路都要給 naloxone。</div>
+  <div class="notes">先用流程圖把叫叫 CAB(D) 串起來，後面每個口訣各一頁展開。關鍵分岔是 10 秒內的脈搏與呼吸評估（有無正常呼吸或瀕死呼吸）。有脈搏沒正常呼吸的，是呼吸停止，每 6 秒給一口氣（10 次/分），每 2 分鐘查脈搏，沒脈搏就開始 CPR。疑似鴉片過量的兩條路都要給 naloxone。</div>
 </section>
-
 <!-- ============ TABLE 3-1 ============ -->
 <section class="slide">
   <div class="kicker">Sequence by rescuer · 表 3-1</div>
